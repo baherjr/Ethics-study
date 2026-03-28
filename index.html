@@ -8,43 +8,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream:#faf8f3; --paper:#f2f0ea; --paper2:#e8e5dc; --white:#fff;
-  --ink:#181510; --ink2:#3c3832; --ink3:#7c7870;
-  --rule:rgba(24,21,16,.10); --rule-lt:rgba(24,21,16,.05);
-  --sh-sm:0 1px 3px rgba(24,21,16,.07);
-  --sh-md:0 2px 10px rgba(24,21,16,.10),0 1px 3px rgba(24,21,16,.06);
-  --sh-lg:0 8px 32px rgba(24,21,16,.12),0 2px 8px rgba(24,21,16,.08);
+  --cream:#f8fafc; --paper:#f1f5f9; --paper2:#e2e8f0; --white:#fff;
+  --ink:#0f172a; --ink2:#334155; --ink3:#64748b;
+  --rule:rgba(15,23,42,.10); --rule-lt:rgba(15,23,42,.05);
+  --sh-sm:0 1px 3px rgba(15,23,42,.07);
+  --sh-md:0 2px 10px rgba(15,23,42,.10),0 1px 3px rgba(15,23,42,.06);
+  --sh-lg:0 8px 32px rgba(15,23,42,.12),0 2px 8px rgba(15,23,42,.08);
   --sidebar-w:232px; --header-h:54px; --r:8px; --r2:14px;
-  --accent:#2563eb; --accent-l:#eff6ff; --accent-m:#bfdbfe; --accent-dk:#1d4ed8;
-  --c-blue:#1d4ed8; --c-blue-l:#eff6ff; --c-blue-m:#bfdbfe;
+  --accent:#4f46e5; --accent-l:#eef2ff; --accent-m:#c7d2fe; --accent-dk:#4338ca;
+  --c-blue:#4f46e5; --c-blue-l:#eef2ff; --c-blue-m:#c7d2fe;
   --c-teal:#0891b2; --c-teal-l:#e0f2fe; --c-teal-m:#bae6fd;
-  --c-amber:#b45309; --c-amber-l:#fef3c7; --c-amber-m:#fde68a;
+  --c-amber:#d97706; --c-amber-l:#fffbeb; --c-amber-m:#fde68a;
   --c-purple:#7c3aed; --c-purple-l:#ede9fe; --c-purple-m:#ddd6fe;
   --c-coral:#e11d48; --c-coral-l:#ffe4e6; --c-coral-m:#fecdd3;
-  --c-green:#15803d; --c-green-l:#dcfce7; --c-green-m:#bbf7d0;
-  --c-gray:#6b7280; --c-gray-l:#f9fafb; --c-gray-m:#e5e7eb;
-  --c-orange:#c2410c; --c-orange-l:#fff7ed; --c-orange-m:#fed7aa;
+  --c-green:#059669; --c-green-l:#ecfdf5; --c-green-m:#a7f3d0;
+  --c-gray:#6b7280; --c-gray-l:#f8fafc; --c-gray-m:#e2e8f0;
+  --c-orange:#ea580c; --c-orange-l:#fff7ed; --c-orange-m:#fed7aa;
 }
-body[data-lec="1"]{--accent:#2563eb;--accent-l:#eff6ff;--accent-m:#bfdbfe;--accent-dk:#1d4ed8}
+body[data-lec="1"]{--accent:#4f46e5;--accent-l:#eef2ff;--accent-m:#c7d2fe;--accent-dk:#4338ca}
 body[data-lec="2"]{--accent:#0d9488;--accent-l:#f0fdfa;--accent-m:#99f6e4;--accent-dk:#0f766e}
-body[data-lec="3"]{--accent:#e11d48;--accent-l:#fff1f2;--accent-m:#fecdd3;--accent-dk:#be123c}
-body[data-lec="4"]{--accent:#7c3aed;--accent-l:#f5f3ff;--accent-m:#ddd6fe;--accent-dk:#6d28d9}
-body[data-lec="5"]{--accent:#0891b2;--accent-l:#e0f2fe;--accent-m:#bae6fd;--accent-dk:#0e7490}
-body[data-lec="6"]{--accent:#065f46;--accent-l:#ecfdf5;--accent-m:#a7f3d0;--accent-dk:#064e3b}
+body[data-lec="3"]{--accent:#ea580c;--accent-l:#fff7ed;--accent-m:#fed7aa;--accent-dk:#c2410c}
+body[data-lec="5"]{--accent:#059669;--accent-l:#ecfdf5;--accent-m:#a7f3d0;--accent-dk:#047857}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;height:100%}
 body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;height:100%;overflow:hidden;display:flex;flex-direction:column}
 
 /* ── HEADER ── */
-#header{height:var(–header-h);background:var(–ink);display:flex;align-items:center;flex-shrink:0;z-index:200}
-.brand{width:var(–sidebar-w);flex-shrink:0;display:flex;align-items:center;gap:11px;padding:0 18px;border-right:1px solid rgba(255,255,255,.08);height:100%;text-decoration:none}
-.brand-icon{width:30px;height:30px;border-radius:7px;background:var(–accent);display:flex;align-items:center;justify-content:center;font-family:‘Fraunces’,serif;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;transition:background .3s}
+#header{height:var(--header-h);background:var(--ink);display:flex;align-items:center;flex-shrink:0;z-index:200}
+.brand{width:var(--sidebar-w);flex-shrink:0;display:flex;align-items:center;gap:11px;padding:0 18px;border-right:1px solid rgba(255,255,255,.08);height:100%;text-decoration:none}
+.brand-icon{width:30px;height:30px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:‘Fraunces’,serif;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;transition:background .3s}
 .brand-text{font-size:13px;font-weight:600;color:rgba(255,255,255,.9);line-height:1.2}
 .brand-sub{font-size:10px;color:rgba(255,255,255,.3);font-family:‘DM Mono’,monospace;letter-spacing:.07em;text-transform:uppercase}
 #lec-tabs{display:flex;align-items:center;gap:3px;padding:0 16px;height:100%;flex:1;overflow-x:auto}
-.lec-btn{font-family:‘Outfit’,sans-serif;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.45);background:none;border:none;cursor:pointer;padding:7px 13px;border-radius:var(–r);transition:color .18s,background .18s;white-space:nowrap}
+.lec-btn{font-family:‘Outfit’,sans-serif;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.45);background:none;border:none;cursor:pointer;padding:7px 13px;border-radius:var(--r);transition:color .18s,background .18s;white-space:nowrap}
 .lec-btn:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.07)}
-.lec-btn.active{color:#fff;background:var(–accent);font-weight:600}
+.lec-btn.active{color:#fff;background:var(--accent);font-weight:600}
 #header-right{padding:0 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
 .hdr-tag{font-family:‘DM Mono’,monospace;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase}
 
@@ -52,29 +50,29 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 #app{display:flex;flex:1;overflow:hidden;min-height:0}
 
 /* ── SIDEBAR ── */
-#sidebar{width:var(–sidebar-w);flex-shrink:0;background:var(–paper);border-right:1px solid var(–rule);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden}
+#sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--paper);border-right:1px solid var(--rule);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden}
 #sidebar::-webkit-scrollbar{width:4px}
-#sidebar::-webkit-scrollbar-thumb{background:var(–rule);border-radius:4px}
-.sb-lec-card{padding:20px 18px 16px;border-bottom:1px solid var(–rule);flex-shrink:0}
-.sb-lec-num{font-family:‘Fraunces’,serif;font-size:48px;font-weight:700;line-height:1;letter-spacing:-.03em;color:var(–paper2);margin-bottom:2px;transition:color .3s}
-.sb-lec-title{font-size:13px;font-weight:600;color:var(–ink);line-height:1.3;margin-bottom:2px}
-.sb-lec-sub{font-size:11px;color:var(–ink3);line-height:1.4;font-family:‘DM Mono’,monospace}
-.sb-lec-accent{width:100%;height:3px;background:var(–accent);border-radius:2px;margin-top:12px;transition:background .3s}
+#sidebar::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
+.sb-lec-card{padding:20px 18px 16px;border-bottom:1px solid var(--rule);flex-shrink:0}
+.sb-lec-num{font-family:‘Fraunces’,serif;font-size:48px;font-weight:700;line-height:1;letter-spacing:-.03em;color:var(--paper2);margin-bottom:2px;transition:color .3s}
+.sb-lec-title{font-size:13px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:2px}
+.sb-lec-sub{font-size:11px;color:var(--ink3);line-height:1.4;font-family:‘DM Mono’,monospace}
+.sb-lec-accent{width:100%;height:3px;background:var(--accent);border-radius:2px;margin-top:12px;transition:background .3s}
 .sb-nav{padding:12px 10px 24px;display:flex;flex-direction:column;gap:2px;flex:1}
-.sb-nav-label{font-family:‘DM Mono’,monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(–ink3);padding:8px 10px 4px}
-.sec-btn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(–r);border:none;background:none;cursor:pointer;font-family:‘Outfit’,sans-serif;font-size:13px;font-weight:500;color:var(–ink2);width:100%;text-align:left;transition:background .14s,color .14s;position:relative}
-.sec-btn:hover{background:var(–paper2);color:var(–ink)}
-.sec-btn.active{background:var(–accent-l);color:var(–accent-dk);font-weight:600}
+.sb-nav-label{font-family:‘DM Mono’,monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:8px 10px 4px}
+.sec-btn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r);border:none;background:none;cursor:pointer;font-family:‘Outfit’,sans-serif;font-size:13px;font-weight:500;color:var(--ink2);width:100%;text-align:left;transition:background .14s,color .14s;position:relative}
+.sec-btn:hover{background:var(--paper2);color:var(--ink)}
+.sec-btn.active{background:var(--accent-l);color:var(--accent-dk);font-weight:600}
 .s-icon{font-size:14px;width:22px;text-align:center;flex-shrink:0;opacity:.7}
 .sec-btn.active .s-icon{opacity:1}
 .s-label{flex:1;line-height:1}
-.s-dot{width:6px;height:6px;border-radius:50%;background:var(–accent);flex-shrink:0;opacity:0;transition:opacity .15s}
+.s-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;opacity:0;transition:opacity .15s}
 .sec-btn.active .s-dot{opacity:1}
 
 /* ── MAIN ── */
-#main{flex:1;overflow-y:auto;overflow-x:hidden;background:var(–cream);min-width:0}
+#main{flex:1;overflow-y:auto;overflow-x:hidden;background:var(--cream);min-width:0}
 #main::-webkit-scrollbar{width:6px}
-#main::-webkit-scrollbar-thumb{background:var(–rule);border-radius:4px}
+#main::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px}
 .lec-panel{display:none}
 .lec-panel.active{display:block}
 .sec-panel{display:none;max-width:880px;margin:0 auto;padding:36px 32px 80px}
@@ -82,125 +80,125 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 @keyframes secFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── TYPOGRAPHY ── */
-.lec-hero{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(–rule)}
-.lec-hero-num{font-family:‘Fraunces’,serif;font-size:60px;font-weight:700;color:var(–paper2);line-height:1;flex-shrink:0;letter-spacing:-.03em}
-.lec-hero-info h2{font-family:‘Fraunces’,serif;font-size:26px;font-weight:600;color:var(–ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:5px}
-.lec-hero-info p{font-size:13px;color:var(–ink3);font-weight:300}
-.sec-title{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(–ink3);margin:28px 0 12px;display:flex;align-items:center;gap:12px}
-.sec-title::after{content:’’;flex:1;height:1px;background:var(–rule)}
+.lec-hero{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
+.lec-hero-num{font-family:‘Fraunces’,serif;font-size:60px;font-weight:700;color:var(--paper2);line-height:1;flex-shrink:0;letter-spacing:-.03em}
+.lec-hero-info h2{font-family:‘Fraunces’,serif;font-size:26px;font-weight:600;color:var(--ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:5px}
+.lec-hero-info p{font-size:13px;color:var(--ink3);font-weight:300}
+.sec-title{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin:28px 0 12px;display:flex;align-items:center;gap:12px}
+.sec-title::after{content:’’;flex:1;height:1px;background:var(--rule)}
 .sec-title:first-child{margin-top:0}
 
 /* ── CARDS ── */
-.card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:18px 20px;margin-bottom:12px;box-shadow:var(–sh-sm);transition:box-shadow .2s,transform .15s}
-.card:hover{box-shadow:var(–sh-md);transform:translateY(-1px)}
-.card-title{font-weight:600;font-size:14px;margin-bottom:8px;color:var(–ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.3}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r2);padding:18px 20px;margin-bottom:12px;box-shadow:var(--sh-sm);transition:box-shadow .2s,transform .15s}
+.card:hover{box-shadow:var(--sh-md);transform:translateY(-1px)}
+.card-title{font-weight:600;font-size:14px;margin-bottom:8px;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.3}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 @media(max-width:660px){.grid2,.grid3{grid-template-columns:1fr}}
 
 /* ── PILLS ── */
 .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600;margin:2px;vertical-align:middle;font-family:‘DM Mono’,monospace;letter-spacing:.02em}
-.pill-blue{background:var(–c-blue-l);color:var(–c-blue);border:1px solid var(–c-blue-m)}
-.pill-teal{background:var(–c-teal-l);color:var(–c-teal);border:1px solid var(–c-teal-m)}
-.pill-amber{background:var(–c-amber-l);color:var(–c-amber);border:1px solid var(–c-amber-m)}
-.pill-purple{background:var(–c-purple-l);color:var(–c-purple);border:1px solid var(–c-purple-m)}
-.pill-coral{background:var(–c-coral-l);color:var(–c-coral);border:1px solid var(–c-coral-m)}
-.pill-green{background:var(–c-green-l);color:var(–c-green);border:1px solid var(–c-green-m)}
-.pill-gray{background:var(–c-gray-l);color:var(–c-gray);border:1px solid var(–c-gray-m)}
-.pill-orange{background:var(–c-orange-l);color:var(–c-orange);border:1px solid var(–c-orange-m)}
+.pill-blue{background:var(--c-blue-l);color:var(--c-blue);border:1px solid var(--c-blue-m)}
+.pill-teal{background:var(--c-teal-l);color:var(--c-teal);border:1px solid var(--c-teal-m)}
+.pill-amber{background:var(--c-amber-l);color:var(--c-amber);border:1px solid var(--c-amber-m)}
+.pill-purple{background:var(--c-purple-l);color:var(--c-purple);border:1px solid var(--c-purple-m)}
+.pill-coral{background:var(--c-coral-l);color:var(--c-coral);border:1px solid var(--c-coral-m)}
+.pill-green{background:var(--c-green-l);color:var(--c-green);border:1px solid var(--c-green-m)}
+.pill-gray{background:var(--c-gray-l);color:var(--c-gray);border:1px solid var(--c-gray-m)}
+.pill-orange{background:var(--c-orange-l);color:var(--c-orange);border:1px solid var(--c-orange-m)}
 
 /* ── INSIGHT / CALLOUT ── */
-.insight{border-radius:var(–r);padding:10px 14px;margin:10px 0;border-left:3px solid;font-size:13.5px;line-height:1.6}
-.insight-blue{background:var(–c-blue-l);border-color:var(–c-blue);color:var(–c-blue)}
-.insight-amber{background:var(–c-amber-l);border-color:var(–c-amber);color:var(–c-amber)}
-.insight-coral{background:var(–c-coral-l);border-color:var(–c-coral);color:var(–c-coral)}
-.insight-green{background:var(–c-green-l);border-color:var(–c-green);color:var(–c-green)}
-.insight-teal{background:var(–c-teal-l);border-color:var(–c-teal);color:var(–c-teal)}
-.insight-purple{background:var(–c-purple-l);border-color:var(–c-purple);color:var(–c-purple)}
-.insight-orange{background:var(–c-orange-l);border-color:var(–c-orange);color:var(–c-orange)}
+.insight{border-radius:var(--r);padding:10px 14px;margin:10px 0;border-left:3px solid;font-size:13.5px;line-height:1.6}
+.insight-blue{background:var(--c-blue-l);border-color:var(--c-blue);color:var(--c-blue)}
+.insight-amber{background:var(--c-amber-l);border-color:var(--c-amber);color:var(--c-amber)}
+.insight-coral{background:var(--c-coral-l);border-color:var(--c-coral);color:var(--c-coral)}
+.insight-green{background:var(--c-green-l);border-color:var(--c-green);color:var(--c-green)}
+.insight-teal{background:var(--c-teal-l);border-color:var(--c-teal);color:var(--c-teal)}
+.insight-purple{background:var(--c-purple-l);border-color:var(--c-purple);color:var(--c-purple)}
+.insight-orange{background:var(--c-orange-l);border-color:var(--c-orange);color:var(--c-orange)}
 
 /* ── TABLES ── */
-.cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border-radius:var(–r);overflow:hidden}
-.cmp-table th{background:var(–paper);font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(–ink3);padding:9px 12px;text-align:left;border-bottom:1px solid var(–rule);font-weight:500}
-.cmp-table td{padding:9px 12px;border-bottom:1px solid var(–rule-lt);vertical-align:top;color:var(–ink2)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border-radius:var(--r);overflow:hidden}
+.cmp-table th{background:var(--paper);font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule);font-weight:500}
+.cmp-table td{padding:9px 12px;border-bottom:1px solid var(--rule-lt);vertical-align:top;color:var(--ink2)}
 .cmp-table tr:last-child td{border-bottom:none}
-.cmp-table tr:hover td{background:var(–paper)}
+.cmp-table tr:hover td{background:var(--paper)}
 
 /* ── FORMULA BLOCK ── */
-.formula{background:var(–paper);border-left:3px solid var(–c-teal);border-radius:0 var(–r) var(–r) 0;padding:12px 16px;margin:10px 0;font-family:‘DM Mono’,monospace;font-size:12.5px;color:var(–c-teal);line-height:1.9;white-space:pre-wrap}
-.formula-blue{border-left-color:var(–c-blue);color:var(–c-blue)}
-.formula-coral{border-left-color:var(–c-coral);color:var(–c-coral)}
-.formula-green{border-left-color:var(–c-green);color:var(–c-green)}
-.formula-amber{border-left-color:var(–c-amber);color:var(–c-amber)}
-.formula-purple{border-left-color:var(–c-purple);color:var(–c-purple)}
+.formula{background:var(--paper);border-left:3px solid var(--c-teal);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin:10px 0;font-family:‘DM Mono’,monospace;font-size:12.5px;color:var(--c-teal);line-height:1.9;white-space:pre-wrap}
+.formula-blue{border-left-color:var(--c-blue);color:var(--c-blue)}
+.formula-coral{border-left-color:var(--c-coral);color:var(--c-coral)}
+.formula-green{border-left-color:var(--c-green);color:var(--c-green)}
+.formula-amber{border-left-color:var(--c-amber);color:var(--c-amber)}
+.formula-purple{border-left-color:var(--c-purple);color:var(--c-purple)}
 
 /* ── PRACTICE QUESTIONS ── */
-.q-card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);margin-bottom:10px;box-shadow:var(–sh-sm);overflow:hidden;transition:box-shadow .18s}
-.q-card:hover{box-shadow:var(–sh-md)}
+.q-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r2);margin-bottom:10px;box-shadow:var(--sh-sm);overflow:hidden;transition:box-shadow .18s}
+.q-card:hover{box-shadow:var(--sh-md)}
 .q-header{padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;transition:background .14s}
-.q-header:hover{background:var(–paper)}
+.q-header:hover{background:var(--paper)}
 .q-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
-.q-text{font-size:14px;font-weight:500;line-height:1.5;color:var(–ink)}
-.q-chevron{font-size:18px;color:var(–ink3);flex-shrink:0;margin-top:2px;transition:transform .22s cubic-bezier(.4,0,.2,1);line-height:1}
+.q-text{font-size:14px;font-weight:500;line-height:1.5;color:var(--ink)}
+.q-chevron{font-size:18px;color:var(--ink3);flex-shrink:0;margin-top:2px;transition:transform .22s cubic-bezier(.4,0,.2,1);line-height:1}
 .q-card.open .q-chevron{transform:rotate(180deg)}
-.q-answer{display:none;padding:16px 18px 18px;border-top:1px solid var(–rule-lt);font-size:13.5px;line-height:1.72;color:var(–ink2);background:var(–paper)}
+.q-answer{display:none;padding:16px 18px 18px;border-top:1px solid var(--rule-lt);font-size:13.5px;line-height:1.72;color:var(--ink2);background:var(--paper)}
 .q-card.open .q-answer{display:block}
 .badge{display:inline-block;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;letter-spacing:.04em;font-family:‘DM Mono’,monospace}
-.badge-easy{background:var(–c-green-l);color:var(–c-green)}
-.badge-med{background:var(–c-amber-l);color:var(–c-amber)}
-.badge-hard{background:var(–c-coral-l);color:var(–c-coral)}
-.badge-topic{background:var(–c-blue-l);color:var(–c-blue)}
+.badge-easy{background:var(--c-green-l);color:var(--c-green)}
+.badge-med{background:var(--c-amber-l);color:var(--c-amber)}
+.badge-hard{background:var(--c-coral-l);color:var(--c-coral)}
+.badge-topic{background:var(--c-blue-l);color:var(--c-blue)}
 
 /* ── PROGRESS BAR ── */
 .prog-wrap{margin-bottom:22px}
-.prog-label{font-size:12px;color:var(–ink3);margin-bottom:6px;font-family:‘DM Mono’,monospace}
-.prog-bar-wrap{background:var(–paper2);border-radius:999px;height:5px;overflow:hidden}
-.prog-bar-fill{height:100%;border-radius:999px;background:var(–accent);transition:width .4s cubic-bezier(.4,0,.2,1)}
+.prog-label{font-size:12px;color:var(--ink3);margin-bottom:6px;font-family:‘DM Mono’,monospace}
+.prog-bar-wrap{background:var(--paper2);border-radius:999px;height:5px;overflow:hidden}
+.prog-bar-fill{height:100%;border-radius:999px;background:var(--accent);transition:width .4s cubic-bezier(.4,0,.2,1)}
 
 /* ── FLASHCARDS ── */
 .fc-scene-wrap{perspective:1000px;max-width:580px;margin:0 auto 20px}
 .fc-scene{width:100%;height:230px;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
 .fc-scene.flipped{transform:rotateY(180deg)}
-.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(–r2);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;box-shadow:var(–sh-lg)}
-.fc-front{background:var(–white);border:1px solid var(–rule)}
-.fc-back{background:var(–ink);transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r2);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;box-shadow:var(--sh-lg)}
+.fc-front{background:var(--white);border:1px solid var(--rule)}
+.fc-back{background:var(--ink);transform:rotateY(180deg)}
 .fc-lbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-family:‘DM Mono’,monospace}
-.fc-front .fc-lbl{color:var(–ink3)}
+.fc-front .fc-lbl{color:var(--ink3)}
 .fc-back .fc-lbl{color:rgba(255,255,255,.35)}
-.fc-term{font-family:‘Fraunces’,serif;font-size:20px;font-weight:600;color:var(–ink);line-height:1.3}
+.fc-term{font-family:‘Fraunces’,serif;font-size:20px;font-weight:600;color:var(--ink);line-height:1.3}
 .fc-back .fc-term{font-family:‘Outfit’,sans-serif;font-size:13.5px;font-weight:400;color:rgba(255,255,255,.88);line-height:1.65}
-.fc-hint{text-align:center;font-size:11px;color:var(–ink3);margin-top:10px;letter-spacing:.06em;font-family:‘DM Mono’,monospace}
+.fc-hint{text-align:center;font-size:11px;color:var(--ink3);margin-top:10px;letter-spacing:.06em;font-family:‘DM Mono’,monospace}
 .fc-nav{display:flex;align-items:center;justify-content:center;gap:12px;max-width:580px;margin:0 auto}
-.fc-btn{background:var(–white);border:1px solid var(–rule);color:var(–ink2);border-radius:var(–r);padding:9px 22px;cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;font-family:‘Outfit’,sans-serif;box-shadow:var(–sh-sm)}
-.fc-btn:hover{background:var(–accent);border-color:var(–accent);color:#fff;box-shadow:var(–sh-md)}
-.fc-count{font-size:12px;color:var(–ink3);min-width:56px;text-align:center;font-family:‘DM Mono’,monospace}
+.fc-btn{background:var(--white);border:1px solid var(--rule);color:var(--ink2);border-radius:var(--r);padding:9px 22px;cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;font-family:‘Outfit’,sans-serif;box-shadow:var(--sh-sm)}
+.fc-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:var(--sh-md)}
+.fc-count{font-size:12px;color:var(--ink3);min-width:56px;text-align:center;font-family:‘DM Mono’,monospace}
 
 /* ── FORMULA SHEET ── */
-.fs-search{width:100%;background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:11px 16px;color:var(–ink);font-family:‘Outfit’,sans-serif;font-size:14px;margin-bottom:20px;outline:none;box-shadow:var(–sh-sm);transition:border-color .18s,box-shadow .18s}
-.fs-search:focus{border-color:var(–accent);box-shadow:0 0 0 3px var(–accent-m)}
-.fs-search::placeholder{color:var(–ink3)}
+.fs-search{width:100%;background:var(--white);border:1px solid var(--rule);border-radius:var(--r2);padding:11px 16px;color:var(--ink);font-family:‘Outfit’,sans-serif;font-size:14px;margin-bottom:20px;outline:none;box-shadow:var(--sh-sm);transition:border-color .18s,box-shadow .18s}
+.fs-search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-m)}
+.fs-search::placeholder{color:var(--ink3)}
 .fs-group{margin-bottom:24px}
-.fs-group-lbl{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(–ink3)}
-.fs-row{display:grid;grid-template-columns:200px 1fr auto;gap:10px;align-items:center;background:var(–white);border:1px solid var(–rule);border-radius:var(–r);padding:10px 14px;margin-bottom:5px;font-size:13px;box-shadow:var(–sh-sm);transition:box-shadow .15s}
-.fs-row:hover{box-shadow:var(–sh-md)}
-.fs-name{font-weight:600;color:var(–ink)}
-.fs-desc{color:var(–ink3);font-size:12px}
+.fs-group-lbl{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(--ink3)}
+.fs-row{display:grid;grid-template-columns:200px 1fr auto;gap:10px;align-items:center;background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:10px 14px;margin-bottom:5px;font-size:13px;box-shadow:var(--sh-sm);transition:box-shadow .15s}
+.fs-row:hover{box-shadow:var(--sh-md)}
+.fs-name{font-weight:600;color:var(--ink)}
+.fs-desc{color:var(--ink3);font-size:12px}
 .fs-val{font-family:‘DM Mono’,monospace;font-size:12px;padding:4px 10px;border-radius:5px;border-left:2px solid;white-space:nowrap}
 .fs-row.hidden,.fs-group.hidden{display:none}
 @media(max-width:600px){.fs-row{grid-template-columns:1fr}}
 
 /* ── NUMBER HIGHLIGHT ── */
 .big-num{font-family:‘Fraunces’,serif;font-size:42px;font-weight:700;line-height:1;margin-bottom:4px}
-.num-card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:18px 20px;box-shadow:var(–sh-sm);text-align:center;transition:all .2s}
-.num-card:hover{box-shadow:var(–sh-md);transform:translateY(-2px)}
-.num-label{font-size:12px;color:var(–ink3);line-height:1.4;margin-top:4px}
+.num-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r2);padding:18px 20px;box-shadow:var(--sh-sm);text-align:center;transition:all .2s}
+.num-card:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
+.num-label{font-size:12px;color:var(--ink3);line-height:1.4;margin-top:4px}
 
 /* ── STEP LIST ── */
 .step-list{display:flex;flex-direction:column;gap:8px}
-.step{display:flex;align-items:flex-start;gap:14px;padding:12px 14px;border-radius:var(–r);border:1px solid var(–rule-lt);background:var(–white);box-shadow:var(–sh-sm)}
+.step{display:flex;align-items:flex-start;gap:14px;padding:12px 14px;border-radius:var(--r);border:1px solid var(--rule-lt);background:var(--white);box-shadow:var(--sh-sm)}
 .step-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:‘Fraunces’,serif;font-size:16px;font-weight:700;flex-shrink:0}
 .step-body strong{display:block;font-size:13.5px;font-weight:600;margin-bottom:2px}
-.step-body span{font-size:13px;color:var(–ink3)}
+.step-body span{font-size:13px;color:var(--ink3)}
 </style>
 
 </head>
@@ -219,9 +217,8 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
   <div id="lec-tabs">
     <button class="lec-btn active" onclick="showLec(1,this)">L1 — Introduction</button>
     <button class="lec-btn" onclick="showLec(2,this)">L2&3 — Prof. Ethics</button>
-    <button class="lec-btn" onclick="showLec(3,this)">L4 — Health & Safety</button>
-    <button class="lec-btn" onclick="showLec(4,this)">L5 — Contract Law</button>
-    <button class="lec-btn" onclick="showLec(5,this)">Critical Thinking</button>
+    <button class="lec-btn" onclick="showLec(3,this)">L3 — Health & Safety</button>
+    <button class="lec-btn" onclick="showLec(5,this)">L5 — Critical Thinking</button>
   </div>
   <div id="header-right">
     <span class="hdr-tag">Dr. Mokhtar · Ain Shams</span>
@@ -261,7 +258,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
       </div>
     </div>
 
-```
 <p class="sec-title">1.1 — What is an Engineer?</p>
 <div class="grid2">
   <div class="card">
@@ -316,7 +312,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
   <div class="card-title">Code of Hammurabi</div>
   <p>The <strong>first structural code</strong> in history — the earliest known structural design code. Codes and standards set minimum requirements to ensure public safety. Ethics codes address conflicts of interest.</p>
 </div>
-```
 
   </div>
 
@@ -336,7 +331,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <div class="lec-hero"><div class="lec-hero-num">01</div><div class="lec-hero-info"><h2>Practice Questions · Lecture 1</h2><p>8 questions · Easy → Hard · Click to reveal answers</p></div></div>
     <div class="prog-wrap"><div class="prog-label" id="l1q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l1q-bar" style="width:0%"></div></div></div>
 
-```
 <div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Definition</span></div><div class="q-text">What is the Latin origin of the word "Engineer" and what does it mean?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>The word derives from the Latin <strong>Ingeniator</strong> — meaning <em>ingenious</em>, to devise or construct. This is why engineers are expected to find creative solutions under constraint.</p></div></div>
 
 <div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Eras</span></div><div class="q-text">What are the 4 eras of engineering history in order?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. <strong>Pre-Scientific Revolution</strong> — trial and error, pyramids, da Vinci<br>2. <strong>Industrial Revolution</strong> — steam engines, scientific professionals<br>3. <strong>Second Industrial Revolution</strong> — electricity, cars, planes, mass production (pre-WWII)<br>4. <strong>Information Revolution</strong> — microelectronics, computers handle intellectual tasks</p></div></div>
@@ -352,7 +346,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 <div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Social Justice</span></div><div class="q-text">What is the core principle of Social Justice theory? How does it differ from Utilitarianism?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Social Justice</strong> is based on <em>distributive justice</em> — the fair distribution of goods and resources in society. Rights and duties exist not only between people and governments, but also between individuals.<br><br>Difference from Utilitarianism: Utilitarianism could justify harming a minority to benefit the majority. Social Justice explicitly protects individual rights regardless of the majority outcome.</p></div></div>
 
 <div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Scenario</span></div><div class="q-text">An engineer discovers their company's product has a flaw that affects 1% of users but fixing it will bankrupt the company and harm 2000 employees. Apply each of the 4 ethical theories to this dilemma.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Utilitarianism:</strong> Might allow hiding the flaw — if harm to 1% of users is outweighed by saving 2000 jobs. Focuses on the net outcome for all.<br><br><strong>Deontology:</strong> Must disclose — duty to truth and safety overrides financial consequences. The act of concealment is inherently wrong regardless of consequences.<br><br><strong>Social Justice:</strong> Users' right to safety cannot be traded away for economic benefit. Must fix and disclose, find another way to handle bankruptcy.<br><br><strong>Virtue Theory:</strong> An engineer of good character would disclose — honesty and integrity define who they are, independent of consequences.</p></div></div>
-```
 
   </div>
 
@@ -394,7 +387,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
       </div>
     </div>
 
-```
 <p class="sec-title">2.1 — Professional Ethics</p>
 <div class="card">
   <div class="card-title">Definition</div>
@@ -514,7 +506,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <div style="margin-top:12px;font-size:13.5px;line-height:1.65">O-ring seal flaw in solid rocket booster was known to NASA managers since <strong>1977</strong> — 9 years before the disaster. Engineers explicitly warned against launching in cold conditions. Management overrode the warnings.</div>
   </div>
 </div>
-```
 
   </div>
 
@@ -534,7 +525,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <div class="lec-hero"><div class="lec-hero-num">02</div><div class="lec-hero-info"><h2>Practice Questions · Lectures 2 & 3</h2><p>8 questions · Click to reveal</p></div></div>
     <div class="prog-wrap"><div class="prog-label" id="l2q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l2q-bar" style="width:0%"></div></div></div>
 
-```
 <div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Components</span></div><div class="q-text">List the 9 components of professional ethics.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Honesty · Integrity · Transparency · Accountability · Confidentiality · Objectivity · Respect · Obedience to the law · Loyalty</p></div></div>
 
 <div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">ASME</span></div><div class="q-text">What does ASME Canon 1 state? Why is it the most important canon?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Canon 1: "Hold paramount the safety, health, and welfare of the public." It is most important because it overrides all others — no business interest, employer request, or professional loyalty justifies compromising public safety. This is the foundation of engineering ethics.</p></div></div>
@@ -550,7 +540,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 <div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Unethical Comms</span></div><div class="q-text">An engineer knows a drug interaction risk but omits it from instructions because it would complicate the product manual. Which of the 5 unethical communication concerns applies, and what should they have done?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>This is <strong>Omitting Safety Warnings</strong> (concern #5) AND potentially <strong>Withholding Adverse Information</strong> (concern #3).<br><br>The engineer should have included the drug interaction warning clearly in the manual — ASME Canon 1 requires holding public safety paramount. The fact that it complicates the document is irrelevant. This type of omission can lead to patient harm and professional liability.</p></div></div>
 
 <div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Dilemma Framework</span></div><div class="q-text">Apply the 4-step dilemma framework to the Challenger scenario. At what step did NASA management fail?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Step 1: <strong>Analyze carefully</strong> — engineers had analyzed and identified the O-ring risk in cold temperatures. This step was completed correctly by the engineers.<br><br>Step 2: <strong>Consider multiple angles</strong> — management considered only schedule and economic pressures, not the engineering safety data. <strong>Failed here.</strong><br><br>Step 3: <strong>Consult with others</strong> — engineers were consulted but overruled. The consultation happened but the feedback was ignored. <strong>Failed here.</strong><br><br>Step 4: <strong>Think long and hard</strong> — management rushed the decision under pressure. <strong>Failed catastrophically here.</strong></p></div></div>
-```
 
   </div>
 
@@ -588,7 +577,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
       </div>
     </div>
 
-```
 <p class="sec-title">3.1 — OSHA Background</p>
 <div class="grid2">
   <div class="card">
@@ -719,7 +707,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <div class="insight insight-green" style="margin-top:8px">Recovery position = unconscious casualties ONLY.</div>
   </div>
 </div>
-```
 
   </div>
 
@@ -739,7 +726,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <div class="lec-hero"><div class="lec-hero-num">03</div><div class="lec-hero-info"><h2>Practice Questions · Health & Safety</h2><p>8 questions · Easy → Hard</p></div></div>
     <div class="prog-wrap"><div class="prog-label" id="l3q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l3q-bar" style="width:0%"></div></div></div>
 
-```
 <div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">OSHA</span></div><div class="q-text">What does OSHA stand for? When was it signed and when did it become active?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Occupational</strong> Health & Safety Administration (NOT Organizational — this is a deliberate MCQ trap).<br><br>Signed: <strong>December 29, 1970</strong> by President Nixon.<br>Active: <strong>April 28, 1971</strong>.</p></div></div>
 
 <div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Hazards</span></div><div class="q-text">What is the #1 most cited OSHA hazard in 2022? What is #2? Why is this an MCQ trap?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>#1: <strong>Fall Protection — General Requirements</strong><br>#2: <strong>Hazard Communication</strong><br><br>It's an MCQ trap because Hazard Communication sounds like the most fundamental safety concern and is easy to assume is #1. Also, Fall Protection appears twice (#1 General and #8 Training) — a detail that's often tested.</p></div></div>
@@ -755,7 +741,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
 <div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">CHP</span></div><div class="q-text">What are the 8 required elements of a Chemical Hygiene Plan? What is the role of the Chemical Hygiene Officer?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. Designation of a <strong>Chemical Hygiene Officer</strong><br>2. Exposure control measures<br>3. Ensure properly functioning fume hoods & equipment<br>4. Staff training on hazard awareness & protection measures<br>5. Provisions for medical consultation & examination<br>6. Respiratory protection program<br>7. Recordkeeping procedure<br>8. Hazard identification system<br><br>The CHO is responsible for developing and implementing the plan, and ensuring all staff are trained and protected against chemical hazards in the lab.</p></div></div>
 
 <div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Scenario</span></div><div class="q-text">A worker is found unconscious at a construction site with a visible bone fracture and bleeding. Apply the First Aid priorities correctly.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Following the 6 priorities in strict order:<br><br>1. <strong>Check Breathing first</strong> — unconscious means airway is the top priority. Place in recovery position to keep airway open.<br>2. <strong>Check Blood loss</strong> — apply pressure to the bleeding wound.<br>3. <strong>Treat Shock</strong> — keep warm, calm, still.<br>4. <strong>Treat Fracture</strong> — only after bleeding and shock are addressed, immobilize the fracture.<br>5. Look for other simple injuries.<br>6. Disposal — transport carefully to medical help.<br><br>Common mistake: treating the visible fracture first because it's obvious. The invisible threats (airway, bleeding) always come first.</p></div></div>
-```
 
   </div>
 
@@ -780,149 +765,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
   </div>
 </div><!-- /lec3 -->
 
-<!-- ══════════════════════════════════════════════════
-     LECTURE 4 — Construction Contract Law
-══════════════════════════════════════════════════ -->
-
-<div class="lec-panel" id="lec4">
-  <div class="sec-panel" id="lec4-summary">
-    <div class="lec-hero">
-      <div class="lec-hero-num">04</div>
-      <div class="lec-hero-info">
-        <h2>Construction Contract Law</h2>
-        <p>Egyptian Civil Code Articles 647–667 · 10-Year Guarantee · Unit Price vs Lump Sum · Obligations</p>
-      </div>
-    </div>
-
-```
-<p class="sec-title">4.1 — Contract Basics</p>
-<div class="card">
-  <div class="card-title">Definition</div>
-  <p>A contract between two parties: one undertakes to <strong>do something</strong> (contractor), and the other undertakes to <strong>pay</strong> (employer). Important because of: (a) high financial value, (b) long duration, (c) external influences like subcontractors and consulting engineers.</p>
-</div>
-<div class="grid2">
-  <div class="card">
-    <div class="card-title">3 Contractor Obligations</div>
-    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
-      <li>Perform work in the <strong>desired manner</strong></li>
-      <li>Deliver at the <strong>agreed time</strong></li>
-      <li>Guarantee work for <strong>10 years</strong></li>
-    </ol>
-  </div>
-  <div class="card">
-    <div class="card-title">3 Employer Obligations</div>
-    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
-      <li><strong>Enable</strong> the contractor to complete work</li>
-      <li><strong>Receive</strong> the work from the contractor</li>
-      <li><strong>Pay</strong> the wages</li>
-    </ol>
-  </div>
-</div>
-
-<p class="sec-title">4.2 — Critical Articles (MCQ Priority)</p>
-<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
-  <div class="card-title">Article 651 — 10-Year Joint Guarantee ⭐</div>
-  <p>The engineer AND contractor are <strong>jointly responsible</strong> for the facility for <strong>10 years</strong> from the <strong>date of delivery</strong>. Covers: full collapse, partial collapse, structural defects.</p>
-  <div class="insight insight-coral" style="margin-top:8px">Starts from DELIVERY DATE — NOT from signing or construction start. This is the #1 MCQ trap on this article.</div>
-</div>
-<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
-  <div class="card-title">Article 653 — Exemption Clauses are Void ⭐</div>
-  <p>Any contract clause that exempts the engineer or contractor from 10-year liability is <strong>null and void</strong>. You cannot contractually escape this responsibility.</p>
-</div>
-<div class="card" style="border-color:var(--c-purple);border-left:3px solid var(--c-purple)">
-  <div class="card-title">Article 654 — 3-Year Filing Deadline ⭐</div>
-  <p>Guarantee lawsuits are <strong>forfeited</strong> if <strong>3 years</strong> pass after the demolition or defect occurs.</p>
-  <div class="insight insight-purple" style="margin-top:8px">Pair: 10 years = guarantee PERIOD. 3 years = filing DEADLINE after demolition. Don't mix them.</div>
-</div>
-
-<p class="sec-title">4.3 — All Articles Reference</p>
-<div class="card" style="overflow-x:auto">
-  <table class="cmp-table" style="min-width:580px">
-    <thead><tr><th>Article</th><th>Rule</th><th>Key Point</th></tr></thead>
-    <tbody>
-      <tr><td><span class="pill pill-gray">647</span></td><td>Who provides materials: employer OR contractor</td><td>Both arrangements valid</td></tr>
-      <tr><td><span class="pill pill-blue">648</span></td><td>Contractor provides materials → responsible for quality</td><td>Must guarantee to employer</td></tr>
-      <tr><td><span class="pill pill-teal">649</span></td><td>Employer provides materials → contractor must account, return leftovers, pay for waste due to negligence</td><td>Negligence = pay back value</td></tr>
-      <tr><td><span class="pill pill-amber">650</span></td><td>Defective work: unfixable = contract terminated WITHOUT warning. Fixable = given chance; else rescind or another contractor at their expense</td><td>No warning if unfixable</td></tr>
-      <tr><td><span class="pill pill-coral">651 ⭐</span></td><td>10-year joint guarantee. Engineer + contractor. From delivery date. Covers collapse and defects.</td><td>From DELIVERY date</td></tr>
-      <tr><td><span class="pill pill-coral">653 ⭐</span></td><td>Exemption clauses = null and void</td><td>Cannot escape liability</td></tr>
-      <tr><td><span class="pill pill-purple">654 ⭐</span></td><td>3 years to file after demolition — then forfeited</td><td>10 yrs period / 3 yrs to file</td></tr>
-      <tr><td><span class="pill pill-green">655</span></td><td>Employer refuses work without reason after official warning = deemed delivered by law</td><td>Official warning required</td></tr>
-      <tr><td><span class="pill pill-amber">657</span></td><td>Unit price: contractor MUST notify employer of increases. Fail = right forfeited.</td><td>Must notify or lose right</td></tr>
-      <tr><td><span class="pill pill-amber">658</span></td><td>Lump sum: contractor absorbs cost changes UNLESS employer agrees or employer caused increase. War/disaster = exception.</td><td>Unit price ≠ lump sum rules</td></tr>
-      <tr><td><span class="pill pill-gray">659</span></td><td>Wage not set: determined by value of work + expenses</td><td>Custom calculation</td></tr>
-      <tr><td><span class="pill pill-blue">660</span></td><td>Engineer's fee for design + management. If unspecified = by custom. Design not used = paid for time.</td><td>Unused design = time pay</td></tr>
-      <tr><td><span class="pill pill-teal">661</span></td><td>Subcontracting allowed UNLESS: personal performance required OR original contractor's competence is needed</td><td>2 exceptions</td></tr>
-      <tr><td><span class="pill pill-teal">662</span></td><td>Subcontractor workers can claim wages from employer up to what employer owes original. In seizure: subcontractor workers have PRIORITY.</td><td>Priority in seizure</td></tr>
-      <tr><td><span class="pill pill-orange">663</span></td><td>Employer stops work without reason: pays expenses + compensation. Court may REDUCE compensation.</td><td>Court can reduce</td></tr>
-      <tr><td><span class="pill pill-gray">664</span></td><td>Work impossible = contract expires</td><td>Automatic expiry</td></tr>
-      <tr><td><span class="pill pill-orange">665</span></td><td>Sudden accident: no fault = no pay, loss on supplier. Contractor fault = compensate employer. Employer fault = bears loss + compensates contractor.</td><td>Fault determines liability</td></tr>
-      <tr><td><span class="pill pill-purple">666</span></td><td>Contractor dies: if qualifications were essential and heirs lack them = contract expires. If not essential = contract continues.</td><td>Essential qualifications key</td></tr>
-      <tr><td><span class="pill pill-purple">667</span></td><td>Contract expires on death: employer pays heirs for completed work + requests drawings + pays compensation. Same for incapacity.</td><td>Applies to incapacity too</td></tr>
-    </tbody>
-  </table>
-</div>
-```
-
-  </div>
-
-  <!-- Flashcards L4 -->
-
-  <div class="sec-panel" id="lec4-flashcards">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Flashcards · Contract Law</h2><p>Articles 647–667 · key rules and traps</p></div></div>
-    <div class="prog-wrap"><div class="prog-label" id="l4fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4fc-bar" style="width:10%"></div></div></div>
-    <div class="fc-scene-wrap" onclick="fcFlip('l4')"><div class="fc-scene" id="l4-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Article — click to flip</div><div class="fc-term" id="l4-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Rule</div><div class="fc-term" id="l4-fc-back">…</div></div></div></div>
-    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
-    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l4')">← Prev</button><span class="fc-count" id="l4-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l4')">Next →</button></div>
-  </div>
-
-  <!-- Quiz L4 -->
-
-  <div class="sec-panel" id="lec4-quiz">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Practice Questions · Contract Law</h2><p>8 questions · Focus on critical articles</p></div></div>
-    <div class="prog-wrap"><div class="prog-label" id="l4q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4q-bar" style="width:0%"></div></div></div>
-
-```
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 651</span></div><div class="q-text">According to Article 651, when does the 10-year guarantee period begin?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>From the <strong>date of delivery</strong> of the completed work — NOT from the date the contract was signed, and NOT from when construction began. This is the most common MCQ trap on Article 651.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 654</span></div><div class="q-text">What is the difference between the guarantee period (Article 651) and the filing deadline (Article 654)?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Article 651 — Guarantee Period:</strong> 10 years from delivery date. During this time, the engineer and contractor are jointly liable for collapse and structural defects.<br><br><strong>Article 654 — Filing Deadline:</strong> 3 years after the demolition/defect occurs. If you don't file within 3 years of the defect, your lawsuit is forfeited.<br><br>Example: A building collapses in year 8 (within the 10-year period). You have 3 more years to file the claim — until year 11 from delivery.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 653</span></div><div class="q-text">A contract includes a clause stating: "The contractor is not liable for any structural defects for the first 5 years." Is this clause valid?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>No — null and void under Article 653.</strong> Any clause that exempts the engineer or contractor from the 10-year guarantee liability is automatically null and void. The law cannot be contracted out of. The contractor and engineer remain fully liable for 10 years regardless of what the contract says.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Articles 657 vs 658</span></div><div class="q-text">Compare unit price contracts (Art. 657) and lump sum contracts (Art. 658) regarding cost increases. What is the key difference?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Unit Price (Art. 657):</strong> If actual costs exceed the estimate, the contractor <em>must notify</em> the employer of the required increase (variation order). If he doesn't notify, his right to the extra payment is forfeited. If the increase is too large, the employer may suspend work and pay only for what's been done.<br><br><strong>Lump Sum (Art. 658):</strong> The contractor <em>cannot</em> request extra money for design adjustments UNLESS: (a) the employer agrees to the increase, or (b) the increase results from the employer's mistake. Price hikes due to inflation do not count — only war or natural disasters justify compensation.<br><br>Key difference: Unit price = contractor can request increases (but must notify). Lump sum = contractor generally absorbs all cost changes.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 650</span></div><div class="q-text">A contractor performs defective work on a building. The defect cannot be fixed. What happens under Article 650?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>If the defect is <strong>impossible to fix</strong>, the contract is <strong>terminated without warning</strong> — the contractor receives no notice period. The contract simply ends.<br><br>Compare with fixable defects: if the defect can be repaired, the contractor is first given a chance to repair. If they fail to do so, the employer can either rescind the contract OR hire another contractor to repair it at the original contractor's expense.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 661</span></div><div class="q-text">When is a contractor NOT allowed to assign a subcontractor under Article 661?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Two exceptions where subcontracting is prohibited:<br><br>1. <strong>Contract specifies personal performance</strong> — the contract explicitly states the contractor must do the work themselves.<br>2. <strong>Work requires the original contractor's specific competence</strong> — the nature of the work inherently requires the contractor's particular expertise that a subcontractor wouldn't have.<br><br>In both cases, the original contractor cannot delegate the work. If they do so anyway, they remain fully responsible for the subcontractor's actions.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 666-667</span></div><div class="q-text">A contractor who has been personally building a custom mosque dies halfway through construction. His heirs want to continue. What determines whether they can under Article 666? What must the employer do under Article 667?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Under Article 666 — can the contract continue?</strong><br>It depends on whether the contractor's <em>personal qualifications</em> were essential. For a custom mosque with specific craftsmanship, the contractor's personal skills are likely essential and the heirs presumably don't have the same qualifications → the contract <strong>expires</strong>.<br><br>If the work were generic (e.g., standard concrete work), personal qualifications may not be essential → contract could continue.<br><br><strong>Under Article 667 — what must the employer do?</strong><br>Since the contract expires:<br>1. Pay the heirs for the value of <strong>work already completed</strong>.<br>2. Request the <strong>drawings and prepared materials</strong> and pay compensation for them.<br>3. The same rules apply if the contractor becomes unable to perform for any unavoidable reason (e.g., serious illness).</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 665</span></div><div class="q-text">A sudden fire (not caused by either party) destroys 40% of completed work and all materials. Who bears the losses under Article 665?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Under Article 665 — <strong>sudden accident with no party at fault:</strong><br><br>1. Employer does NOT pay the contractor for the destroyed completed work (contractor bears that loss).<br>2. Material loss falls on <strong>whoever supplied the materials</strong> — if the employer supplied them, employer bears the loss; if the contractor supplied them, contractor bears the loss.<br><br>Compare with fault scenarios:<br>• Contractor at fault → contractor compensates employer for all employer-supplied material.<br>• Employer at fault → employer bears all material losses AND must compensate the contractor for damages too.</p></div></div>
-```
-
-  </div>
-
-  <!-- Key Facts L4 -->
-
-  <div class="sec-panel" id="lec4-numbers">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Key Facts Reference · Contract Law</h2></div></div>
-    <input class="fs-search" type="text" placeholder="🔍 Search articles, rules..." oninput="filterFS(this)">
-    <div class="fs-group">
-      <div class="fs-group-lbl">Critical Articles</div>
-      <div class="fs-row" data-s="article 651 10 year guarantee engineer contractor delivery"><div class="fs-name">Art. 651 — Guarantee</div><div class="fs-desc">Period, parties, and start date</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">10 yrs from DELIVERY</div></div>
-      <div class="fs-row" data-s="article 653 exemption null void cannot escape"><div class="fs-name">Art. 653 — Exemptions</div><div class="fs-desc">Can you contract out of the guarantee?</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Null and void</div></div>
-      <div class="fs-row" data-s="article 654 filing deadline 3 years demolition forfeited"><div class="fs-name">Art. 654 — Filing Deadline</div><div class="fs-desc">How long after demolition to file?</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">3 years after demolition</div></div>
-      <div class="fs-row" data-s="article 650 defective work unfixable terminated warning"><div class="fs-name">Art. 650 — Defective Work</div><div class="fs-desc">What happens if defect is unfixable?</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Terminated WITHOUT warning</div></div>
-      <div class="fs-row" data-s="article 657 unit price notify variation order forfeited"><div class="fs-name">Art. 657 — Unit Price</div><div class="fs-desc">What must contractor do if costs rise?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Notify employer (variation order)</div></div>
-      <div class="fs-row" data-s="article 658 lump sum absorbs cannot request war disaster"><div class="fs-name">Art. 658 — Lump Sum</div><div class="fs-desc">Can contractor request extra for cost changes?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Generally no (absorbs costs)</div></div>
-    </div>
-    <div class="fs-group">
-      <div class="fs-group-lbl">Obligations</div>
-      <div class="fs-row" data-s="contractor obligations 3 perform deliver guarantee"><div class="fs-name">Contractor Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">3: Perform · Deliver · Guarantee</div></div>
-      <div class="fs-row" data-s="employer obligations 3 enable receive pay wages"><div class="fs-name">Employer Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">3: Enable · Receive · Pay</div></div>
-    </div>
-  </div>
-</div><!-- /lec4 -->
 
 <!-- ══════════════════════════════════════════════════
      LECTURE 5 — Critical Thinking & Reasoning
@@ -938,7 +780,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
       </div>
     </div>
 
-```
 <p class="sec-title">5.1 — Critical Thinking Definition</p>
 <div class="card">
   <p style="font-size:15px;line-height:1.7">Critical thinking is routinely applying <strong>intellectual standards</strong> to the <strong>elements of thought</strong> as they seek to develop the <strong>traits of a mature engineering mind</strong>.</p>
@@ -1006,7 +847,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <p>Reasoning from <strong>general premises</strong> to specific, <strong>certain</strong> conclusions. "Formal logic."</p>
     <div class="insight insight-blue" style="margin-top:8px">Conclusions are: certain · inevitable · inescapable</div>
     <div class="formula formula-blue" style="margin-top:8px">Major premise: All tortoises are vegetarians
-```
 
 Minor premise: Bessie is a tortoise
 Conclusion: Therefore Bessie IS a vegetarian</div>
@@ -1021,7 +861,6 @@ Conclusion: He PROBABLY served in the Navy</div>
 </div>
 <div class="insight insight-green">Neither form is preferred over the other — both are equally compelling and persuasive (Hollihan & Baske, 1994).</div>
 
-```
 <p class="sec-title">5.6 — Identify the Reasoning Type (Practice)</p>
 <div class="card">
   <table class="cmp-table">
@@ -1032,7 +871,6 @@ Conclusion: He PROBABLY served in the Navy</div>
     </tbody>
   </table>
 </div>
-```
 
   </div>
 
@@ -1052,7 +890,6 @@ Conclusion: He PROBABLY served in the Navy</div>
     <div class="lec-hero"><div class="lec-hero-num">05</div><div class="lec-hero-info"><h2>Practice Questions · Critical Thinking</h2><p>7 questions · Easy → Hard</p></div></div>
     <div class="prog-wrap"><div class="prog-label" id="l5q-lbl">0 of 7 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l5q-bar" style="width:0%"></div></div></div>
 
-```
 <div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Definition</span></div><div class="q-text">Define critical thinking in one sentence using the three key components from the lecture.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Critical thinking is routinely applying <strong>intellectual standards</strong> to the <strong>elements of thought</strong> as they seek to develop the <strong>traits of a mature engineering mind</strong>.</p></div></div>
 
 <div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Counts</span></div><div class="q-text">How many intellectual standards, elements of thought, and intellectual traits are there?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>10</strong> intellectual standards<br><strong>8</strong> elements of thought<br><strong>8</strong> intellectual traits</p></div></div>
@@ -1066,7 +903,6 @@ Conclusion: He PROBABLY served in the Navy</div>
 <div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Elements of Thought</span></div><div class="q-text">Apply the 8 elements of thought to the following engineering decision: "Should we proceed with construction despite the subsoil report suggesting potential instability?"</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Purpose:</strong> Make a safe, cost-effective decision about whether to proceed with construction.<br><strong>Question:</strong> Is the subsoil sufficiently stable to proceed, and what are the risks if we don't investigate further?<br><strong>Point of view:</strong> Engineering safety perspective, client's financial perspective, public safety perspective.<br><strong>Assumptions:</strong> That the subsoil report is accurate; that known engineering standards apply; that budget constraints are fixed.<br><strong>Information:</strong> The subsoil report, site geology data, structural load calculations, similar case precedents.<br><strong>Inferences:</strong> If instability is confirmed, foundation design must change; if ignored, collapse risk increases.<br><strong>Concepts:</strong> Geotechnical engineering, factor of safety, building codes, negligence.<br><strong>Implications:</strong> Proceeding without investigation could lead to structural failure, liability under Article 651, and loss of life.</p></div></div>
 
 <div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Roofline Example</span></div><div class="q-text">Discuss the power generation table: Companies 1 (3450 MW gen, 3000 MW load, $100/MWh), 2 (1488 MW, 1200 MW, $50/MWh), 3 (6220 MW, 6900 MW, $25/MWh). Which company needs extra power and what is the cheapest strategy?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Reserve Power = Generated Capacity − Load Supplied:</strong><br>Company 1: 3450 − 3000 = <strong>+450 MW reserve</strong><br>Company 2: 1488 − 1200 = <strong>+288 MW reserve</strong><br>Company 3: 6220 − 6900 = <strong>−680 MW DEFICIT</strong><br><br><strong>Company 3 needs 680 MW of extra power.</strong><br><br><strong>Cheapest strategy (use inductive reasoning on costs):</strong><br>Company 2 is cheaper ($50/MWh vs $100/MWh for Company 1).<br>Buy all 288 MW from Company 2 first → 680 − 288 = 392 MW still needed.<br>Buy remaining 392 MW from Company 1 at $100/MWh.<br><br><strong>Additional observations:</strong> Company 3 has the largest average unit capacity (6220÷18 = 345.6 MW/unit). Company 2 has the smallest (1488÷17 = 87.5 MW/unit).</p></div></div>
-```
 
   </div>
 
@@ -1103,14 +939,12 @@ const secConfigs = {
   l1:['summary','flashcards','quiz','numbers'],
   l2:['summary','flashcards','quiz','numbers'],
   l3:['summary','flashcards','quiz','numbers'],
-  l4:['summary','flashcards','quiz','numbers'],
   l5:['summary','flashcards','quiz','numbers'],
 };
 const lecMeta = {
   1:{num:'01',title:'Introduction to Engineering & Ethics',sub:'4 eras · ethics · theories'},
   2:{num:'02',title:'Professional Ethics & Research Integrity',sub:'ASME · plagiarism · case studies'},
   3:{num:'03',title:'Health & Safety · OSHA',sub:'10 hazards · 6 steps · first aid'},
-  4:{num:'04',title:'Construction Contract Law',sub:'Articles 647–667 · obligations'},
   5:{num:'05',title:'Critical Thinking & Reasoning',sub:'10 standards · 8 elements · reasoning'},
 };
 const secLabels = {
@@ -1218,18 +1052,6 @@ const flashcards={
     {f:"The 3 steps of First Aid.",b:"1. Diagnosis\n2. Treatment\n3. Disposal"},
     {f:"The 6 First Aid priorities in order.",b:"1. Breathing (ALWAYS FIRST)\n2. Blood loss\n3. Shock\n4. Fracture\n5. Simple injuries\n6. Disposal\n\nRecovery position = unconscious casualties only"},
   ],
-  l4:[
-    {f:"Article 651 — the 10-year guarantee.",b:"Engineer AND contractor are jointly responsible for 10 years FROM THE DELIVERY DATE.\nCovers full/partial collapse and structural defects."},
-    {f:"Article 653 — exemption clauses.",b:"Any clause exempting the engineer or contractor from the 10-year liability is NULL AND VOID."},
-    {f:"Article 654 — filing deadline.",b:"Guarantee lawsuits are forfeited if 3 YEARS pass after the demolition occurs.\n(Guarantee = 10 years. Filing deadline = 3 years after defect.)"},
-    {f:"Article 650 — defective work.",b:"Unfixable defect → contract terminated WITHOUT WARNING.\nFixable defect → given chance to repair; else rescind or another contractor at their expense."},
-    {f:"Article 657 vs. 658 — unit price vs lump sum.",b:"Unit price (657): contractor MUST notify employer of increases or right is forfeited.\nLump sum (658): contractor absorbs cost changes UNLESS employer agrees or caused the increase."},
-    {f:"Article 655 — employer refuses work.",b:"After official warning (إنذار رسمي), if employer refuses without legitimate reason → work DEEMED DELIVERED by law."},
-    {f:"Article 661 — subcontracting exceptions.",b:"Cannot subcontract when:\n1. Contract requires personal performance\n2. Work requires original contractor's specific competence"},
-    {f:"Article 662 — subcontractor wage rights.",b:"Can claim wages from employer up to amount owed to original contractor.\nIn seizure → subcontractor's workers have PRIORITY over original contractor."},
-    {f:"Article 666 — contractor dies.",b:"Qualifications essential + heirs lack them → contract EXPIRES.\nQualifications not essential → contract CONTINUES."},
-    {f:"The 3 contractor and 3 employer obligations.",b:"Contractor: Perform correctly · Deliver on time · Guarantee 10 years\nEmployer: Enable work · Receive work · Pay wages"},
-  ],
   l5:[
     {f:"Define critical thinking using its 3 key components.",b:"Routinely applying INTELLECTUAL STANDARDS to ELEMENTS OF THOUGHT to develop TRAITS OF A MATURE ENGINEERING MIND."},
     {f:"How many intellectual standards? Name all 10.",b:"10: Clarity · Accuracy · Relevance · Logicalness · Breadth · Precision · Significance · Completeness · Fairness · Depth"},
@@ -1244,7 +1066,7 @@ const flashcards={
   ],
 };
 
-const fcIdx={l1:0,l2:0,l3:0,l4:0,l5:0};
+const fcIdx={l1:0,l2:0,l3:0,l5:0};
 
 function renderFC(lec){
   const cards=flashcards[lec]; if(!cards) return;
@@ -1296,7 +1118,7 @@ document.querySelectorAll('.sec-panel').forEach(p=>p.classList.remove('active'))
 document.getElementById('lec1').classList.add('active');
 buildSecTabs();
 showSec('summary');
-['l1','l2','l3','l4','l5'].forEach(lec=>renderFC(lec));
+['l1','l2','l3','l5'].forEach(lec=>renderFC(lec));
 </script>
 
 </body>
