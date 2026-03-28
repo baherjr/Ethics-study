@@ -8,29 +8,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream:#faf8f3; --paper:#f2f0ea; --paper2:#e8e5dc; --white:#fff;
-  --ink:#181510; --ink2:#3c3832; --ink3:#7c7870;
-  --rule:rgba(24,21,16,.10); --rule-lt:rgba(24,21,16,.05);
-  --sh-sm:0 1px 3px rgba(24,21,16,.07);
-  --sh-md:0 2px 10px rgba(24,21,16,.10),0 1px 3px rgba(24,21,16,.06);
-  --sh-lg:0 8px 32px rgba(24,21,16,.12),0 2px 8px rgba(24,21,16,.08);
+  --cream:#f8fafc; --paper:#f1f5f9; --paper2:#e2e8f0; --white:#fff;
+  --ink:#0f172a; --ink2:#334155; --ink3:#64748b;
+  --rule:rgba(15,23,42,.10); --rule-lt:rgba(15,23,42,.05);
+  --sh-sm:0 1px 3px rgba(15,23,42,.07);
+  --sh-md:0 2px 10px rgba(15,23,42,.10),0 1px 3px rgba(15,23,42,.06);
+  --sh-lg:0 8px 32px rgba(15,23,42,.12),0 2px 8px rgba(15,23,42,.08);
   --sidebar-w:232px; --header-h:54px; --r:8px; --r2:14px;
-  --accent:#2563eb; --accent-l:#eff6ff; --accent-m:#bfdbfe; --accent-dk:#1d4ed8;
-  --c-blue:#1d4ed8; --c-blue-l:#eff6ff; --c-blue-m:#bfdbfe;
+  --accent:#4f46e5; --accent-l:#eef2ff; --accent-m:#c7d2fe; --accent-dk:#4338ca;
+  --c-blue:#4f46e5; --c-blue-l:#eef2ff; --c-blue-m:#c7d2fe;
   --c-teal:#0891b2; --c-teal-l:#e0f2fe; --c-teal-m:#bae6fd;
-  --c-amber:#b45309; --c-amber-l:#fef3c7; --c-amber-m:#fde68a;
+  --c-amber:#d97706; --c-amber-l:#fffbeb; --c-amber-m:#fde68a;
   --c-purple:#7c3aed; --c-purple-l:#ede9fe; --c-purple-m:#ddd6fe;
   --c-coral:#e11d48; --c-coral-l:#ffe4e6; --c-coral-m:#fecdd3;
-  --c-green:#15803d; --c-green-l:#dcfce7; --c-green-m:#bbf7d0;
-  --c-gray:#6b7280; --c-gray-l:#f9fafb; --c-gray-m:#e5e7eb;
-  --c-orange:#c2410c; --c-orange-l:#fff7ed; --c-orange-m:#fed7aa;
+  --c-green:#059669; --c-green-l:#ecfdf5; --c-green-m:#a7f3d0;
+  --c-gray:#6b7280; --c-gray-l:#f8fafc; --c-gray-m:#e2e8f0;
+  --c-orange:#ea580c; --c-orange-l:#fff7ed; --c-orange-m:#fed7aa;
 }
-body[data-lec="1"]{--accent:#2563eb;--accent-l:#eff6ff;--accent-m:#bfdbfe;--accent-dk:#1d4ed8}
+body[data-lec="1"]{--accent:#4f46e5;--accent-l:#eef2ff;--accent-m:#c7d2fe;--accent-dk:#4338ca}
 body[data-lec="2"]{--accent:#0d9488;--accent-l:#f0fdfa;--accent-m:#99f6e4;--accent-dk:#0f766e}
-body[data-lec="3"]{--accent:#e11d48;--accent-l:#fff1f2;--accent-m:#fecdd3;--accent-dk:#be123c}
-body[data-lec="4"]{--accent:#7c3aed;--accent-l:#f5f3ff;--accent-m:#ddd6fe;--accent-dk:#6d28d9}
-body[data-lec="5"]{--accent:#0891b2;--accent-l:#e0f2fe;--accent-m:#bae6fd;--accent-dk:#0e7490}
-body[data-lec="6"]{--accent:#065f46;--accent-l:#ecfdf5;--accent-m:#a7f3d0;--accent-dk:#064e3b}
+body[data-lec="3"]{--accent:#ea580c;--accent-l:#fff7ed;--accent-m:#fed7aa;--accent-dk:#c2410c}
+body[data-lec="5"]{--accent:#059669;--accent-l:#ecfdf5;--accent-m:#a7f3d0;--accent-dk:#047857}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;height:100%}
 body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;height:100%;overflow:hidden;display:flex;flex-direction:column}
@@ -219,9 +217,8 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
   <div id="lec-tabs">
     <button class="lec-btn active" onclick="showLec(1,this)">L1 — Introduction</button>
     <button class="lec-btn" onclick="showLec(2,this)">L2&3 — Prof. Ethics</button>
-    <button class="lec-btn" onclick="showLec(3,this)">L4 — Health & Safety</button>
-    <button class="lec-btn" onclick="showLec(4,this)">L5 — Contract Law</button>
-    <button class="lec-btn" onclick="showLec(5,this)">Critical Thinking</button>
+    <button class="lec-btn" onclick="showLec(3,this)">L3 — Health & Safety</button>
+    <button class="lec-btn" onclick="showLec(5,this)">L5 — Critical Thinking</button>
   </div>
   <div id="header-right">
     <span class="hdr-tag">Dr. Mokhtar · Ain Shams</span>
@@ -780,149 +777,6 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
   </div>
 </div><!-- /lec3 -->
 
-<!-- ══════════════════════════════════════════════════
-     LECTURE 4 — Construction Contract Law
-══════════════════════════════════════════════════ -->
-
-<div class="lec-panel" id="lec4">
-  <div class="sec-panel" id="lec4-summary">
-    <div class="lec-hero">
-      <div class="lec-hero-num">04</div>
-      <div class="lec-hero-info">
-        <h2>Construction Contract Law</h2>
-        <p>Egyptian Civil Code Articles 647–667 · 10-Year Guarantee · Unit Price vs Lump Sum · Obligations</p>
-      </div>
-    </div>
-
-```
-<p class="sec-title">4.1 — Contract Basics</p>
-<div class="card">
-  <div class="card-title">Definition</div>
-  <p>A contract between two parties: one undertakes to <strong>do something</strong> (contractor), and the other undertakes to <strong>pay</strong> (employer). Important because of: (a) high financial value, (b) long duration, (c) external influences like subcontractors and consulting engineers.</p>
-</div>
-<div class="grid2">
-  <div class="card">
-    <div class="card-title">3 Contractor Obligations</div>
-    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
-      <li>Perform work in the <strong>desired manner</strong></li>
-      <li>Deliver at the <strong>agreed time</strong></li>
-      <li>Guarantee work for <strong>10 years</strong></li>
-    </ol>
-  </div>
-  <div class="card">
-    <div class="card-title">3 Employer Obligations</div>
-    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
-      <li><strong>Enable</strong> the contractor to complete work</li>
-      <li><strong>Receive</strong> the work from the contractor</li>
-      <li><strong>Pay</strong> the wages</li>
-    </ol>
-  </div>
-</div>
-
-<p class="sec-title">4.2 — Critical Articles (MCQ Priority)</p>
-<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
-  <div class="card-title">Article 651 — 10-Year Joint Guarantee ⭐</div>
-  <p>The engineer AND contractor are <strong>jointly responsible</strong> for the facility for <strong>10 years</strong> from the <strong>date of delivery</strong>. Covers: full collapse, partial collapse, structural defects.</p>
-  <div class="insight insight-coral" style="margin-top:8px">Starts from DELIVERY DATE — NOT from signing or construction start. This is the #1 MCQ trap on this article.</div>
-</div>
-<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
-  <div class="card-title">Article 653 — Exemption Clauses are Void ⭐</div>
-  <p>Any contract clause that exempts the engineer or contractor from 10-year liability is <strong>null and void</strong>. You cannot contractually escape this responsibility.</p>
-</div>
-<div class="card" style="border-color:var(--c-purple);border-left:3px solid var(--c-purple)">
-  <div class="card-title">Article 654 — 3-Year Filing Deadline ⭐</div>
-  <p>Guarantee lawsuits are <strong>forfeited</strong> if <strong>3 years</strong> pass after the demolition or defect occurs.</p>
-  <div class="insight insight-purple" style="margin-top:8px">Pair: 10 years = guarantee PERIOD. 3 years = filing DEADLINE after demolition. Don't mix them.</div>
-</div>
-
-<p class="sec-title">4.3 — All Articles Reference</p>
-<div class="card" style="overflow-x:auto">
-  <table class="cmp-table" style="min-width:580px">
-    <thead><tr><th>Article</th><th>Rule</th><th>Key Point</th></tr></thead>
-    <tbody>
-      <tr><td><span class="pill pill-gray">647</span></td><td>Who provides materials: employer OR contractor</td><td>Both arrangements valid</td></tr>
-      <tr><td><span class="pill pill-blue">648</span></td><td>Contractor provides materials → responsible for quality</td><td>Must guarantee to employer</td></tr>
-      <tr><td><span class="pill pill-teal">649</span></td><td>Employer provides materials → contractor must account, return leftovers, pay for waste due to negligence</td><td>Negligence = pay back value</td></tr>
-      <tr><td><span class="pill pill-amber">650</span></td><td>Defective work: unfixable = contract terminated WITHOUT warning. Fixable = given chance; else rescind or another contractor at their expense</td><td>No warning if unfixable</td></tr>
-      <tr><td><span class="pill pill-coral">651 ⭐</span></td><td>10-year joint guarantee. Engineer + contractor. From delivery date. Covers collapse and defects.</td><td>From DELIVERY date</td></tr>
-      <tr><td><span class="pill pill-coral">653 ⭐</span></td><td>Exemption clauses = null and void</td><td>Cannot escape liability</td></tr>
-      <tr><td><span class="pill pill-purple">654 ⭐</span></td><td>3 years to file after demolition — then forfeited</td><td>10 yrs period / 3 yrs to file</td></tr>
-      <tr><td><span class="pill pill-green">655</span></td><td>Employer refuses work without reason after official warning = deemed delivered by law</td><td>Official warning required</td></tr>
-      <tr><td><span class="pill pill-amber">657</span></td><td>Unit price: contractor MUST notify employer of increases. Fail = right forfeited.</td><td>Must notify or lose right</td></tr>
-      <tr><td><span class="pill pill-amber">658</span></td><td>Lump sum: contractor absorbs cost changes UNLESS employer agrees or employer caused increase. War/disaster = exception.</td><td>Unit price ≠ lump sum rules</td></tr>
-      <tr><td><span class="pill pill-gray">659</span></td><td>Wage not set: determined by value of work + expenses</td><td>Custom calculation</td></tr>
-      <tr><td><span class="pill pill-blue">660</span></td><td>Engineer's fee for design + management. If unspecified = by custom. Design not used = paid for time.</td><td>Unused design = time pay</td></tr>
-      <tr><td><span class="pill pill-teal">661</span></td><td>Subcontracting allowed UNLESS: personal performance required OR original contractor's competence is needed</td><td>2 exceptions</td></tr>
-      <tr><td><span class="pill pill-teal">662</span></td><td>Subcontractor workers can claim wages from employer up to what employer owes original. In seizure: subcontractor workers have PRIORITY.</td><td>Priority in seizure</td></tr>
-      <tr><td><span class="pill pill-orange">663</span></td><td>Employer stops work without reason: pays expenses + compensation. Court may REDUCE compensation.</td><td>Court can reduce</td></tr>
-      <tr><td><span class="pill pill-gray">664</span></td><td>Work impossible = contract expires</td><td>Automatic expiry</td></tr>
-      <tr><td><span class="pill pill-orange">665</span></td><td>Sudden accident: no fault = no pay, loss on supplier. Contractor fault = compensate employer. Employer fault = bears loss + compensates contractor.</td><td>Fault determines liability</td></tr>
-      <tr><td><span class="pill pill-purple">666</span></td><td>Contractor dies: if qualifications were essential and heirs lack them = contract expires. If not essential = contract continues.</td><td>Essential qualifications key</td></tr>
-      <tr><td><span class="pill pill-purple">667</span></td><td>Contract expires on death: employer pays heirs for completed work + requests drawings + pays compensation. Same for incapacity.</td><td>Applies to incapacity too</td></tr>
-    </tbody>
-  </table>
-</div>
-```
-
-  </div>
-
-  <!-- Flashcards L4 -->
-
-  <div class="sec-panel" id="lec4-flashcards">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Flashcards · Contract Law</h2><p>Articles 647–667 · key rules and traps</p></div></div>
-    <div class="prog-wrap"><div class="prog-label" id="l4fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4fc-bar" style="width:10%"></div></div></div>
-    <div class="fc-scene-wrap" onclick="fcFlip('l4')"><div class="fc-scene" id="l4-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Article — click to flip</div><div class="fc-term" id="l4-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Rule</div><div class="fc-term" id="l4-fc-back">…</div></div></div></div>
-    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
-    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l4')">← Prev</button><span class="fc-count" id="l4-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l4')">Next →</button></div>
-  </div>
-
-  <!-- Quiz L4 -->
-
-  <div class="sec-panel" id="lec4-quiz">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Practice Questions · Contract Law</h2><p>8 questions · Focus on critical articles</p></div></div>
-    <div class="prog-wrap"><div class="prog-label" id="l4q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4q-bar" style="width:0%"></div></div></div>
-
-```
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 651</span></div><div class="q-text">According to Article 651, when does the 10-year guarantee period begin?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>From the <strong>date of delivery</strong> of the completed work — NOT from the date the contract was signed, and NOT from when construction began. This is the most common MCQ trap on Article 651.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 654</span></div><div class="q-text">What is the difference between the guarantee period (Article 651) and the filing deadline (Article 654)?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Article 651 — Guarantee Period:</strong> 10 years from delivery date. During this time, the engineer and contractor are jointly liable for collapse and structural defects.<br><br><strong>Article 654 — Filing Deadline:</strong> 3 years after the demolition/defect occurs. If you don't file within 3 years of the defect, your lawsuit is forfeited.<br><br>Example: A building collapses in year 8 (within the 10-year period). You have 3 more years to file the claim — until year 11 from delivery.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 653</span></div><div class="q-text">A contract includes a clause stating: "The contractor is not liable for any structural defects for the first 5 years." Is this clause valid?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>No — null and void under Article 653.</strong> Any clause that exempts the engineer or contractor from the 10-year guarantee liability is automatically null and void. The law cannot be contracted out of. The contractor and engineer remain fully liable for 10 years regardless of what the contract says.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Articles 657 vs 658</span></div><div class="q-text">Compare unit price contracts (Art. 657) and lump sum contracts (Art. 658) regarding cost increases. What is the key difference?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Unit Price (Art. 657):</strong> If actual costs exceed the estimate, the contractor <em>must notify</em> the employer of the required increase (variation order). If he doesn't notify, his right to the extra payment is forfeited. If the increase is too large, the employer may suspend work and pay only for what's been done.<br><br><strong>Lump Sum (Art. 658):</strong> The contractor <em>cannot</em> request extra money for design adjustments UNLESS: (a) the employer agrees to the increase, or (b) the increase results from the employer's mistake. Price hikes due to inflation do not count — only war or natural disasters justify compensation.<br><br>Key difference: Unit price = contractor can request increases (but must notify). Lump sum = contractor generally absorbs all cost changes.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 650</span></div><div class="q-text">A contractor performs defective work on a building. The defect cannot be fixed. What happens under Article 650?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>If the defect is <strong>impossible to fix</strong>, the contract is <strong>terminated without warning</strong> — the contractor receives no notice period. The contract simply ends.<br><br>Compare with fixable defects: if the defect can be repaired, the contractor is first given a chance to repair. If they fail to do so, the employer can either rescind the contract OR hire another contractor to repair it at the original contractor's expense.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 661</span></div><div class="q-text">When is a contractor NOT allowed to assign a subcontractor under Article 661?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Two exceptions where subcontracting is prohibited:<br><br>1. <strong>Contract specifies personal performance</strong> — the contract explicitly states the contractor must do the work themselves.<br>2. <strong>Work requires the original contractor's specific competence</strong> — the nature of the work inherently requires the contractor's particular expertise that a subcontractor wouldn't have.<br><br>In both cases, the original contractor cannot delegate the work. If they do so anyway, they remain fully responsible for the subcontractor's actions.</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 666-667</span></div><div class="q-text">A contractor who has been personally building a custom mosque dies halfway through construction. His heirs want to continue. What determines whether they can under Article 666? What must the employer do under Article 667?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Under Article 666 — can the contract continue?</strong><br>It depends on whether the contractor's <em>personal qualifications</em> were essential. For a custom mosque with specific craftsmanship, the contractor's personal skills are likely essential and the heirs presumably don't have the same qualifications → the contract <strong>expires</strong>.<br><br>If the work were generic (e.g., standard concrete work), personal qualifications may not be essential → contract could continue.<br><br><strong>Under Article 667 — what must the employer do?</strong><br>Since the contract expires:<br>1. Pay the heirs for the value of <strong>work already completed</strong>.<br>2. Request the <strong>drawings and prepared materials</strong> and pay compensation for them.<br>3. The same rules apply if the contractor becomes unable to perform for any unavoidable reason (e.g., serious illness).</p></div></div>
-
-<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 665</span></div><div class="q-text">A sudden fire (not caused by either party) destroys 40% of completed work and all materials. Who bears the losses under Article 665?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Under Article 665 — <strong>sudden accident with no party at fault:</strong><br><br>1. Employer does NOT pay the contractor for the destroyed completed work (contractor bears that loss).<br>2. Material loss falls on <strong>whoever supplied the materials</strong> — if the employer supplied them, employer bears the loss; if the contractor supplied them, contractor bears the loss.<br><br>Compare with fault scenarios:<br>• Contractor at fault → contractor compensates employer for all employer-supplied material.<br>• Employer at fault → employer bears all material losses AND must compensate the contractor for damages too.</p></div></div>
-```
-
-  </div>
-
-  <!-- Key Facts L4 -->
-
-  <div class="sec-panel" id="lec4-numbers">
-    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Key Facts Reference · Contract Law</h2></div></div>
-    <input class="fs-search" type="text" placeholder="🔍 Search articles, rules..." oninput="filterFS(this)">
-    <div class="fs-group">
-      <div class="fs-group-lbl">Critical Articles</div>
-      <div class="fs-row" data-s="article 651 10 year guarantee engineer contractor delivery"><div class="fs-name">Art. 651 — Guarantee</div><div class="fs-desc">Period, parties, and start date</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">10 yrs from DELIVERY</div></div>
-      <div class="fs-row" data-s="article 653 exemption null void cannot escape"><div class="fs-name">Art. 653 — Exemptions</div><div class="fs-desc">Can you contract out of the guarantee?</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Null and void</div></div>
-      <div class="fs-row" data-s="article 654 filing deadline 3 years demolition forfeited"><div class="fs-name">Art. 654 — Filing Deadline</div><div class="fs-desc">How long after demolition to file?</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">3 years after demolition</div></div>
-      <div class="fs-row" data-s="article 650 defective work unfixable terminated warning"><div class="fs-name">Art. 650 — Defective Work</div><div class="fs-desc">What happens if defect is unfixable?</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Terminated WITHOUT warning</div></div>
-      <div class="fs-row" data-s="article 657 unit price notify variation order forfeited"><div class="fs-name">Art. 657 — Unit Price</div><div class="fs-desc">What must contractor do if costs rise?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Notify employer (variation order)</div></div>
-      <div class="fs-row" data-s="article 658 lump sum absorbs cannot request war disaster"><div class="fs-name">Art. 658 — Lump Sum</div><div class="fs-desc">Can contractor request extra for cost changes?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Generally no (absorbs costs)</div></div>
-    </div>
-    <div class="fs-group">
-      <div class="fs-group-lbl">Obligations</div>
-      <div class="fs-row" data-s="contractor obligations 3 perform deliver guarantee"><div class="fs-name">Contractor Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">3: Perform · Deliver · Guarantee</div></div>
-      <div class="fs-row" data-s="employer obligations 3 enable receive pay wages"><div class="fs-name">Employer Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">3: Enable · Receive · Pay</div></div>
-    </div>
-  </div>
-</div><!-- /lec4 -->
 
 <!-- ══════════════════════════════════════════════════
      LECTURE 5 — Critical Thinking & Reasoning
@@ -1103,14 +957,12 @@ const secConfigs = {
   l1:['summary','flashcards','quiz','numbers'],
   l2:['summary','flashcards','quiz','numbers'],
   l3:['summary','flashcards','quiz','numbers'],
-  l4:['summary','flashcards','quiz','numbers'],
   l5:['summary','flashcards','quiz','numbers'],
 };
 const lecMeta = {
   1:{num:'01',title:'Introduction to Engineering & Ethics',sub:'4 eras · ethics · theories'},
   2:{num:'02',title:'Professional Ethics & Research Integrity',sub:'ASME · plagiarism · case studies'},
   3:{num:'03',title:'Health & Safety · OSHA',sub:'10 hazards · 6 steps · first aid'},
-  4:{num:'04',title:'Construction Contract Law',sub:'Articles 647–667 · obligations'},
   5:{num:'05',title:'Critical Thinking & Reasoning',sub:'10 standards · 8 elements · reasoning'},
 };
 const secLabels = {
@@ -1218,18 +1070,6 @@ const flashcards={
     {f:"The 3 steps of First Aid.",b:"1. Diagnosis\n2. Treatment\n3. Disposal"},
     {f:"The 6 First Aid priorities in order.",b:"1. Breathing (ALWAYS FIRST)\n2. Blood loss\n3. Shock\n4. Fracture\n5. Simple injuries\n6. Disposal\n\nRecovery position = unconscious casualties only"},
   ],
-  l4:[
-    {f:"Article 651 — the 10-year guarantee.",b:"Engineer AND contractor are jointly responsible for 10 years FROM THE DELIVERY DATE.\nCovers full/partial collapse and structural defects."},
-    {f:"Article 653 — exemption clauses.",b:"Any clause exempting the engineer or contractor from the 10-year liability is NULL AND VOID."},
-    {f:"Article 654 — filing deadline.",b:"Guarantee lawsuits are forfeited if 3 YEARS pass after the demolition occurs.\n(Guarantee = 10 years. Filing deadline = 3 years after defect.)"},
-    {f:"Article 650 — defective work.",b:"Unfixable defect → contract terminated WITHOUT WARNING.\nFixable defect → given chance to repair; else rescind or another contractor at their expense."},
-    {f:"Article 657 vs. 658 — unit price vs lump sum.",b:"Unit price (657): contractor MUST notify employer of increases or right is forfeited.\nLump sum (658): contractor absorbs cost changes UNLESS employer agrees or caused the increase."},
-    {f:"Article 655 — employer refuses work.",b:"After official warning (إنذار رسمي), if employer refuses without legitimate reason → work DEEMED DELIVERED by law."},
-    {f:"Article 661 — subcontracting exceptions.",b:"Cannot subcontract when:\n1. Contract requires personal performance\n2. Work requires original contractor's specific competence"},
-    {f:"Article 662 — subcontractor wage rights.",b:"Can claim wages from employer up to amount owed to original contractor.\nIn seizure → subcontractor's workers have PRIORITY over original contractor."},
-    {f:"Article 666 — contractor dies.",b:"Qualifications essential + heirs lack them → contract EXPIRES.\nQualifications not essential → contract CONTINUES."},
-    {f:"The 3 contractor and 3 employer obligations.",b:"Contractor: Perform correctly · Deliver on time · Guarantee 10 years\nEmployer: Enable work · Receive work · Pay wages"},
-  ],
   l5:[
     {f:"Define critical thinking using its 3 key components.",b:"Routinely applying INTELLECTUAL STANDARDS to ELEMENTS OF THOUGHT to develop TRAITS OF A MATURE ENGINEERING MIND."},
     {f:"How many intellectual standards? Name all 10.",b:"10: Clarity · Accuracy · Relevance · Logicalness · Breadth · Precision · Significance · Completeness · Fairness · Depth"},
@@ -1244,7 +1084,7 @@ const flashcards={
   ],
 };
 
-const fcIdx={l1:0,l2:0,l3:0,l4:0,l5:0};
+const fcIdx={l1:0,l2:0,l3:0,l5:0};
 
 function renderFC(lec){
   const cards=flashcards[lec]; if(!cards) return;
@@ -1296,7 +1136,7 @@ document.querySelectorAll('.sec-panel').forEach(p=>p.classList.remove('active'))
 document.getElementById('lec1').classList.add('active');
 buildSecTabs();
 showSec('summary');
-['l1','l2','l3','l4','l5'].forEach(lec=>renderFC(lec));
+['l1','l2','l3','l5'].forEach(lec=>renderFC(lec));
 </script>
 
 </body>
