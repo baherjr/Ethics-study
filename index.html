@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASU 113 — Professional Ethics & Legislations · Study Package</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#faf8f3; --paper:#f2f0ea; --paper2:#e8e5dc; --white:#fff;
+  --ink:#181510; --ink2:#3c3832; --ink3:#7c7870;
+  --rule:rgba(24,21,16,.10); --rule-lt:rgba(24,21,16,.05);
+  --sh-sm:0 1px 3px rgba(24,21,16,.07);
+  --sh-md:0 2px 10px rgba(24,21,16,.10),0 1px 3px rgba(24,21,16,.06);
+  --sh-lg:0 8px 32px rgba(24,21,16,.12),0 2px 8px rgba(24,21,16,.08);
+  --sidebar-w:232px; --header-h:54px; --r:8px; --r2:14px;
+  --accent:#2563eb; --accent-l:#eff6ff; --accent-m:#bfdbfe; --accent-dk:#1d4ed8;
+  --c-blue:#1d4ed8; --c-blue-l:#eff6ff; --c-blue-m:#bfdbfe;
+  --c-teal:#0e7490; --c-teal-l:#e0f7fa; --c-teal-m:#a5f3fc;
+  --c-amber:#92400e; --c-amber-l:#fffbeb; --c-amber-m:#fde68a;
+  --c-purple:#5b21b6; --c-purple-l:#ede9fe; --c-purple-m:#ddd6fe;
+  --c-coral:#be123c; --c-coral-l:#ffe4e6; --c-coral-m:#fecdd3;
+  --c-green:#14532d; --c-green-l:#f0fdf4; --c-green-m:#bbf7d0;
+  --c-gray:#4b5563; --c-gray-l:#f9fafb; --c-gray-m:#e5e7eb;
+  --c-orange:#9a3412; --c-orange-l:#fff7ed; --c-orange-m:#fed7aa;
+}
+body[data-lec="1"]{--accent:#2563eb;--accent-l:#eff6ff;--accent-m:#bfdbfe;--accent-dk:#1d4ed8}
+body[data-lec="2"]{--accent:#0d9488;--accent-l:#f0fdfa;--accent-m:#99f6e4;--accent-dk:#0f766e}
+body[data-lec="3"]{--accent:#dc2626;--accent-l:#fff1f2;--accent-m:#fecdd3;--accent-dk:#b91c1c}
+body[data-lec="4"]{--accent:#7c3aed;--accent-l:#f5f3ff;--accent-m:#ddd6fe;--accent-dk:#6d28d9}
+body[data-lec="5"]{--accent:#9a3412;--accent-l:#fff7ed;--accent-m:#fed7aa;--accent-dk:#7c2d12}
+body[data-lec="6"]{--accent:#065f46;--accent-l:#ecfdf5;--accent-m:#a7f3d0;--accent-dk:#064e3b}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;height:100%}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;height:100%;overflow:hidden;display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+#header{height:var(–header-h);background:var(–ink);display:flex;align-items:center;flex-shrink:0;z-index:200}
+.brand{width:var(–sidebar-w);flex-shrink:0;display:flex;align-items:center;gap:11px;padding:0 18px;border-right:1px solid rgba(255,255,255,.08);height:100%;text-decoration:none}
+.brand-icon{width:30px;height:30px;border-radius:7px;background:var(–accent);display:flex;align-items:center;justify-content:center;font-family:‘Fraunces’,serif;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;transition:background .3s}
+.brand-text{font-size:13px;font-weight:600;color:rgba(255,255,255,.9);line-height:1.2}
+.brand-sub{font-size:10px;color:rgba(255,255,255,.3);font-family:‘DM Mono’,monospace;letter-spacing:.07em;text-transform:uppercase}
+#lec-tabs{display:flex;align-items:center;gap:3px;padding:0 16px;height:100%;flex:1;overflow-x:auto}
+.lec-btn{font-family:‘Outfit’,sans-serif;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.45);background:none;border:none;cursor:pointer;padding:7px 13px;border-radius:var(–r);transition:color .18s,background .18s;white-space:nowrap}
+.lec-btn:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.07)}
+.lec-btn.active{color:#fff;background:var(–accent);font-weight:600}
+#header-right{padding:0 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.hdr-tag{font-family:‘DM Mono’,monospace;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.08em;text-transform:uppercase}
+
+/* ── LAYOUT ── */
+#app{display:flex;flex:1;overflow:hidden;min-height:0}
+
+/* ── SIDEBAR ── */
+#sidebar{width:var(–sidebar-w);flex-shrink:0;background:var(–paper);border-right:1px solid var(–rule);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-thumb{background:var(–rule);border-radius:4px}
+.sb-lec-card{padding:20px 18px 16px;border-bottom:1px solid var(–rule);flex-shrink:0}
+.sb-lec-num{font-family:‘Fraunces’,serif;font-size:48px;font-weight:700;line-height:1;letter-spacing:-.03em;color:var(–paper2);margin-bottom:2px;transition:color .3s}
+.sb-lec-title{font-size:13px;font-weight:600;color:var(–ink);line-height:1.3;margin-bottom:2px}
+.sb-lec-sub{font-size:11px;color:var(–ink3);line-height:1.4;font-family:‘DM Mono’,monospace}
+.sb-lec-accent{width:100%;height:3px;background:var(–accent);border-radius:2px;margin-top:12px;transition:background .3s}
+.sb-nav{padding:12px 10px 24px;display:flex;flex-direction:column;gap:2px;flex:1}
+.sb-nav-label{font-family:‘DM Mono’,monospace;font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(–ink3);padding:8px 10px 4px}
+.sec-btn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(–r);border:none;background:none;cursor:pointer;font-family:‘Outfit’,sans-serif;font-size:13px;font-weight:500;color:var(–ink2);width:100%;text-align:left;transition:background .14s,color .14s;position:relative}
+.sec-btn:hover{background:var(–paper2);color:var(–ink)}
+.sec-btn.active{background:var(–accent-l);color:var(–accent-dk);font-weight:600}
+.s-icon{font-size:14px;width:22px;text-align:center;flex-shrink:0;opacity:.7}
+.sec-btn.active .s-icon{opacity:1}
+.s-label{flex:1;line-height:1}
+.s-dot{width:6px;height:6px;border-radius:50%;background:var(–accent);flex-shrink:0;opacity:0;transition:opacity .15s}
+.sec-btn.active .s-dot{opacity:1}
+
+/* ── MAIN ── */
+#main{flex:1;overflow-y:auto;overflow-x:hidden;background:var(–cream);min-width:0}
+#main::-webkit-scrollbar{width:6px}
+#main::-webkit-scrollbar-thumb{background:var(–rule);border-radius:4px}
+.lec-panel{display:none}
+.lec-panel.active{display:block}
+.sec-panel{display:none;max-width:880px;margin:0 auto;padding:36px 32px 80px}
+.sec-panel.active{display:block;animation:secFadeIn .2s ease both}
+@keyframes secFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TYPOGRAPHY ── */
+.lec-hero{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(–rule)}
+.lec-hero-num{font-family:‘Fraunces’,serif;font-size:60px;font-weight:700;color:var(–paper2);line-height:1;flex-shrink:0;letter-spacing:-.03em}
+.lec-hero-info h2{font-family:‘Fraunces’,serif;font-size:26px;font-weight:600;color:var(–ink);letter-spacing:-.02em;line-height:1.2;margin-bottom:5px}
+.lec-hero-info p{font-size:13px;color:var(–ink3);font-weight:300}
+.sec-title{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(–ink3);margin:28px 0 12px;display:flex;align-items:center;gap:12px}
+.sec-title::after{content:’’;flex:1;height:1px;background:var(–rule)}
+.sec-title:first-child{margin-top:0}
+
+/* ── CARDS ── */
+.card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:18px 20px;margin-bottom:12px;box-shadow:var(–sh-sm);transition:box-shadow .2s,transform .15s}
+.card:hover{box-shadow:var(–sh-md);transform:translateY(-1px)}
+.card-title{font-weight:600;font-size:14px;margin-bottom:8px;color:var(–ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.3}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:660px){.grid2,.grid3{grid-template-columns:1fr}}
+
+/* ── PILLS ── */
+.pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:600;margin:2px;vertical-align:middle;font-family:‘DM Mono’,monospace;letter-spacing:.02em}
+.pill-blue{background:var(–c-blue-l);color:var(–c-blue);border:1px solid var(–c-blue-m)}
+.pill-teal{background:var(–c-teal-l);color:var(–c-teal);border:1px solid var(–c-teal-m)}
+.pill-amber{background:var(–c-amber-l);color:var(–c-amber);border:1px solid var(–c-amber-m)}
+.pill-purple{background:var(–c-purple-l);color:var(–c-purple);border:1px solid var(–c-purple-m)}
+.pill-coral{background:var(–c-coral-l);color:var(–c-coral);border:1px solid var(–c-coral-m)}
+.pill-green{background:var(–c-green-l);color:var(–c-green);border:1px solid var(–c-green-m)}
+.pill-gray{background:var(–c-gray-l);color:var(–c-gray);border:1px solid var(–c-gray-m)}
+.pill-orange{background:var(–c-orange-l);color:var(–c-orange);border:1px solid var(–c-orange-m)}
+
+/* ── INSIGHT / CALLOUT ── */
+.insight{border-radius:var(–r);padding:10px 14px;margin:10px 0;border-left:3px solid;font-size:13.5px;line-height:1.6}
+.insight-blue{background:var(–c-blue-l);border-color:var(–c-blue);color:var(–c-blue)}
+.insight-amber{background:var(–c-amber-l);border-color:var(–c-amber);color:var(–c-amber)}
+.insight-coral{background:var(–c-coral-l);border-color:var(–c-coral);color:var(–c-coral)}
+.insight-green{background:var(–c-green-l);border-color:var(–c-green);color:var(–c-green)}
+.insight-teal{background:var(–c-teal-l);border-color:var(–c-teal);color:var(–c-teal)}
+.insight-purple{background:var(–c-purple-l);border-color:var(–c-purple);color:var(–c-purple)}
+.insight-orange{background:var(–c-orange-l);border-color:var(–c-orange);color:var(–c-orange)}
+
+/* ── TABLES ── */
+.cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;border-radius:var(–r);overflow:hidden}
+.cmp-table th{background:var(–paper);font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(–ink3);padding:9px 12px;text-align:left;border-bottom:1px solid var(–rule);font-weight:500}
+.cmp-table td{padding:9px 12px;border-bottom:1px solid var(–rule-lt);vertical-align:top;color:var(–ink2)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr:hover td{background:var(–paper)}
+
+/* ── FORMULA BLOCK ── */
+.formula{background:var(–paper);border-left:3px solid var(–c-teal);border-radius:0 var(–r) var(–r) 0;padding:12px 16px;margin:10px 0;font-family:‘DM Mono’,monospace;font-size:12.5px;color:var(–c-teal);line-height:1.9;white-space:pre-wrap}
+.formula-blue{border-left-color:var(–c-blue);color:var(–c-blue)}
+.formula-coral{border-left-color:var(–c-coral);color:var(–c-coral)}
+.formula-green{border-left-color:var(–c-green);color:var(–c-green)}
+.formula-amber{border-left-color:var(–c-amber);color:var(–c-amber)}
+.formula-purple{border-left-color:var(–c-purple);color:var(–c-purple)}
+
+/* ── PRACTICE QUESTIONS ── */
+.q-card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);margin-bottom:10px;box-shadow:var(–sh-sm);overflow:hidden;transition:box-shadow .18s}
+.q-card:hover{box-shadow:var(–sh-md)}
+.q-header{padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;user-select:none;transition:background .14s}
+.q-header:hover{background:var(–paper)}
+.q-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.q-text{font-size:14px;font-weight:500;line-height:1.5;color:var(–ink)}
+.q-chevron{font-size:18px;color:var(–ink3);flex-shrink:0;margin-top:2px;transition:transform .22s cubic-bezier(.4,0,.2,1);line-height:1}
+.q-card.open .q-chevron{transform:rotate(180deg)}
+.q-answer{display:none;padding:16px 18px 18px;border-top:1px solid var(–rule-lt);font-size:13.5px;line-height:1.72;color:var(–ink2);background:var(–paper)}
+.q-card.open .q-answer{display:block}
+.badge{display:inline-block;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;letter-spacing:.04em;font-family:‘DM Mono’,monospace}
+.badge-easy{background:var(–c-green-l);color:var(–c-green)}
+.badge-med{background:var(–c-amber-l);color:var(–c-amber)}
+.badge-hard{background:var(–c-coral-l);color:var(–c-coral)}
+.badge-topic{background:var(–c-blue-l);color:var(–c-blue)}
+
+/* ── PROGRESS BAR ── */
+.prog-wrap{margin-bottom:22px}
+.prog-label{font-size:12px;color:var(–ink3);margin-bottom:6px;font-family:‘DM Mono’,monospace}
+.prog-bar-wrap{background:var(–paper2);border-radius:999px;height:5px;overflow:hidden}
+.prog-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(–accent),var(–c-blue));transition:width .4s cubic-bezier(.4,0,.2,1)}
+
+/* ── FLASHCARDS ── */
+.fc-scene-wrap{perspective:1000px;max-width:580px;margin:0 auto 20px}
+.fc-scene{width:100%;height:230px;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.fc-scene.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(–r2);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;box-shadow:var(–sh-lg)}
+.fc-front{background:var(–white);border:1px solid var(–rule)}
+.fc-back{background:var(–ink);transform:rotateY(180deg)}
+.fc-lbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-family:‘DM Mono’,monospace}
+.fc-front .fc-lbl{color:var(–ink3)}
+.fc-back .fc-lbl{color:rgba(255,255,255,.35)}
+.fc-term{font-family:‘Fraunces’,serif;font-size:20px;font-weight:600;color:var(–ink);line-height:1.3}
+.fc-back .fc-term{font-family:‘Outfit’,sans-serif;font-size:13.5px;font-weight:400;color:rgba(255,255,255,.88);line-height:1.65}
+.fc-hint{text-align:center;font-size:11px;color:var(–ink3);margin-top:10px;letter-spacing:.06em;font-family:‘DM Mono’,monospace}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:12px;max-width:580px;margin:0 auto}
+.fc-btn{background:var(–white);border:1px solid var(–rule);color:var(–ink2);border-radius:var(–r);padding:9px 22px;cursor:pointer;font-size:13px;font-weight:500;transition:all .18s;font-family:‘Outfit’,sans-serif;box-shadow:var(–sh-sm)}
+.fc-btn:hover{background:var(–accent);border-color:var(–accent);color:#fff;box-shadow:var(–sh-md)}
+.fc-count{font-size:12px;color:var(–ink3);min-width:56px;text-align:center;font-family:‘DM Mono’,monospace}
+
+/* ── FORMULA SHEET ── */
+.fs-search{width:100%;background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:11px 16px;color:var(–ink);font-family:‘Outfit’,sans-serif;font-size:14px;margin-bottom:20px;outline:none;box-shadow:var(–sh-sm);transition:border-color .18s,box-shadow .18s}
+.fs-search:focus{border-color:var(–accent);box-shadow:0 0 0 3px var(–accent-m)}
+.fs-search::placeholder{color:var(–ink3)}
+.fs-group{margin-bottom:24px}
+.fs-group-lbl{font-family:‘DM Mono’,monospace;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(–ink3)}
+.fs-row{display:grid;grid-template-columns:200px 1fr auto;gap:10px;align-items:center;background:var(–white);border:1px solid var(–rule);border-radius:var(–r);padding:10px 14px;margin-bottom:5px;font-size:13px;box-shadow:var(–sh-sm);transition:box-shadow .15s}
+.fs-row:hover{box-shadow:var(–sh-md)}
+.fs-name{font-weight:600;color:var(–ink)}
+.fs-desc{color:var(–ink3);font-size:12px}
+.fs-val{font-family:‘DM Mono’,monospace;font-size:12px;padding:4px 10px;border-radius:5px;border-left:2px solid;white-space:nowrap}
+.fs-row.hidden,.fs-group.hidden{display:none}
+@media(max-width:600px){.fs-row{grid-template-columns:1fr}}
+
+/* ── NUMBER HIGHLIGHT ── */
+.big-num{font-family:‘Fraunces’,serif;font-size:42px;font-weight:700;line-height:1;margin-bottom:4px}
+.num-card{background:var(–white);border:1px solid var(–rule);border-radius:var(–r2);padding:18px 20px;box-shadow:var(–sh-sm);text-align:center;transition:all .2s}
+.num-card:hover{box-shadow:var(–sh-md);transform:translateY(-2px)}
+.num-label{font-size:12px;color:var(–ink3);line-height:1.4;margin-top:4px}
+
+/* ── STEP LIST ── */
+.step-list{display:flex;flex-direction:column;gap:8px}
+.step{display:flex;align-items:flex-start;gap:14px;padding:12px 14px;border-radius:var(–r);border:1px solid var(–rule-lt);background:var(–white);box-shadow:var(–sh-sm)}
+.step-num{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:‘Fraunces’,serif;font-size:16px;font-weight:700;flex-shrink:0}
+.step-body strong{display:block;font-size:13.5px;font-weight:600;margin-bottom:2px}
+.step-body span{font-size:13px;color:var(–ink3)}
+</style>
+
+</head>
+<body data-lec="1">
+
+<!-- HEADER -->
+
+<div id="header">
+  <div class="brand">
+    <div class="brand-icon" id="brand-icon">⚖</div>
+    <div>
+      <div class="brand-text">ASU 113</div>
+      <div class="brand-sub">Ethics & Legislations</div>
+    </div>
+  </div>
+  <div id="lec-tabs">
+    <button class="lec-btn active" onclick="showLec(1,this)">L1 — Introduction</button>
+    <button class="lec-btn" onclick="showLec(2,this)">L2&3 — Prof. Ethics</button>
+    <button class="lec-btn" onclick="showLec(3,this)">L4 — Health & Safety</button>
+    <button class="lec-btn" onclick="showLec(4,this)">L5 — Contract Law</button>
+    <button class="lec-btn" onclick="showLec(5,this)">Critical Thinking</button>
+  </div>
+  <div id="header-right">
+    <span class="hdr-tag">Dr. Mokhtar · Ain Shams</span>
+  </div>
+</div>
+
+<div id="app">
+<div id="sidebar">
+  <div class="sb-lec-card">
+    <div class="sb-lec-num" id="sb-num">01</div>
+    <div class="sb-lec-title" id="sb-title">Introduction to Engineering & Ethics</div>
+    <div class="sb-lec-sub" id="sb-sub">5 sections</div>
+    <div class="sb-lec-accent"></div>
+  </div>
+  <div class="sb-nav">
+    <div class="sb-nav-label">Sections</div>
+    <div id="sec-tabs"></div>
+  </div>
+</div>
+
+<div id="main">
+
+<!-- ══════════════════════════════════════════════════
+     LECTURE 1 — Introduction to Engineering & Ethics
+══════════════════════════════════════════════════ -->
+
+<div class="lec-panel active" id="lec1">
+
+  <!-- Summary -->
+
+  <div class="sec-panel" id="lec1-summary">
+    <div class="lec-hero">
+      <div class="lec-hero-num">01</div>
+      <div class="lec-hero-info">
+        <h2>Introduction to Engineering & Ethics</h2>
+        <p>Origin of "Engineer" · 4 Eras · Responsibilities · Ethics vs Morals · 4 Ethical Theories · Hammurabi</p>
+      </div>
+    </div>
+
+```
+<p class="sec-title">1.1 — What is an Engineer?</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Latin Origin</div>
+    <p>The word "Engineer" derives from the Latin <strong>Ingeniator</strong> — meaning <em>ingenious</em>, to devise or construct.</p>
+    <div class="insight insight-blue" style="margin-top:10px">US NAE definition: someone who understands scientific methods and engineering under constraint, applied in a technological society.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">5 Engineer Responsibilities</div>
+    <ol style="margin-left:16px;line-height:2.1;font-size:13.5px">
+      <li>Safety of the public</li>
+      <li>Welfare of society</li>
+      <li>Environmental concerns</li>
+      <li>Abide by laws, regulations, ethical codes</li>
+      <li>Produce adequate, cost-efficient, durable products</li>
+    </ol>
+  </div>
+</div>
+
+<p class="sec-title">1.2 — 4 Eras of Engineering History</p>
+<div class="step-list">
+  <div class="step"><div class="step-num" style="background:var(--c-gray-l);color:var(--c-gray)">1</div><div class="step-body"><strong>Pre-Scientific Revolution</strong><span>Ancient — Renaissance. Trial and error. Egyptian Pyramids. Leonardo da Vinci.</span></div></div>
+  <div class="step"><div class="step-num" style="background:var(--c-blue-l);color:var(--c-blue)">2</div><div class="step-body"><strong>Industrial Revolution</strong><span>18th–early 19th century. Steam engines replaced muscle power. Engineers became scientific professionals.</span></div></div>
+  <div class="step"><div class="step-num" style="background:var(--c-amber-l);color:var(--c-amber)">3</div><div class="step-body"><strong>Second Industrial Revolution</strong><span>Pre-WWII. Electricity, cars, airplanes, telecommunications, mass production. NOT steam engines!</span></div></div>
+  <div class="step"><div class="step-num" style="background:var(--c-green-l);color:var(--c-green)">4</div><div class="step-body"><strong>Information Revolution</strong><span>Late 20th century — present. Microelectronics + computers handle intellectual tasks.</span></div></div>
+</div>
+<div class="insight insight-coral" style="margin-top:8px">⚠ MCQ Trap: The 2nd Industrial Revolution = electricity + mass production. Steam engines = 1st Industrial Revolution.</div>
+
+<p class="sec-title">1.3 — Ethics vs Morals</p>
+<div class="card">
+  <table class="cmp-table">
+    <thead><tr><th>Concept</th><th>Definition</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill pill-blue">Ethics</span></td><td>Rules from <strong>external</strong> sources</td><td>Workplace codes, religious principles</td></tr>
+      <tr><td><span class="pill pill-green">Morals</span></td><td>Individual's own <strong>internal</strong> principles</td><td>Personal conscience and values</td></tr>
+    </tbody>
+  </table>
+  <div class="insight insight-amber" style="margin-top:8px">Ethics = EXTERNAL. Morals = INTERNAL. Sources of ethics: Religion · Custom · Conscience</div>
+</div>
+
+<p class="sec-title">1.4 — 4 Ethical Theories</p>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="pill pill-blue">Utilitarianism</span></div><p>Results over rules. Greatest good for the greatest number. Originally a guide for legislators.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-teal">Deontology</span></div><p>Duty first. Act rationally; give moral weight to equality of all humans. Resist temptation if duty says no.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-purple">Social Justice</span></div><p>Distributive justice. Rights and duties exist between people AND governments AND individuals.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-amber">Virtue Theory</span></div><p>Character over rules or results. Emphasizes virtuous qualities. <strong>Aristotle</strong> is its first advocate.</p></div>
+</div>
+<div class="insight insight-green">Aristotle → Virtue Theory. Utilitarianism → results. Deontology → duty. Social Justice → distributive justice.</div>
+
+<p class="sec-title">1.5 — Legal Framework</p>
+<div class="card">
+  <div class="card-title">Code of Hammurabi</div>
+  <p>The <strong>first structural code</strong> in history — the earliest known structural design code. Codes and standards set minimum requirements to ensure public safety. Ethics codes address conflicts of interest.</p>
+</div>
+```
+
+  </div>
+
+  <!-- Flashcards -->
+
+  <div class="sec-panel" id="lec1-flashcards">
+    <div class="lec-hero"><div class="lec-hero-num">01</div><div class="lec-hero-info"><h2>Flashcards · Lecture 1</h2><p>Engineering origin, eras, responsibilities, ethical theories</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l1fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l1fc-bar" style="width:10%"></div></div></div>
+    <div class="fc-scene-wrap" onclick="fcFlip('l1')"><div class="fc-scene" id="l1-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Term — click to flip</div><div class="fc-term" id="l1-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Answer</div><div class="fc-term" id="l1-fc-back">…</div></div></div></div>
+    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
+    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l1')">← Prev</button><span class="fc-count" id="l1-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l1')">Next →</button></div>
+  </div>
+
+  <!-- Quiz -->
+
+  <div class="sec-panel" id="lec1-quiz">
+    <div class="lec-hero"><div class="lec-hero-num">01</div><div class="lec-hero-info"><h2>Practice Questions · Lecture 1</h2><p>8 questions · Easy → Hard · Click to reveal answers</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l1q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l1q-bar" style="width:0%"></div></div></div>
+
+```
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Definition</span></div><div class="q-text">What is the Latin origin of the word "Engineer" and what does it mean?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>The word derives from the Latin <strong>Ingeniator</strong> — meaning <em>ingenious</em>, to devise or construct. This is why engineers are expected to find creative solutions under constraint.</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Eras</span></div><div class="q-text">What are the 4 eras of engineering history in order?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. <strong>Pre-Scientific Revolution</strong> — trial and error, pyramids, da Vinci<br>2. <strong>Industrial Revolution</strong> — steam engines, scientific professionals<br>3. <strong>Second Industrial Revolution</strong> — electricity, cars, planes, mass production (pre-WWII)<br>4. <strong>Information Revolution</strong> — microelectronics, computers handle intellectual tasks</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Ethics</span></div><div class="q-text">What is the key difference between Ethics and Morals? Name 3 sources of professional ethics.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Ethics</strong> = rules from <em>external</em> sources (workplace codes, religious principles).<br><strong>Morals</strong> = an individual's own <em>internal</em> principles (personal conscience).<br><br>Sources of ethics: <strong>Religion, Custom, Conscience</strong></p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Ethical Theories</span></div><div class="q-text">Which philosopher first advocated Virtue Theory? Briefly describe what it emphasizes.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Aristotle</strong> is recognized as the first philosopher to advocate Virtue Theory. It emphasizes virtuous character qualities over formal rules or useful results — the question isn't "what should I do?" but "what kind of person should I be?"</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">MCQ Trap</span></div><div class="q-text">A student claims the Second Industrial Revolution is symbolized by steam engines. Are they correct? Explain.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Incorrect.</strong> Steam engines define the <em>First</em> Industrial Revolution (18th–early 19th century). The <strong>Second Industrial Revolution</strong> (pre-WWII) is characterized by <strong>electricity, cars, airplanes, telecommunications, and mass production</strong>. This distinction appears repeatedly in MCQs.</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Ethical Theories</span></div><div class="q-text">Compare Utilitarianism and Deontology. What does each prioritize and how do they differ on decision-making?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Utilitarianism</strong> focuses on <em>results</em> — the greatest good for the greatest number. Originally a guide for legislators. The morality of an act is judged by its consequences.<br><br><strong>Deontology</strong> focuses on <em>duty</em> — act rationally, give moral weight to the equality of all humans, and resist temptation even when consequences seem favorable. The morality of an act is judged by the nature of the act itself, not its outcome.</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Social Justice</span></div><div class="q-text">What is the core principle of Social Justice theory? How does it differ from Utilitarianism?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Social Justice</strong> is based on <em>distributive justice</em> — the fair distribution of goods and resources in society. Rights and duties exist not only between people and governments, but also between individuals.<br><br>Difference from Utilitarianism: Utilitarianism could justify harming a minority to benefit the majority. Social Justice explicitly protects individual rights regardless of the majority outcome.</p></div></div>
+
+<div class="q-card" data-key="l1q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Scenario</span></div><div class="q-text">An engineer discovers their company's product has a flaw that affects 1% of users but fixing it will bankrupt the company and harm 2000 employees. Apply each of the 4 ethical theories to this dilemma.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Utilitarianism:</strong> Might allow hiding the flaw — if harm to 1% of users is outweighed by saving 2000 jobs. Focuses on the net outcome for all.<br><br><strong>Deontology:</strong> Must disclose — duty to truth and safety overrides financial consequences. The act of concealment is inherently wrong regardless of consequences.<br><br><strong>Social Justice:</strong> Users' right to safety cannot be traded away for economic benefit. Must fix and disclose, find another way to handle bankruptcy.<br><br><strong>Virtue Theory:</strong> An engineer of good character would disclose — honesty and integrity define who they are, independent of consequences.</p></div></div>
+```
+
+  </div>
+
+  <!-- Key Numbers -->
+
+  <div class="sec-panel" id="lec1-numbers">
+    <div class="lec-hero"><div class="lec-hero-num">01</div><div class="lec-hero-info"><h2>Key Facts Reference · Lecture 1</h2></div></div>
+    <input class="fs-search" type="text" placeholder="🔍 Search facts..." oninput="filterFS(this)">
+    <div class="fs-group">
+      <div class="fs-group-lbl">Core Facts</div>
+      <div class="fs-row" data-s="engineer latin ingeniator origin"><div class="fs-name">Engineer Origin</div><div class="fs-desc">Latin root of the word Engineer</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">Ingeniator</div></div>
+      <div class="fs-row" data-s="first structural code history hammurabi"><div class="fs-name">First Structural Code</div><div class="fs-desc">Earliest known structural design code</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Code of Hammurabi</div></div>
+      <div class="fs-row" data-s="virtue theory philosopher aristotle first"><div class="fs-name">Virtue Theory Founder</div><div class="fs-desc">First philosopher to advocate Virtue Theory</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">Aristotle</div></div>
+      <div class="fs-row" data-s="sources ethics religion custom conscience"><div class="fs-name">Sources of Ethics (3)</div><div class="fs-desc">Where professional ethics originate from</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Religion · Custom · Conscience</div></div>
+      <div class="fs-row" data-s="ethics external internal morals"><div class="fs-name">Ethics vs Morals</div><div class="fs-desc">The core distinction</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Ethics=External; Morals=Internal</div></div>
+    </div>
+    <div class="fs-group">
+      <div class="fs-group-lbl">4 Ethical Theories</div>
+      <div class="fs-row" data-s="utilitarianism results greatest good number"><div class="fs-name">Utilitarianism</div><div class="fs-desc">Focus: results, not rules</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">Greatest good, greatest number</div></div>
+      <div class="fs-row" data-s="deontology duty rational equality humans"><div class="fs-name">Deontology</div><div class="fs-desc">Focus: duty first</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Duty · Rationality · Equality</div></div>
+      <div class="fs-row" data-s="social justice distributive rights duties individuals governments"><div class="fs-name">Social Justice</div><div class="fs-desc">Focus: distributive justice</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">Fair distribution of goods</div></div>
+      <div class="fs-row" data-s="virtue theory character aristotle qualities"><div class="fs-name">Virtue Theory</div><div class="fs-desc">Focus: character qualities (Aristotle)</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Character over rules or results</div></div>
+    </div>
+  </div>
+</div><!-- /lec1 -->
+
+<!-- ══════════════════════════════════════════════════
+     LECTURE 2 — Professional Ethics & Research Integrity
+══════════════════════════════════════════════════ -->
+
+<div class="lec-panel" id="lec2">
+
+  <div class="sec-panel" id="lec2-summary">
+    <div class="lec-hero">
+      <div class="lec-hero-num">02</div>
+      <div class="lec-hero-info">
+        <h2>Professional Ethics & Research Integrity</h2>
+        <p>9 Components · 4 Aims · ASME Canons · Plagiarism · Referencing · Case Studies</p>
+      </div>
+    </div>
+
+```
+<p class="sec-title">2.1 — Professional Ethics</p>
+<div class="card">
+  <div class="card-title">Definition</div>
+  <p>Principles that govern the behavior of a person or group in a business environment.</p>
+</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">9 Components <span class="pill pill-coral">Count matters</span></div>
+    <p style="font-size:13.5px;line-height:2.2">Honesty · Integrity · Transparency · Accountability · Confidentiality · Objectivity · Respect · Obedience to the law · Loyalty</p>
+  </div>
+  <div class="card">
+    <div class="card-title">4 Aims</div>
+    <ol style="margin-left:16px;line-height:2.1;font-size:13.5px">
+      <li>Understand moral values guiding engineering</li>
+      <li>Resolve moral issues in the profession</li>
+      <li>Justify moral judgments</li>
+      <li>Assure clients of high standards</li>
+    </ol>
+  </div>
+</div>
+
+<p class="sec-title">2.2 — ASME Code of Ethics</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">4 Fundamental Principles</div>
+    <ol style="margin-left:16px;line-height:2.1;font-size:13.5px">
+      <li>Use knowledge for human welfare</li>
+      <li>Be honest and impartial; serve with fidelity</li>
+      <li>Increase competence and prestige of profession</li>
+      <li>Support professional and technical societies</li>
+    </ol>
+  </div>
+  <div class="card">
+    <div class="card-title">7 Fundamental Canons</div>
+    <ol style="margin-left:16px;line-height:2.1;font-size:13.5px">
+      <li><strong>Hold paramount</strong> the safety, health, and welfare of the public</li>
+      <li>Perform services only in areas of competence</li>
+      <li>Issue public statements only objectively and truthfully</li>
+      <li>Act as faithful agents; avoid conflicts of interest</li>
+      <li>Build reputation on merit; don't compete unfairly</li>
+      <li>Uphold honor, integrity, dignity of the profession</li>
+      <li>Continue professional development; support juniors</li>
+    </ol>
+  </div>
+</div>
+<div class="insight insight-amber">Canon 1 = ALWAYS hold paramount the safety, health, and welfare of the PUBLIC. This is the most-tested canon.</div>
+
+<p class="sec-title">2.3 — 5 Unethical Communication Concerns</p>
+<div class="card">
+  <div class="step-list">
+    <div class="step"><div class="step-num" style="background:var(--c-coral-l);color:var(--c-coral)">1</div><div class="step-body"><strong>Copyright infringement</strong><span>Using others' intellectual property without permission</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-coral-l);color:var(--c-coral)">2</div><div class="step-body"><strong>Tampering with results</strong><span>Falsifying or manipulating data or findings</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-coral-l);color:var(--c-coral)">3</div><div class="step-body"><strong>Withholding adverse information</strong><span>Hiding results that contradict desired conclusions</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-coral-l);color:var(--c-coral)">4</div><div class="step-body"><strong>Writing unclear instructions</strong><span>Instructions that lead to misuse or accidents</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-coral-l);color:var(--c-coral)">5</div><div class="step-body"><strong>Omitting safety warnings</strong><span>Failing to include required hazard warnings</span></div></div>
+  </div>
+</div>
+
+<p class="sec-title">2.4 — Facing a Dilemma (4 Steps)</p>
+<div class="card">
+  <div class="step-list">
+    <div class="step"><div class="step-num" style="background:var(--c-blue-l);color:var(--c-blue)">1</div><div class="step-body"><strong>Analyze the situation carefully</strong><span>Understand all aspects of the problem before acting</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-blue-l);color:var(--c-blue)">2</div><div class="step-body"><strong>Consider issues from more than one angle</strong><span>Apply multiple ethical frameworks</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-blue-l);color:var(--c-blue)">3</div><div class="step-body"><strong>Consult with others</strong><span>Seek guidance from colleagues, mentors, or codes</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-blue-l);color:var(--c-blue)">4</div><div class="step-body"><strong>Think long and hard before deciding</strong><span>Don't rush — make a deliberate, considered choice</span></div></div>
+  </div>
+</div>
+
+<p class="sec-title">2.5 — Plagiarism</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Definition & 3 Causes</div>
+    <p>Using someone else's work without giving proper credit.</p>
+    <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap"><span class="pill pill-coral">Dishonesty</span><span class="pill pill-amber">Carelessness & laziness</span><span class="pill pill-gray">Ignorance</span></div>
+  </div>
+  <div class="card">
+    <div class="card-title">No Citation Needed For:</div>
+    <ul style="margin-left:16px;line-height:2.1;font-size:13.5px">
+      <li>Your own ideas and opinions</li>
+      <li>Common knowledge</li>
+    </ul>
+    <div class="insight insight-teal" style="margin-top:8px">Everything else requires proper attribution.</div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">10 Forms of Plagiarism <span class="pill pill-coral">Count = 10</span></div>
+  <div class="grid2" style="margin-top:8px">
+    <ul style="margin-left:16px;line-height:2;font-size:13px">
+      <li>Using another's words without citation</li>
+      <li>Using another's ideas without citation</li>
+      <li>Reproducing exact words without quotes</li>
+      <li>Borrowing sentence structure without credit</li>
+      <li>Using another student's paper/outline</li>
+    </ul>
+    <ul style="margin-left:16px;line-height:2;font-size:13px">
+      <li>Using a paper writing service</li>
+      <li>Borrowing computer code from another student</li>
+      <li><strong>Multiple submission</strong> (one paper, two classes)</li>
+      <li>Copying in exams / unauthorized notes</li>
+      <li><strong>Failure to collaborate</strong> when required</li>
+    </ul>
+  </div>
+</div>
+
+<p class="sec-title">2.6 — Case Studies</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title" style="color:var(--c-coral)">🏨 Hyatt Regency Collapse · 1981</div>
+    <div class="big-num" style="color:var(--c-coral)">114</div>
+    <div class="num-label">Deaths · July 17, 1981 · Kansas City</div>
+    <div style="margin-top:12px;font-size:13.5px;line-height:1.65">Contractor altered engineering design without proper approval — making walkways <strong>weaker</strong>, not stronger. Engineering firm may have approved changes without basic structural calculations. 1,600 people were present for a dance competition.</div>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--c-blue)">🚀 Challenger Explosion · 1986</div>
+    <div class="big-num" style="color:var(--c-blue)">7</div>
+    <div class="num-label">Crew deaths · January 28, 1986</div>
+    <div style="margin-top:12px;font-size:13.5px;line-height:1.65">O-ring seal flaw in solid rocket booster was known to NASA managers since <strong>1977</strong> — 9 years before the disaster. Engineers explicitly warned against launching in cold conditions. Management overrode the warnings.</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- Flashcards L2 -->
+
+  <div class="sec-panel" id="lec2-flashcards">
+    <div class="lec-hero"><div class="lec-hero-num">02</div><div class="lec-hero-info"><h2>Flashcards · Lectures 2 & 3</h2><p>Professional ethics, ASME, plagiarism, case studies</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l2fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l2fc-bar" style="width:10%"></div></div></div>
+    <div class="fc-scene-wrap" onclick="fcFlip('l2')"><div class="fc-scene" id="l2-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Term — click to flip</div><div class="fc-term" id="l2-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Answer</div><div class="fc-term" id="l2-fc-back">…</div></div></div></div>
+    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
+    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l2')">← Prev</button><span class="fc-count" id="l2-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l2')">Next →</button></div>
+  </div>
+
+  <!-- Quiz L2 -->
+
+  <div class="sec-panel" id="lec2-quiz">
+    <div class="lec-hero"><div class="lec-hero-num">02</div><div class="lec-hero-info"><h2>Practice Questions · Lectures 2 & 3</h2><p>8 questions · Click to reveal</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l2q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l2q-bar" style="width:0%"></div></div></div>
+
+```
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Components</span></div><div class="q-text">List the 9 components of professional ethics.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Honesty · Integrity · Transparency · Accountability · Confidentiality · Objectivity · Respect · Obedience to the law · Loyalty</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">ASME</span></div><div class="q-text">What does ASME Canon 1 state? Why is it the most important canon?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Canon 1: "Hold paramount the safety, health, and welfare of the public." It is most important because it overrides all others — no business interest, employer request, or professional loyalty justifies compromising public safety. This is the foundation of engineering ethics.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Plagiarism</span></div><div class="q-text">What are the 3 causes of plagiarism? When do you NOT need to cite a source?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>3 causes: <strong>Dishonesty · Carelessness and laziness · Ignorance</strong><br><br>No citation needed for: (1) your own ideas and opinions, (2) common knowledge. Everything else must be cited.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Case Study</span></div><div class="q-text">Hyatt Regency (1981): describe what happened, the death toll, and the root ethical failure.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>On July 17, 1981, the 4th and 2nd floor walkways of the Hyatt Regency hotel in Kansas City collapsed during a dance competition attended by 1,600 people. <strong>114 people died.</strong><br><br>Root cause: The contractor altered the original engineering firm's design — but the modification made the walkways weaker, not stronger. The engineering firm allegedly approved the change without performing basic structural calculations.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Case Study</span></div><div class="q-text">Challenger (1986): What was the flaw, when was it known, and what was the ethical failure?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>The O-ring seal in the solid rocket booster failed on January 28, 1986, allowing hot gas to reach the external fuel tank. All <strong>7 crew members</strong> perished.<br><br>The flaw was known to NASA managers since <strong>1977</strong> — 9 years before the disaster. The ethical failure: engineers explicitly warned against launching in cold conditions the night before. NASA management overrode their objections and approved the launch.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Plagiarism</span></div><div class="q-text">A student submits the same report to two different courses. Is this plagiarism? Which form?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Yes — this is <strong>Multiple Submission</strong>, one of the 10 recognized forms of plagiarism. Submitting one paper for credit in two different classes is academic misconduct even though the work is originally your own, because each course expects original work done specifically for it.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Unethical Comms</span></div><div class="q-text">An engineer knows a drug interaction risk but omits it from instructions because it would complicate the product manual. Which of the 5 unethical communication concerns applies, and what should they have done?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>This is <strong>Omitting Safety Warnings</strong> (concern #5) AND potentially <strong>Withholding Adverse Information</strong> (concern #3).<br><br>The engineer should have included the drug interaction warning clearly in the manual — ASME Canon 1 requires holding public safety paramount. The fact that it complicates the document is irrelevant. This type of omission can lead to patient harm and professional liability.</p></div></div>
+
+<div class="q-card" data-key="l2q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Dilemma Framework</span></div><div class="q-text">Apply the 4-step dilemma framework to the Challenger scenario. At what step did NASA management fail?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Step 1: <strong>Analyze carefully</strong> — engineers had analyzed and identified the O-ring risk in cold temperatures. This step was completed correctly by the engineers.<br><br>Step 2: <strong>Consider multiple angles</strong> — management considered only schedule and economic pressures, not the engineering safety data. <strong>Failed here.</strong><br><br>Step 3: <strong>Consult with others</strong> — engineers were consulted but overruled. The consultation happened but the feedback was ignored. <strong>Failed here.</strong><br><br>Step 4: <strong>Think long and hard</strong> — management rushed the decision under pressure. <strong>Failed catastrophically here.</strong></p></div></div>
+```
+
+  </div>
+
+  <!-- Key Facts L2 -->
+
+  <div class="sec-panel" id="lec2-numbers">
+    <div class="lec-hero"><div class="lec-hero-num">02</div><div class="lec-hero-info"><h2>Key Facts Reference · Lectures 2 & 3</h2></div></div>
+    <input class="fs-search" type="text" placeholder="🔍 Search facts..." oninput="filterFS(this)">
+    <div class="fs-group">
+      <div class="fs-group-lbl">Critical Numbers</div>
+      <div class="fs-row" data-s="professional ethics components count 9"><div class="fs-name">Prof. Ethics Components</div><div class="fs-desc">How many components of professional ethics?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">9 components</div></div>
+      <div class="fs-row" data-s="aims professional ethics 4"><div class="fs-name">Aims of Prof. Ethics</div><div class="fs-desc">How many aims?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">4 aims</div></div>
+      <div class="fs-row" data-s="asme canons 7 fundamental"><div class="fs-name">ASME Fundamental Canons</div><div class="fs-desc">Number of canons</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">7 canons</div></div>
+      <div class="fs-row" data-s="asme principles 4 fundamental"><div class="fs-name">ASME Fundamental Principles</div><div class="fs-desc">Number of principles</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">4 principles</div></div>
+      <div class="fs-row" data-s="plagiarism forms 10 count"><div class="fs-name">Forms of Plagiarism</div><div class="fs-desc">Total recognized forms</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">10 forms</div></div>
+      <div class="fs-row" data-s="unethical communication concerns 5"><div class="fs-name">Unethical Comm. Concerns</div><div class="fs-desc">Five concerns to avoid</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">5 concerns</div></div>
+      <div class="fs-row" data-s="hyatt regency deaths 114 1981"><div class="fs-name">Hyatt Regency Deaths</div><div class="fs-desc">July 17, 1981 — walkway collapse</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">114 deaths</div></div>
+      <div class="fs-row" data-s="challenger deaths 7 1986 january crew"><div class="fs-name">Challenger Deaths</div><div class="fs-desc">January 28, 1986 — all crew</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">7 deaths</div></div>
+      <div class="fs-row" data-s="challenger flaw known 1977 nasa seal"><div class="fs-name">Challenger — Flaw Known Since</div><div class="fs-desc">How many years before disaster?</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">1977 (9 years before)</div></div>
+    </div>
+  </div>
+</div><!-- /lec2 -->
+
+<!-- ══════════════════════════════════════════════════
+     LECTURE 3 — Health & Safety (Lecture 4 in syllabus)
+══════════════════════════════════════════════════ -->
+
+<div class="lec-panel" id="lec3">
+  <div class="sec-panel" id="lec3-summary">
+    <div class="lec-hero">
+      <div class="lec-hero-num">03</div>
+      <div class="lec-hero-info">
+        <h2>Health & Safety · OSHA</h2>
+        <p>OSHA Background · Top 10 Hazards · 6 Safety Steps · Scaffolding · Lab Safety · First Aid</p>
+      </div>
+    </div>
+
+```
+<p class="sec-title">3.1 — OSHA Background</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">What is OSHA?</div>
+    <p><strong>Occupational</strong> Health & Safety Administration</p>
+    <div class="insight insight-coral" style="margin-top:8px">⚠ NOT "Organizational" — this exact word is a common MCQ trap.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Dates</div>
+    <table class="cmp-table">
+      <tbody>
+        <tr><td>Act signed</td><td><strong>December 29, 1970</strong> by President Nixon</td></tr>
+        <tr><td>Agency active</td><td><strong>April 28, 1971</strong></td></tr>
+        <tr><td>Mission</td><td>Save lives, prevent injuries, protect worker health</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p class="sec-title">3.2 — Top 10 Cited Hazards (2022)</p>
+<div class="card">
+  <table class="cmp-table">
+    <thead><tr><th>Rank</th><th>Hazard</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--c-coral-l)"><td><strong>#1</strong></td><td><span class="pill pill-coral">Fall Protection — General Requirements</span></td></tr>
+      <tr><td>#2</td><td>Hazard Communication</td></tr>
+      <tr><td>#3</td><td>Respiratory Protection</td></tr>
+      <tr><td>#4</td><td>Ladders</td></tr>
+      <tr><td>#5</td><td>Scaffolding</td></tr>
+      <tr><td>#6</td><td>Lockout/Tagout</td></tr>
+      <tr><td>#7</td><td>Powered Industrial Trucks</td></tr>
+      <tr><td><strong>#8</strong></td><td><span class="pill pill-amber">Fall Protection — Training Requirements</span></td></tr>
+      <tr><td>#9</td><td>Eye and Face Protection (PPE)</td></tr>
+      <tr><td>#10</td><td>Machine Guarding</td></tr>
+    </tbody>
+  </table>
+  <div class="insight insight-amber" style="margin-top:8px">Fall Protection appears TWICE (#1 and #8). Hazard Communication is #2, NOT #1 — a frequent MCQ trap.</div>
+</div>
+
+<p class="sec-title">3.3 — Safe Workplace & 6 Safety Steps</p>
+<div class="card">
+  <div class="card-title">Section 5(a)(1) of the OSHA Act</div>
+  <p>Each employer shall provide a workplace free from recognized hazards likely to cause <strong>death or serious physical harm</strong>. NOT just "any discomfort" — that wording is a trap.</p>
+</div>
+<div class="card">
+  <div class="card-title">6 Safety Achievement Steps — D·A·D·T·W·R</div>
+  <div class="step-list" style="margin-top:8px">
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">D</div><div class="step-body"><strong>Define scope of work</strong><span>Identify all possible activities and tasks</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">A</div><div class="step-body"><strong>Analyze workplace hazards</strong><span>Search records, incidents, surveys, existing controls</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">D</div><div class="step-body"><strong>Develop & implement controls</strong><span>Create safety measures and put them in place</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">T</div><div class="step-body"><strong>Training & education</strong><span>All staff including managers must be trained</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">W</div><div class="step-body"><strong>Work within controls</strong><span>Activities done under enforced safety restrictions</span></div></div>
+    <div class="step"><div class="step-num" style="background:var(--c-teal-l);color:var(--c-teal)">R</div><div class="step-body"><strong>Record keeping & evaluation</strong><span>Determine effectiveness, identify deficiencies, improve controls</span></div></div>
+  </div>
+</div>
+
+<p class="sec-title">3.4 — Scaffolding & Fall Protection</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Scaffolding Key Numbers</div>
+    <table class="cmp-table">
+      <tbody>
+        <tr><td>Guardrails required</td><td><strong>Over 10 feet</strong></td></tr>
+        <tr><td>Tie-in ratio</td><td><strong>4:1</strong> height-to-base</td></tr>
+        <tr><td>Hazards</td><td>Falls, Falling items, Electrical</td></tr>
+      </tbody>
+    </table>
+    <div class="insight insight-amber" style="margin-top:8px">10 feet = guardrails. 4:1 = tie-in. Don't mix these up.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Fall Protection Methods</div>
+    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
+      <li><strong>Guardrails & warning lines</strong></li>
+      <li><strong>Safety nets</strong></li>
+      <li><strong>Personal fall arrest systems</strong> (harnesses)</li>
+    </ol>
+    <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap"><span class="pill pill-teal">Safety monitors</span><span class="pill pill-blue">Scaffolds</span><span class="pill pill-green">Aerial lifts</span></div>
+  </div>
+</div>
+
+<p class="sec-title">3.5 — Lab Safety & Chemical Hygiene Plan</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">Acute vs Chronic Exposure</div>
+    <table class="cmp-table">
+      <thead><tr><th>Type</th><th>Timing</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-coral">Acute</span></td><td>Within <strong>hours or days</strong> of exposure</td></tr>
+        <tr><td><span class="pill pill-amber">Chronic</span></td><td>After exposure over <strong>many years</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Chemical Hygiene Plan (CHP) — 8 Required Elements</div>
+    <ol style="margin-left:16px;line-height:2;font-size:12.5px">
+      <li>Chemical Hygiene Officer (designated)</li>
+      <li>Exposure control measures</li>
+      <li>Ensure functioning fume hoods & equipment</li>
+      <li>Staff hazard training</li>
+      <li>Medical consultation provisions</li>
+      <li>Respiratory protection program</li>
+      <li>Recordkeeping procedure</li>
+      <li>Hazard identification system</li>
+    </ol>
+  </div>
+</div>
+
+<p class="sec-title">3.6 — First Aid</p>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">3 Steps of First Aid</div>
+    <div class="step-list" style="margin-top:8px">
+      <div class="step"><div class="step-num" style="background:var(--c-green-l);color:var(--c-green)">1</div><div class="step-body"><strong>Diagnosis</strong></div></div>
+      <div class="step"><div class="step-num" style="background:var(--c-green-l);color:var(--c-green)">2</div><div class="step-body"><strong>Treatment</strong></div></div>
+      <div class="step"><div class="step-num" style="background:var(--c-green-l);color:var(--c-green)">3</div><div class="step-body"><strong>Disposal</strong></div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">6 First Aid Priorities (in order)</div>
+    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
+      <li><strong>Check Breathing</strong> ← always first</li>
+      <li>Check Blood loss</li>
+      <li>Treat Shock</li>
+      <li>Treat Fracture</li>
+      <li>Look for Simple Injuries</li>
+      <li>Disposal</li>
+    </ol>
+    <div class="insight insight-green" style="margin-top:8px">Recovery position = unconscious casualties ONLY.</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- Flashcards L3 -->
+
+  <div class="sec-panel" id="lec3-flashcards">
+    <div class="lec-hero"><div class="lec-hero-num">03</div><div class="lec-hero-info"><h2>Flashcards · Health & Safety</h2><p>OSHA, safety steps, scaffolding, first aid, lab safety</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l3fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l3fc-bar" style="width:10%"></div></div></div>
+    <div class="fc-scene-wrap" onclick="fcFlip('l3')"><div class="fc-scene" id="l3-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Term — click to flip</div><div class="fc-term" id="l3-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Answer</div><div class="fc-term" id="l3-fc-back">…</div></div></div></div>
+    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
+    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l3')">← Prev</button><span class="fc-count" id="l3-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l3')">Next →</button></div>
+  </div>
+
+  <!-- Quiz L3 -->
+
+  <div class="sec-panel" id="lec3-quiz">
+    <div class="lec-hero"><div class="lec-hero-num">03</div><div class="lec-hero-info"><h2>Practice Questions · Health & Safety</h2><p>8 questions · Easy → Hard</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l3q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l3q-bar" style="width:0%"></div></div></div>
+
+```
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">OSHA</span></div><div class="q-text">What does OSHA stand for? When was it signed and when did it become active?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Occupational</strong> Health & Safety Administration (NOT Organizational — this is a deliberate MCQ trap).<br><br>Signed: <strong>December 29, 1970</strong> by President Nixon.<br>Active: <strong>April 28, 1971</strong>.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Hazards</span></div><div class="q-text">What is the #1 most cited OSHA hazard in 2022? What is #2? Why is this an MCQ trap?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>#1: <strong>Fall Protection — General Requirements</strong><br>#2: <strong>Hazard Communication</strong><br><br>It's an MCQ trap because Hazard Communication sounds like the most fundamental safety concern and is easy to assume is #1. Also, Fall Protection appears twice (#1 General and #8 Training) — a detail that's often tested.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Section 5(a)(1)</span></div><div class="q-text">What does Section 5(a)(1) of the OSHA Act require? Why is "any discomfort" a wrong answer?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Section 5(a)(1) requires each employer to provide a workplace free from recognized hazards likely to cause <strong>death or serious physical harm</strong>.<br><br>"Any discomfort" is a trap answer that sets an impossibly broad standard — minor ergonomic discomfort is not covered. The law specifically targets hazards severe enough to cause death or serious injury.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Safety Steps</span></div><div class="q-text">List the 6 Safety Achievement Steps in order. What mnemonic helps remember them?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. <strong>D</strong>efine scope of work<br>2. <strong>A</strong>nalyze workplace hazards<br>3. <strong>D</strong>evelop & implement controls<br>4. <strong>T</strong>raining & education<br>5. <strong>W</strong>ork within controls<br>6. <strong>R</strong>ecord keeping & evaluation<br><br>Mnemonic: <strong>D-A-D-T-W-R</strong> ("Dad Taught Workers Rules")</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Scaffolding</span></div><div class="q-text">At what height are scaffolding guardrails required? What is the tie-in ratio? What are the 3 scaffolding hazards?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Guardrails: required when height exceeds <strong>10 feet</strong><br>Tie-in ratio: <strong>4:1</strong> height-to-base ratio<br>3 hazards: <strong>Falls · Falling items · Electrical</strong><br><br>Common confusion: students mix up 10 feet (guardrails) and 4:1 (tie-in). They are two separate requirements.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">First Aid</span></div><div class="q-text">List the 6 First Aid priorities in order. What is the recovery position used for?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. Check Breathing (ALWAYS FIRST)<br>2. Check Blood loss<br>3. Treat Shock<br>4. Treat Fracture<br>5. Look for Simple Injuries<br>6. Disposal<br><br>Recovery position: used for <strong>unconscious casualties only</strong> — lying on their side to keep the airway open.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">CHP</span></div><div class="q-text">What are the 8 required elements of a Chemical Hygiene Plan? What is the role of the Chemical Hygiene Officer?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>1. Designation of a <strong>Chemical Hygiene Officer</strong><br>2. Exposure control measures<br>3. Ensure properly functioning fume hoods & equipment<br>4. Staff training on hazard awareness & protection measures<br>5. Provisions for medical consultation & examination<br>6. Respiratory protection program<br>7. Recordkeeping procedure<br>8. Hazard identification system<br><br>The CHO is responsible for developing and implementing the plan, and ensuring all staff are trained and protected against chemical hazards in the lab.</p></div></div>
+
+<div class="q-card" data-key="l3q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Scenario</span></div><div class="q-text">A worker is found unconscious at a construction site with a visible bone fracture and bleeding. Apply the First Aid priorities correctly.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Following the 6 priorities in strict order:<br><br>1. <strong>Check Breathing first</strong> — unconscious means airway is the top priority. Place in recovery position to keep airway open.<br>2. <strong>Check Blood loss</strong> — apply pressure to the bleeding wound.<br>3. <strong>Treat Shock</strong> — keep warm, calm, still.<br>4. <strong>Treat Fracture</strong> — only after bleeding and shock are addressed, immobilize the fracture.<br>5. Look for other simple injuries.<br>6. Disposal — transport carefully to medical help.<br><br>Common mistake: treating the visible fracture first because it's obvious. The invisible threats (airway, bleeding) always come first.</p></div></div>
+```
+
+  </div>
+
+  <!-- Key Facts L3 -->
+
+  <div class="sec-panel" id="lec3-numbers">
+    <div class="lec-hero"><div class="lec-hero-num">03</div><div class="lec-hero-info"><h2>Key Facts Reference · Health & Safety</h2></div></div>
+    <input class="fs-search" type="text" placeholder="🔍 Search facts..." oninput="filterFS(this)">
+    <div class="fs-group">
+      <div class="fs-group-lbl">OSHA Numbers</div>
+      <div class="fs-row" data-s="osha full name occupational health safety"><div class="fs-name">OSHA Full Name</div><div class="fs-desc">Not "Organizational" — exact word matters</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">Occupational H&S Admin</div></div>
+      <div class="fs-row" data-s="osha signed 1970 december nixon"><div class="fs-name">OSHA Act Signed</div><div class="fs-desc">Date and who signed it</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Dec 29, 1970 · Nixon</div></div>
+      <div class="fs-row" data-s="osha active 1971 april"><div class="fs-name">OSHA Agency Active</div><div class="fs-desc">When did the agency start operating?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">April 28, 1971</div></div>
+      <div class="fs-row" data-s="number 1 hazard fall protection 2022"><div class="fs-name">Top Hazard (2022)</div><div class="fs-desc">#1 most cited — not Hazard Communication</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Fall Protection — General</div></div>
+      <div class="fs-row" data-s="scaffolding guardrails height 10 feet"><div class="fs-name">Scaffold Guardrails</div><div class="fs-desc">Height requiring guardrails</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Over 10 feet</div></div>
+      <div class="fs-row" data-s="scaffold tie in ratio 4 1 height base"><div class="fs-name">Scaffold Tie-in Ratio</div><div class="fs-desc">Height-to-base ratio requiring tie-in</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">4:1</div></div>
+      <div class="fs-row" data-s="chemical hygiene plan elements 8 CHP"><div class="fs-name">CHP Elements</div><div class="fs-desc">Required elements in a Chemical Hygiene Plan</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">8 elements</div></div>
+      <div class="fs-row" data-s="acute exposure hours days chemical"><div class="fs-name">Acute Exposure</div><div class="fs-desc">When does it occur?</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Hours or days</div></div>
+      <div class="fs-row" data-s="chronic exposure years chemical long term"><div class="fs-name">Chronic Exposure</div><div class="fs-desc">When does it occur?</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">Over many years</div></div>
+      <div class="fs-row" data-s="first aid priority one breathing unconscious"><div class="fs-name">First Aid Priority #1</div><div class="fs-desc">Always checked first</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">Check Breathing</div></div>
+    </div>
+  </div>
+</div><!-- /lec3 -->
+
+<!-- ══════════════════════════════════════════════════
+     LECTURE 4 — Construction Contract Law
+══════════════════════════════════════════════════ -->
+
+<div class="lec-panel" id="lec4">
+  <div class="sec-panel" id="lec4-summary">
+    <div class="lec-hero">
+      <div class="lec-hero-num">04</div>
+      <div class="lec-hero-info">
+        <h2>Construction Contract Law</h2>
+        <p>Egyptian Civil Code Articles 647–667 · 10-Year Guarantee · Unit Price vs Lump Sum · Obligations</p>
+      </div>
+    </div>
+
+```
+<p class="sec-title">4.1 — Contract Basics</p>
+<div class="card">
+  <div class="card-title">Definition</div>
+  <p>A contract between two parties: one undertakes to <strong>do something</strong> (contractor), and the other undertakes to <strong>pay</strong> (employer). Important because of: (a) high financial value, (b) long duration, (c) external influences like subcontractors and consulting engineers.</p>
+</div>
+<div class="grid2">
+  <div class="card">
+    <div class="card-title">3 Contractor Obligations</div>
+    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
+      <li>Perform work in the <strong>desired manner</strong></li>
+      <li>Deliver at the <strong>agreed time</strong></li>
+      <li>Guarantee work for <strong>10 years</strong></li>
+    </ol>
+  </div>
+  <div class="card">
+    <div class="card-title">3 Employer Obligations</div>
+    <ol style="margin-left:16px;line-height:2.2;font-size:13.5px">
+      <li><strong>Enable</strong> the contractor to complete work</li>
+      <li><strong>Receive</strong> the work from the contractor</li>
+      <li><strong>Pay</strong> the wages</li>
+    </ol>
+  </div>
+</div>
+
+<p class="sec-title">4.2 — Critical Articles (MCQ Priority)</p>
+<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
+  <div class="card-title">Article 651 — 10-Year Joint Guarantee ⭐</div>
+  <p>The engineer AND contractor are <strong>jointly responsible</strong> for the facility for <strong>10 years</strong> from the <strong>date of delivery</strong>. Covers: full collapse, partial collapse, structural defects.</p>
+  <div class="insight insight-coral" style="margin-top:8px">Starts from DELIVERY DATE — NOT from signing or construction start. This is the #1 MCQ trap on this article.</div>
+</div>
+<div class="card" style="border-color:var(--c-coral);border-left:3px solid var(--c-coral)">
+  <div class="card-title">Article 653 — Exemption Clauses are Void ⭐</div>
+  <p>Any contract clause that exempts the engineer or contractor from 10-year liability is <strong>null and void</strong>. You cannot contractually escape this responsibility.</p>
+</div>
+<div class="card" style="border-color:var(--c-purple);border-left:3px solid var(--c-purple)">
+  <div class="card-title">Article 654 — 3-Year Filing Deadline ⭐</div>
+  <p>Guarantee lawsuits are <strong>forfeited</strong> if <strong>3 years</strong> pass after the demolition or defect occurs.</p>
+  <div class="insight insight-purple" style="margin-top:8px">Pair: 10 years = guarantee PERIOD. 3 years = filing DEADLINE after demolition. Don't mix them.</div>
+</div>
+
+<p class="sec-title">4.3 — All Articles Reference</p>
+<div class="card" style="overflow-x:auto">
+  <table class="cmp-table" style="min-width:580px">
+    <thead><tr><th>Article</th><th>Rule</th><th>Key Point</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill pill-gray">647</span></td><td>Who provides materials: employer OR contractor</td><td>Both arrangements valid</td></tr>
+      <tr><td><span class="pill pill-blue">648</span></td><td>Contractor provides materials → responsible for quality</td><td>Must guarantee to employer</td></tr>
+      <tr><td><span class="pill pill-teal">649</span></td><td>Employer provides materials → contractor must account, return leftovers, pay for waste due to negligence</td><td>Negligence = pay back value</td></tr>
+      <tr><td><span class="pill pill-amber">650</span></td><td>Defective work: unfixable = contract terminated WITHOUT warning. Fixable = given chance; else rescind or another contractor at their expense</td><td>No warning if unfixable</td></tr>
+      <tr><td><span class="pill pill-coral">651 ⭐</span></td><td>10-year joint guarantee. Engineer + contractor. From delivery date. Covers collapse and defects.</td><td>From DELIVERY date</td></tr>
+      <tr><td><span class="pill pill-coral">653 ⭐</span></td><td>Exemption clauses = null and void</td><td>Cannot escape liability</td></tr>
+      <tr><td><span class="pill pill-purple">654 ⭐</span></td><td>3 years to file after demolition — then forfeited</td><td>10 yrs period / 3 yrs to file</td></tr>
+      <tr><td><span class="pill pill-green">655</span></td><td>Employer refuses work without reason after official warning = deemed delivered by law</td><td>Official warning required</td></tr>
+      <tr><td><span class="pill pill-amber">657</span></td><td>Unit price: contractor MUST notify employer of increases. Fail = right forfeited.</td><td>Must notify or lose right</td></tr>
+      <tr><td><span class="pill pill-amber">658</span></td><td>Lump sum: contractor absorbs cost changes UNLESS employer agrees or employer caused increase. War/disaster = exception.</td><td>Unit price ≠ lump sum rules</td></tr>
+      <tr><td><span class="pill pill-gray">659</span></td><td>Wage not set: determined by value of work + expenses</td><td>Custom calculation</td></tr>
+      <tr><td><span class="pill pill-blue">660</span></td><td>Engineer's fee for design + management. If unspecified = by custom. Design not used = paid for time.</td><td>Unused design = time pay</td></tr>
+      <tr><td><span class="pill pill-teal">661</span></td><td>Subcontracting allowed UNLESS: personal performance required OR original contractor's competence is needed</td><td>2 exceptions</td></tr>
+      <tr><td><span class="pill pill-teal">662</span></td><td>Subcontractor workers can claim wages from employer up to what employer owes original. In seizure: subcontractor workers have PRIORITY.</td><td>Priority in seizure</td></tr>
+      <tr><td><span class="pill pill-orange">663</span></td><td>Employer stops work without reason: pays expenses + compensation. Court may REDUCE compensation.</td><td>Court can reduce</td></tr>
+      <tr><td><span class="pill pill-gray">664</span></td><td>Work impossible = contract expires</td><td>Automatic expiry</td></tr>
+      <tr><td><span class="pill pill-orange">665</span></td><td>Sudden accident: no fault = no pay, loss on supplier. Contractor fault = compensate employer. Employer fault = bears loss + compensates contractor.</td><td>Fault determines liability</td></tr>
+      <tr><td><span class="pill pill-purple">666</span></td><td>Contractor dies: if qualifications were essential and heirs lack them = contract expires. If not essential = contract continues.</td><td>Essential qualifications key</td></tr>
+      <tr><td><span class="pill pill-purple">667</span></td><td>Contract expires on death: employer pays heirs for completed work + requests drawings + pays compensation. Same for incapacity.</td><td>Applies to incapacity too</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+  </div>
+
+  <!-- Flashcards L4 -->
+
+  <div class="sec-panel" id="lec4-flashcards">
+    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Flashcards · Contract Law</h2><p>Articles 647–667 · key rules and traps</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l4fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4fc-bar" style="width:10%"></div></div></div>
+    <div class="fc-scene-wrap" onclick="fcFlip('l4')"><div class="fc-scene" id="l4-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Article — click to flip</div><div class="fc-term" id="l4-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Rule</div><div class="fc-term" id="l4-fc-back">…</div></div></div></div>
+    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
+    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l4')">← Prev</button><span class="fc-count" id="l4-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l4')">Next →</button></div>
+  </div>
+
+  <!-- Quiz L4 -->
+
+  <div class="sec-panel" id="lec4-quiz">
+    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Practice Questions · Contract Law</h2><p>8 questions · Focus on critical articles</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l4q-lbl">0 of 8 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l4q-bar" style="width:0%"></div></div></div>
+
+```
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 651</span></div><div class="q-text">According to Article 651, when does the 10-year guarantee period begin?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>From the <strong>date of delivery</strong> of the completed work — NOT from the date the contract was signed, and NOT from when construction began. This is the most common MCQ trap on Article 651.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 654</span></div><div class="q-text">What is the difference between the guarantee period (Article 651) and the filing deadline (Article 654)?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Article 651 — Guarantee Period:</strong> 10 years from delivery date. During this time, the engineer and contractor are jointly liable for collapse and structural defects.<br><br><strong>Article 654 — Filing Deadline:</strong> 3 years after the demolition/defect occurs. If you don't file within 3 years of the defect, your lawsuit is forfeited.<br><br>Example: A building collapses in year 8 (within the 10-year period). You have 3 more years to file the claim — until year 11 from delivery.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Article 653</span></div><div class="q-text">A contract includes a clause stating: "The contractor is not liable for any structural defects for the first 5 years." Is this clause valid?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>No — null and void under Article 653.</strong> Any clause that exempts the engineer or contractor from the 10-year guarantee liability is automatically null and void. The law cannot be contracted out of. The contractor and engineer remain fully liable for 10 years regardless of what the contract says.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Articles 657 vs 658</span></div><div class="q-text">Compare unit price contracts (Art. 657) and lump sum contracts (Art. 658) regarding cost increases. What is the key difference?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Unit Price (Art. 657):</strong> If actual costs exceed the estimate, the contractor <em>must notify</em> the employer of the required increase (variation order). If he doesn't notify, his right to the extra payment is forfeited. If the increase is too large, the employer may suspend work and pay only for what's been done.<br><br><strong>Lump Sum (Art. 658):</strong> The contractor <em>cannot</em> request extra money for design adjustments UNLESS: (a) the employer agrees to the increase, or (b) the increase results from the employer's mistake. Price hikes due to inflation do not count — only war or natural disasters justify compensation.<br><br>Key difference: Unit price = contractor can request increases (but must notify). Lump sum = contractor generally absorbs all cost changes.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 650</span></div><div class="q-text">A contractor performs defective work on a building. The defect cannot be fixed. What happens under Article 650?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>If the defect is <strong>impossible to fix</strong>, the contract is <strong>terminated without warning</strong> — the contractor receives no notice period. The contract simply ends.<br><br>Compare with fixable defects: if the defect can be repaired, the contractor is first given a chance to repair. If they fail to do so, the employer can either rescind the contract OR hire another contractor to repair it at the original contractor's expense.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Article 661</span></div><div class="q-text">When is a contractor NOT allowed to assign a subcontractor under Article 661?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Two exceptions where subcontracting is prohibited:<br><br>1. <strong>Contract specifies personal performance</strong> — the contract explicitly states the contractor must do the work themselves.<br>2. <strong>Work requires the original contractor's specific competence</strong> — the nature of the work inherently requires the contractor's particular expertise that a subcontractor wouldn't have.<br><br>In both cases, the original contractor cannot delegate the work. If they do so anyway, they remain fully responsible for the subcontractor's actions.</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 666-667</span></div><div class="q-text">A contractor who has been personally building a custom mosque dies halfway through construction. His heirs want to continue. What determines whether they can under Article 666? What must the employer do under Article 667?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Under Article 666 — can the contract continue?</strong><br>It depends on whether the contractor's <em>personal qualifications</em> were essential. For a custom mosque with specific craftsmanship, the contractor's personal skills are likely essential and the heirs presumably don't have the same qualifications → the contract <strong>expires</strong>.<br><br>If the work were generic (e.g., standard concrete work), personal qualifications may not be essential → contract could continue.<br><br><strong>Under Article 667 — what must the employer do?</strong><br>Since the contract expires:<br>1. Pay the heirs for the value of <strong>work already completed</strong>.<br>2. Request the <strong>drawings and prepared materials</strong> and pay compensation for them.<br>3. The same rules apply if the contractor becomes unable to perform for any unavoidable reason (e.g., serious illness).</p></div></div>
+
+<div class="q-card" data-key="l4q" data-total="8"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Article 665</span></div><div class="q-text">A sudden fire (not caused by either party) destroys 40% of completed work and all materials. Who bears the losses under Article 665?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Under Article 665 — <strong>sudden accident with no party at fault:</strong><br><br>1. Employer does NOT pay the contractor for the destroyed completed work (contractor bears that loss).<br>2. Material loss falls on <strong>whoever supplied the materials</strong> — if the employer supplied them, employer bears the loss; if the contractor supplied them, contractor bears the loss.<br><br>Compare with fault scenarios:<br>• Contractor at fault → contractor compensates employer for all employer-supplied material.<br>• Employer at fault → employer bears all material losses AND must compensate the contractor for damages too.</p></div></div>
+```
+
+  </div>
+
+  <!-- Key Facts L4 -->
+
+  <div class="sec-panel" id="lec4-numbers">
+    <div class="lec-hero"><div class="lec-hero-num">04</div><div class="lec-hero-info"><h2>Key Facts Reference · Contract Law</h2></div></div>
+    <input class="fs-search" type="text" placeholder="🔍 Search articles, rules..." oninput="filterFS(this)">
+    <div class="fs-group">
+      <div class="fs-group-lbl">Critical Articles</div>
+      <div class="fs-row" data-s="article 651 10 year guarantee engineer contractor delivery"><div class="fs-name">Art. 651 — Guarantee</div><div class="fs-desc">Period, parties, and start date</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">10 yrs from DELIVERY</div></div>
+      <div class="fs-row" data-s="article 653 exemption null void cannot escape"><div class="fs-name">Art. 653 — Exemptions</div><div class="fs-desc">Can you contract out of the guarantee?</div><div class="fs-val" style="border-color:var(--c-coral);background:var(--c-coral-l);color:var(--c-coral)">Null and void</div></div>
+      <div class="fs-row" data-s="article 654 filing deadline 3 years demolition forfeited"><div class="fs-name">Art. 654 — Filing Deadline</div><div class="fs-desc">How long after demolition to file?</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">3 years after demolition</div></div>
+      <div class="fs-row" data-s="article 650 defective work unfixable terminated warning"><div class="fs-name">Art. 650 — Defective Work</div><div class="fs-desc">What happens if defect is unfixable?</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">Terminated WITHOUT warning</div></div>
+      <div class="fs-row" data-s="article 657 unit price notify variation order forfeited"><div class="fs-name">Art. 657 — Unit Price</div><div class="fs-desc">What must contractor do if costs rise?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Notify employer (variation order)</div></div>
+      <div class="fs-row" data-s="article 658 lump sum absorbs cannot request war disaster"><div class="fs-name">Art. 658 — Lump Sum</div><div class="fs-desc">Can contractor request extra for cost changes?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Generally no (absorbs costs)</div></div>
+    </div>
+    <div class="fs-group">
+      <div class="fs-group-lbl">Obligations</div>
+      <div class="fs-row" data-s="contractor obligations 3 perform deliver guarantee"><div class="fs-name">Contractor Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">3: Perform · Deliver · Guarantee</div></div>
+      <div class="fs-row" data-s="employer obligations 3 enable receive pay wages"><div class="fs-name">Employer Obligations</div><div class="fs-desc">How many? What are they?</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">3: Enable · Receive · Pay</div></div>
+    </div>
+  </div>
+</div><!-- /lec4 -->
+
+<!-- ══════════════════════════════════════════════════
+     LECTURE 5 — Critical Thinking & Reasoning
+══════════════════════════════════════════════════ -->
+
+<div class="lec-panel" id="lec5">
+  <div class="sec-panel" id="lec5-summary">
+    <div class="lec-hero">
+      <div class="lec-hero-num">05</div>
+      <div class="lec-hero-info">
+        <h2>Critical Thinking & Reasoning</h2>
+        <p>10 Standards · 8 Elements · 8 Traits · Deduction vs Induction · Worked Examples</p>
+      </div>
+    </div>
+
+```
+<p class="sec-title">5.1 — Critical Thinking Definition</p>
+<div class="card">
+  <p style="font-size:15px;line-height:1.7">Critical thinking is routinely applying <strong>intellectual standards</strong> to the <strong>elements of thought</strong> as they seek to develop the <strong>traits of a mature engineering mind</strong>.</p>
+</div>
+
+<p class="sec-title">5.2 — 10 Intellectual Standards</p>
+<div class="card">
+  <div class="grid2" style="margin-top:4px">
+    <div>
+      <ol style="margin-left:16px;line-height:2.4;font-size:13.5px">
+        <li><strong>Clarity</strong> — understandable; meaning can be grasped</li>
+        <li><strong>Accuracy</strong> — free from errors or distortions; true</li>
+        <li><strong>Relevance</strong> — relating to the matter at hand</li>
+        <li><strong>Logicalness</strong> — parts make sense together; no contradictions</li>
+        <li><strong>Breadth</strong> — encompassing multiple viewpoints (wide)</li>
+      </ol>
+    </div>
+    <div>
+      <ol style="margin-left:16px;line-height:2.4;font-size:13.5px" start="6">
+        <li><strong>Precision</strong> — exact to the necessary level of detail</li>
+        <li><strong>Significance</strong> — focusing on the important, not trivial</li>
+        <li><strong>Completeness</strong> — something is whole; nothing is missing</li>
+        <li><strong>Fairness</strong> — justifiable; non-self-serving; not one-sided</li>
+        <li><strong>Depth</strong> — containing complexities and multiple viewpoints (deep)</li>
+      </ol>
+    </div>
+  </div>
+  <div class="insight insight-amber" style="margin-top:10px">Breadth = encompassing multiple viewpoints (wide/broad). Depth = complexities (deep). Don't mix them up!</div>
+</div>
+
+<p class="sec-title">5.3 — 8 Elements of Thought</p>
+<div class="card">
+  <div class="grid2" style="margin-top:4px">
+    <ul style="margin-left:16px;line-height:2.3;font-size:13.5px">
+      <li><strong>Purposes</strong> — whenever we think, we think for a purpose</li>
+      <li><strong>Questions</strong> — to answer a question or solve a problem</li>
+      <li><strong>Points of view</strong> — within a point of view</li>
+      <li><strong>Assumptions</strong> — based on assumptions</li>
+    </ul>
+    <ul style="margin-left:16px;line-height:2.3;font-size:13.5px">
+      <li><strong>Implications</strong> — leading to implications and consequences</li>
+      <li><strong>Information</strong> — we use data, facts, and experiences</li>
+      <li><strong>Inferences</strong> — to make inferences and judgments</li>
+      <li><strong>Concepts</strong> — based on concepts and theories</li>
+    </ul>
+  </div>
+</div>
+
+<p class="sec-title">5.4 — 8 Intellectual Traits</p>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="pill pill-blue">Humility</span></div><p>Knowledge of ignorance — sensitive to what you know and what you DON'T know.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-teal">Autonomy</span></div><p>Thinking for oneself while adhering to standards of rationality.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-amber">Integrity</span></div><p>Holding yourself to the same standards you expect from others — <strong>NO DOUBLE STANDARDS</strong>.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-coral">Courage</span></div><p>The disposition to question beliefs about which you feel strongly.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-purple">Perseverance</span></div><p>Working through intellectual complexities despite frustrations inherent in the task.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-green">Confidence in Reason</span></div><p>Belief that human interests are best served by giving freest play to reason.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-gray">Empathy</span></div><p>Awareness of the need to actively entertain views that differ from your own — especially those you strongly disagree with.</p></div>
+  <div class="card"><div class="card-title"><span class="pill pill-orange">Fairmindedness</span></div><p>Treating all viewpoints alike without reference to one's own feelings or vested interests.</p></div>
+</div>
+
+<p class="sec-title">5.5 — Deduction vs. Induction</p>
+<div class="grid2">
+  <div class="card" style="border-left:3px solid var(--c-blue)">
+    <div class="card-title"><span class="pill pill-blue">Deductive Reasoning</span></div>
+    <p>Reasoning from <strong>general premises</strong> to specific, <strong>certain</strong> conclusions. "Formal logic."</p>
+    <div class="insight insight-blue" style="margin-top:8px">Conclusions are: certain · inevitable · inescapable</div>
+    <div class="formula formula-blue" style="margin-top:8px">Major premise: All tortoises are vegetarians
+```
+
+Minor premise: Bessie is a tortoise
+Conclusion: Therefore Bessie IS a vegetarian</div>
+</div>
+<div class="card" style="border-left:3px solid var(--c-teal)">
+<div class="card-title"><span class="pill pill-teal">Inductive Reasoning</span></div>
+<p>Reasoning from <strong>specific cases</strong> to general, <strong>uncertain</strong> conclusions. “Informal / everyday logic.”</p>
+<div class="insight insight-teal" style="margin-top:8px">Conclusions are: probable · reasonable · plausible · believable</div>
+<div class="formula" style="margin-top:8px">Observation: Biff has an anchor tattoo on his arm
+Conclusion: He PROBABLY served in the Navy</div>
+</div>
+</div>
+<div class="insight insight-green">Neither form is preferred over the other — both are equally compelling and persuasive (Hollihan & Baske, 1994).</div>
+
+```
+<p class="sec-title">5.6 — Identify the Reasoning Type (Practice)</p>
+<div class="card">
+  <table class="cmp-table">
+    <thead><tr><th>Argument</th><th>Type</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Sample of 50 motorists: 1 in 4 uninsured or intoxicated → 25% chance in any accident</td><td><span class="pill pill-teal">Inductive</span></td><td>Specific sample → uncertain general conclusion</td></tr>
+      <tr><td>Law of the Sea: vessels beyond 12 miles = international waters, cannot be boarded → US Coast Guard violates this law</td><td><span class="pill pill-blue">Deductive</span></td><td>Known legal premises → certain specific conclusion</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+  </div>
+
+  <!-- Flashcards L5 -->
+
+  <div class="sec-panel" id="lec5-flashcards">
+    <div class="lec-hero"><div class="lec-hero-num">05</div><div class="lec-hero-info"><h2>Flashcards · Critical Thinking</h2><p>Standards, elements, traits, reasoning types</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l5fc-lbl">Card 1 of 10</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l5fc-bar" style="width:10%"></div></div></div>
+    <div class="fc-scene-wrap" onclick="fcFlip('l5')"><div class="fc-scene" id="l5-fc-scene"><div class="fc-face fc-front"><div class="fc-lbl">Term — click to flip</div><div class="fc-term" id="l5-fc-front">…</div></div><div class="fc-face fc-back"><div class="fc-lbl">Answer</div><div class="fc-term" id="l5-fc-back">…</div></div></div></div>
+    <p class="fc-hint">Click card to flip · Use buttons to navigate</p>
+    <div class="fc-nav"><button class="fc-btn" onclick="fcPrev('l5')">← Prev</button><span class="fc-count" id="l5-fc-count">1/10</span><button class="fc-btn" onclick="fcNext('l5')">Next →</button></div>
+  </div>
+
+  <!-- Quiz L5 -->
+
+  <div class="sec-panel" id="lec5-quiz">
+    <div class="lec-hero"><div class="lec-hero-num">05</div><div class="lec-hero-info"><h2>Practice Questions · Critical Thinking</h2><p>7 questions · Easy → Hard</p></div></div>
+    <div class="prog-wrap"><div class="prog-label" id="l5q-lbl">0 of 7 revealed</div><div class="prog-bar-wrap"><div class="prog-bar-fill" id="l5q-bar" style="width:0%"></div></div></div>
+
+```
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Definition</span></div><div class="q-text">Define critical thinking in one sentence using the three key components from the lecture.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>Critical thinking is routinely applying <strong>intellectual standards</strong> to the <strong>elements of thought</strong> as they seek to develop the <strong>traits of a mature engineering mind</strong>.</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Counts</span></div><div class="q-text">How many intellectual standards, elements of thought, and intellectual traits are there?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>10</strong> intellectual standards<br><strong>8</strong> elements of thought<br><strong>8</strong> intellectual traits</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-easy">Easy</span><span class="badge badge-topic">Traits</span></div><div class="q-text">Define Intellectual Integrity. What makes it different from Intellectual Humility?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Intellectual Integrity:</strong> Holding yourself to the same intellectual standards you expect others to honor — no double standards. It's about consistency between what you demand of others and what you demand of yourself.<br><br><strong>Intellectual Humility:</strong> Knowledge of ignorance — being sensitive to what you know and what you DON'T know. It's about recognizing the limits of your own knowledge.<br><br>Key difference: Integrity = no double standards. Humility = knowing your knowledge limits.</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Standards Trap</span></div><div class="q-text">What is the difference between "Breadth" and "Depth" as intellectual standards? Students frequently confuse them.</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Breadth:</strong> Encompassing <em>multiple viewpoints</em> — thinking widely across different perspectives. Wide coverage. Example: considering an engineering decision from the perspectives of the client, the public, regulators, and workers.<br><br><strong>Depth:</strong> Containing <em>complexities</em> — thinking deeply into the nuances of a single question. Thorough exploration. Example: fully understanding all the physical mechanisms behind a structural failure rather than just knowing it collapsed.<br><br>Memory aid: Breadth = WIDE. Depth = DEEP.</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-med">Medium</span><span class="badge badge-topic">Reasoning</span></div><div class="q-text">Classify each: (a) "All engineers must be licensed → Ahmed is an engineer → Ahmed must be licensed." (b) "Every bridge I've inspected this year had corrosion → bridges in this region probably have a corrosion problem."</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p>(a) <strong>Deductive reasoning.</strong> Starts with a known general rule (all engineers must be licensed) and applies it to a specific case (Ahmed) to reach a certain conclusion. Classic syllogism structure.<br><br>(b) <strong>Inductive reasoning.</strong> Starts with specific observations (each individual bridge) and draws a general but uncertain conclusion about all bridges in the region. The conclusion is probable but could be wrong — there may be bridges without corrosion that weren't inspected.</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Elements of Thought</span></div><div class="q-text">Apply the 8 elements of thought to the following engineering decision: "Should we proceed with construction despite the subsoil report suggesting potential instability?"</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Purpose:</strong> Make a safe, cost-effective decision about whether to proceed with construction.<br><strong>Question:</strong> Is the subsoil sufficiently stable to proceed, and what are the risks if we don't investigate further?<br><strong>Point of view:</strong> Engineering safety perspective, client's financial perspective, public safety perspective.<br><strong>Assumptions:</strong> That the subsoil report is accurate; that known engineering standards apply; that budget constraints are fixed.<br><strong>Information:</strong> The subsoil report, site geology data, structural load calculations, similar case precedents.<br><strong>Inferences:</strong> If instability is confirmed, foundation design must change; if ignored, collapse risk increases.<br><strong>Concepts:</strong> Geotechnical engineering, factor of safety, building codes, negligence.<br><strong>Implications:</strong> Proceeding without investigation could lead to structural failure, liability under Article 651, and loss of life.</p></div></div>
+
+<div class="q-card" data-key="l5q" data-total="7"><div class="q-header" onclick="qClick(this)"><div><div class="q-meta"><span class="badge badge-hard">Hard</span><span class="badge badge-topic">Roofline Example</span></div><div class="q-text">Discuss the power generation table: Companies 1 (3450 MW gen, 3000 MW load, $100/MWh), 2 (1488 MW, 1200 MW, $50/MWh), 3 (6220 MW, 6900 MW, $25/MWh). Which company needs extra power and what is the cheapest strategy?</div></div><div class="q-chevron">▾</div></div><div class="q-answer"><p><strong>Reserve Power = Generated Capacity − Load Supplied:</strong><br>Company 1: 3450 − 3000 = <strong>+450 MW reserve</strong><br>Company 2: 1488 − 1200 = <strong>+288 MW reserve</strong><br>Company 3: 6220 − 6900 = <strong>−680 MW DEFICIT</strong><br><br><strong>Company 3 needs 680 MW of extra power.</strong><br><br><strong>Cheapest strategy (use inductive reasoning on costs):</strong><br>Company 2 is cheaper ($50/MWh vs $100/MWh for Company 1).<br>Buy all 288 MW from Company 2 first → 680 − 288 = 392 MW still needed.<br>Buy remaining 392 MW from Company 1 at $100/MWh.<br><br><strong>Additional observations:</strong> Company 3 has the largest average unit capacity (6220÷18 = 345.6 MW/unit). Company 2 has the smallest (1488÷17 = 87.5 MW/unit).</p></div></div>
+```
+
+  </div>
+
+  <!-- Key Facts L5 -->
+
+  <div class="sec-panel" id="lec5-numbers">
+    <div class="lec-hero"><div class="lec-hero-num">05</div><div class="lec-hero-info"><h2>Key Facts Reference · Critical Thinking</h2></div></div>
+    <input class="fs-search" type="text" placeholder="🔍 Search facts..." oninput="filterFS(this)">
+    <div class="fs-group">
+      <div class="fs-group-lbl">Counts & Definitions</div>
+      <div class="fs-row" data-s="intellectual standards count 10"><div class="fs-name">Intellectual Standards</div><div class="fs-desc">How many?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">10 standards</div></div>
+      <div class="fs-row" data-s="elements of thought count 8"><div class="fs-name">Elements of Thought</div><div class="fs-desc">How many?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">8 elements</div></div>
+      <div class="fs-row" data-s="intellectual traits count 8"><div class="fs-name">Intellectual Traits</div><div class="fs-desc">How many?</div><div class="fs-val" style="border-color:var(--c-purple);background:var(--c-purple-l);color:var(--c-purple)">8 traits</div></div>
+      <div class="fs-row" data-s="intellectual integrity no double standards"><div class="fs-name">Intellectual Integrity</div><div class="fs-desc">Core definition</div><div class="fs-val" style="border-color:var(--c-amber);background:var(--c-amber-l);color:var(--c-amber)">No double standards</div></div>
+      <div class="fs-row" data-s="intellectual humility ignorance know dont know"><div class="fs-name">Intellectual Humility</div><div class="fs-desc">Core definition</div><div class="fs-val" style="border-color:var(--c-gray);background:var(--c-gray-l);color:var(--c-gray)">Knowledge of ignorance</div></div>
+      <div class="fs-row" data-s="breadth standard wide multiple viewpoints"><div class="fs-name">Breadth (standard)</div><div class="fs-desc">What does it mean?</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">Multiple viewpoints (WIDE)</div></div>
+      <div class="fs-row" data-s="depth standard deep complexities"><div class="fs-name">Depth (standard)</div><div class="fs-desc">What does it mean?</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Complexities (DEEP)</div></div>
+    </div>
+    <div class="fs-group">
+      <div class="fs-group-lbl">Reasoning Types</div>
+      <div class="fs-row" data-s="deductive reasoning general specific certain inevitable"><div class="fs-name">Deductive Conclusions</div><div class="fs-desc">Nature of deductive conclusions</div><div class="fs-val" style="border-color:var(--c-blue);background:var(--c-blue-l);color:var(--c-blue)">Certain · inevitable · inescapable</div></div>
+      <div class="fs-row" data-s="inductive reasoning specific general probable uncertain"><div class="fs-name">Inductive Conclusions</div><div class="fs-desc">Nature of inductive conclusions</div><div class="fs-val" style="border-color:var(--c-teal);background:var(--c-teal-l);color:var(--c-teal)">Probable · plausible · believable</div></div>
+      <div class="fs-row" data-s="deduction formal logic induction informal everyday"><div class="fs-name">Deduction vs Induction</div><div class="fs-desc">Which is preferred?</div><div class="fs-val" style="border-color:var(--c-green);background:var(--c-green-l);color:var(--c-green)">Neither preferred (Hollihan 1994)</div></div>
+    </div>
+  </div>
+</div><!-- /lec5 -->
+
+</div><!-- #main -->
+</div><!-- #app -->
+
+<script>
+// ── CONFIG ──
+const secConfigs = {
+  l1:['summary','flashcards','quiz','numbers'],
+  l2:['summary','flashcards','quiz','numbers'],
+  l3:['summary','flashcards','quiz','numbers'],
+  l4:['summary','flashcards','quiz','numbers'],
+  l5:['summary','flashcards','quiz','numbers'],
+};
+const lecMeta = {
+  1:{num:'01',title:'Introduction to Engineering & Ethics',sub:'4 eras · ethics · theories'},
+  2:{num:'02',title:'Professional Ethics & Research Integrity',sub:'ASME · plagiarism · case studies'},
+  3:{num:'03',title:'Health & Safety · OSHA',sub:'10 hazards · 6 steps · first aid'},
+  4:{num:'04',title:'Construction Contract Law',sub:'Articles 647–667 · obligations'},
+  5:{num:'05',title:'Critical Thinking & Reasoning',sub:'10 standards · 8 elements · reasoning'},
+};
+const secLabels = {
+  summary:    {icon:'📚',label:'Summary Notes'},
+  flashcards: {icon:'🃏',label:'Flashcards'},
+  quiz:       {icon:'❓',label:'Practice Q&A'},
+  numbers:    {icon:'📋',label:'Key Facts'},
+};
+let curLec='l1', curSec='summary';
+
+function showLec(n,btn){
+  curLec='l'+n; curSec='summary';
+  document.querySelectorAll('.lec-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('lec'+n).classList.add('active');
+  document.querySelectorAll('.lec-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.body.dataset.lec=n;
+  const m=lecMeta[n]||{};
+  document.getElementById('sb-num').textContent=m.num||('0'+n);
+  document.getElementById('sb-title').textContent=m.title||('Lecture '+n);
+  document.getElementById('sb-sub').textContent=(secConfigs[curLec]||[]).length+' sections';
+  document.getElementById('brand-icon').textContent=['⚖','📜','🦺','📋','🧠'][n-1]||'⚖';
+  buildSecTabs();
+  showSec('summary');
+}
+
+function buildSecTabs(){
+  const c=document.getElementById('sec-tabs'); c.innerHTML='';
+  (secConfigs[curLec]||[]).forEach(sec=>{
+    const cfg=secLabels[sec]||{icon:'·',label:sec};
+    const b=document.createElement('button');
+    b.className='sec-btn'+(sec===curSec?' active':'');
+    b.dataset.sec=sec;
+    b.onclick=()=>showSec(sec);
+    b.innerHTML=`<span class="s-icon">${cfg.icon}</span><span class="s-label">${cfg.label}</span><span class="s-dot"></span>`;
+    c.appendChild(b);
+  });
+}
+
+function showSec(sec){
+  curSec=sec;
+  const num=curLec.slice(1);
+  const lecEl=document.getElementById('lec'+num);
+  if(lecEl){
+    lecEl.querySelectorAll('.sec-panel').forEach(p=>p.classList.remove('active'));
+    const t=document.getElementById('lec'+num+'-'+sec);
+    if(t) t.classList.add('active');
+  }
+  document.querySelectorAll('.sec-btn').forEach(b=>b.classList.toggle('active',b.dataset.sec===sec));
+  document.getElementById('main').scrollTop=0;
+}
+
+// ── QUESTIONS ──
+const qReveal={};
+function qClick(header){
+  const card=header.closest('.q-card');
+  const key=card.dataset.key, total=parseInt(card.dataset.total);
+  const wasOpen=card.classList.contains('open');
+  card.classList.toggle('open');
+  if(!wasOpen&&!card.dataset.counted){
+    card.dataset.counted='1';
+    qReveal[key]=(qReveal[key]||0)+1;
+    const lbl=document.getElementById(key+'-lbl');
+    const bar=document.getElementById(key+'-bar');
+    if(lbl) lbl.textContent=qReveal[key]+' of '+total+' revealed';
+    if(bar) bar.style.width=(qReveal[key]/total*100)+'%';
+  }
+}
+
+// ── FLASHCARD DATA ──
+const flashcards={
+  l1:[
+    {f:"What is the Latin origin of the word 'Engineer'?",b:"Ingeniator — meaning ingenious, to devise or construct"},
+    {f:"Name the 4 eras of engineering history in order.",b:"1. Pre-Scientific Revolution\n2. Industrial Revolution (steam engines)\n3. Second Industrial Revolution (electricity, cars, planes)\n4. Information Revolution (computers)"},
+    {f:"What is the first structural code in history?",b:"The Code of Hammurabi — the earliest known structural design code"},
+    {f:"Ethics vs. Morals — what's the key difference?",b:"Ethics = EXTERNAL rules (codes, workplace)\nMorals = INTERNAL personal principles (conscience)"},
+    {f:"Name the 3 sources of professional ethics.",b:"Religion · Custom · Conscience"},
+    {f:"Which philosopher first advocated Virtue Theory?",b:"Aristotle"},
+    {f:"What is Utilitarianism?",b:"Greatest good for the greatest number. Focuses on results, not rules. Originally a guide for legislators."},
+    {f:"What is Deontology?",b:"Duty first — act rationally, give moral weight to equality of all humans, resist temptation if duty says no."},
+    {f:"What is Social Justice theory?",b:"Distributive justice — fair distribution of goods. Rights and duties exist between people AND governments AND individuals."},
+    {f:"What are the 5 engineer responsibilities?",b:"1. Public safety\n2. Welfare of society\n3. Environmental concerns\n4. Abide by laws & ethical codes\n5. Produce adequate, cost-efficient, durable products"},
+  ],
+  l2:[
+    {f:"How many components of professional ethics are there? Name them.",b:"9 components: Honesty · Integrity · Transparency · Accountability · Confidentiality · Objectivity · Respect · Obedience to the law · Loyalty"},
+    {f:"What are the 4 aims of professional ethics?",b:"1. Understand moral values guiding engineering\n2. Resolve moral issues\n3. Justify moral judgments\n4. Assure clients of high standards & moral conduct"},
+    {f:"How many ASME canons? What does Canon 1 state?",b:"7 canons. Canon 1: Hold paramount the safety, health, and welfare of the public."},
+    {f:"Name the 5 unethical communication concerns.",b:"1. Copyright infringement\n2. Tampering with results\n3. Withholding adverse information\n4. Writing unclear instructions\n5. Omitting safety warnings"},
+    {f:"What are the 3 causes of plagiarism?",b:"1. Dishonesty\n2. Carelessness and laziness\n3. Ignorance"},
+    {f:"How many forms of plagiarism? Name 3 unusual ones.",b:"10 forms.\nUnusual: Multiple submission · Failure to collaborate · Borrowing computer code from another student"},
+    {f:"Hyatt Regency — date, deaths, root cause.",b:"July 17, 1981. 114 deaths. Contractor altered engineering design without approval, making walkways WEAKER. Firm may have approved without calculations."},
+    {f:"Challenger — date, deaths, root cause.",b:"January 28, 1986. 7 deaths. O-ring flaw known since 1977. Engineers warned against launch. Management overrode them."},
+    {f:"The 4-step dilemma framework.",b:"1. Analyze the situation carefully\n2. Consider issues from multiple angles\n3. Consult with others\n4. Think long and hard before deciding"},
+    {f:"When do you NOT need to cite a source?",b:"For your own ideas/opinions AND for common knowledge. Everything else requires proper attribution."},
+  ],
+  l3:[
+    {f:"What does OSHA stand for?",b:"Occupational Health & Safety Administration\n(NOT 'Organizational' — exact word is MCQ trap)"},
+    {f:"When was OSHA signed and active?",b:"Signed: December 29, 1970 by President Nixon\nActive: April 28, 1971"},
+    {f:"What is the #1 most cited OSHA hazard in 2022?",b:"Fall Protection — General Requirements\n(#2 is Hazard Communication — NOT #1)"},
+    {f:"What does Section 5(a)(1) require?",b:"Workplaces free from recognized hazards likely to cause DEATH OR SERIOUS PHYSICAL HARM\n(Not 'any discomfort' — that's a trap)"},
+    {f:"The 6 Safety Achievement Steps (and mnemonic).",b:"D-A-D-T-W-R:\nDefine scope → Analyze hazards → Develop controls → Training → Work within controls → Record keeping"},
+    {f:"Scaffolding: guardrail height and tie-in ratio.",b:"Guardrails required: Over 10 feet\nTie-in ratio: 4:1 height-to-base"},
+    {f:"Acute vs. Chronic chemical exposure.",b:"Acute = within hours or days\nChronic = after exposure over many years"},
+    {f:"How many elements in a Chemical Hygiene Plan?",b:"8 required elements — first element is designation of a Chemical Hygiene Officer"},
+    {f:"The 3 steps of First Aid.",b:"1. Diagnosis\n2. Treatment\n3. Disposal"},
+    {f:"The 6 First Aid priorities in order.",b:"1. Breathing (ALWAYS FIRST)\n2. Blood loss\n3. Shock\n4. Fracture\n5. Simple injuries\n6. Disposal\n\nRecovery position = unconscious casualties only"},
+  ],
+  l4:[
+    {f:"Article 651 — the 10-year guarantee.",b:"Engineer AND contractor are jointly responsible for 10 years FROM THE DELIVERY DATE.\nCovers full/partial collapse and structural defects."},
+    {f:"Article 653 — exemption clauses.",b:"Any clause exempting the engineer or contractor from the 10-year liability is NULL AND VOID."},
+    {f:"Article 654 — filing deadline.",b:"Guarantee lawsuits are forfeited if 3 YEARS pass after the demolition occurs.\n(Guarantee = 10 years. Filing deadline = 3 years after defect.)"},
+    {f:"Article 650 — defective work.",b:"Unfixable defect → contract terminated WITHOUT WARNING.\nFixable defect → given chance to repair; else rescind or another contractor at their expense."},
+    {f:"Article 657 vs. 658 — unit price vs lump sum.",b:"Unit price (657): contractor MUST notify employer of increases or right is forfeited.\nLump sum (658): contractor absorbs cost changes UNLESS employer agrees or caused the increase."},
+    {f:"Article 655 — employer refuses work.",b:"After official warning (إنذار رسمي), if employer refuses without legitimate reason → work DEEMED DELIVERED by law."},
+    {f:"Article 661 — subcontracting exceptions.",b:"Cannot subcontract when:\n1. Contract requires personal performance\n2. Work requires original contractor's specific competence"},
+    {f:"Article 662 — subcontractor wage rights.",b:"Can claim wages from employer up to amount owed to original contractor.\nIn seizure → subcontractor's workers have PRIORITY over original contractor."},
+    {f:"Article 666 — contractor dies.",b:"Qualifications essential + heirs lack them → contract EXPIRES.\nQualifications not essential → contract CONTINUES."},
+    {f:"The 3 contractor and 3 employer obligations.",b:"Contractor: Perform correctly · Deliver on time · Guarantee 10 years\nEmployer: Enable work · Receive work · Pay wages"},
+  ],
+  l5:[
+    {f:"Define critical thinking using its 3 key components.",b:"Routinely applying INTELLECTUAL STANDARDS to ELEMENTS OF THOUGHT to develop TRAITS OF A MATURE ENGINEERING MIND."},
+    {f:"How many intellectual standards? Name all 10.",b:"10: Clarity · Accuracy · Relevance · Logicalness · Breadth · Precision · Significance · Completeness · Fairness · Depth"},
+    {f:"How many elements of thought? Name all 8.",b:"8: Purposes · Questions · Points of view · Assumptions · Implications · Information · Inferences · Concepts"},
+    {f:"How many intellectual traits? Name all 8.",b:"8: Humility · Autonomy · Integrity · Courage · Perseverance · Confidence in Reason · Empathy · Fairmindedness"},
+    {f:"Intellectual Integrity definition.",b:"Holding yourself to the same standards you expect from others — NO DOUBLE STANDARDS."},
+    {f:"Breadth vs Depth — what's the difference?",b:"Breadth = encompassing MULTIPLE VIEWPOINTS (WIDE)\nDepth = containing COMPLEXITIES (DEEP)\nDon't mix them up!"},
+    {f:"Deductive reasoning — key characteristics.",b:"General → specific. Formal logic.\nConclusions are: CERTAIN · INEVITABLE · INESCAPABLE\nExample: All tortoises are vegetarians → Bessie is a tortoise → Bessie IS a vegetarian."},
+    {f:"Inductive reasoning — key characteristics.",b:"Specific → general. Informal / everyday argument.\nConclusions are: PROBABLE · REASONABLE · PLAUSIBLE · BELIEVABLE\nExample: Biff has anchor tattoo → he PROBABLY served in the Navy."},
+    {f:"Is deduction or induction preferred?",b:"NEITHER — both are equally compelling and persuasive (Hollihan & Baske, 1994)."},
+    {f:"Intellectual Empathy definition.",b:"Awareness of the need to actively entertain views that differ from your own — ESPECIALLY those you strongly disagree with."},
+  ],
+};
+
+const fcIdx={l1:0,l2:0,l3:0,l4:0,l5:0};
+
+function renderFC(lec){
+  const cards=flashcards[lec]; if(!cards) return;
+  const i=fcIdx[lec];
+  const f=document.getElementById(lec+'-fc-front');
+  const b=document.getElementById(lec+'-fc-back');
+  if(f) f.textContent=cards[i].f;
+  if(b) b.textContent=cards[i].b;
+  const s=document.getElementById(lec+'-fc-scene');
+  if(s) s.classList.remove('flipped');
+  const ct=document.getElementById(lec+'-fc-count');
+  if(ct) ct.textContent=(i+1)+'/'+cards.length;
+  const lbl=document.getElementById(lec+'fc-lbl');
+  if(lbl) lbl.textContent='Card '+(i+1)+' of '+cards.length;
+  const bar=document.getElementById(lec+'fc-bar');
+  if(bar) bar.style.width=((i+1)/cards.length*100)+'%';
+}
+
+function fcFlip(lec){
+  const s=document.getElementById(lec+'-fc-scene');
+  if(s) s.classList.toggle('flipped');
+}
+function fcNext(lec){
+  const cards=flashcards[lec]; if(!cards) return;
+  if(fcIdx[lec]<cards.length-1){fcIdx[lec]++;renderFC(lec);}
+}
+function fcPrev(lec){
+  if(fcIdx[lec]>0){fcIdx[lec]--;renderFC(lec);}
+}
+
+// ── FORMULA SEARCH ──
+function filterFS(input){
+  const q=input.value.toLowerCase().trim();
+  const panel=input.closest('.sec-panel');
+  if(!panel) return;
+  panel.querySelectorAll('.fs-row').forEach(row=>{
+    const t=(row.dataset.s||'')+' '+row.textContent;
+    row.classList.toggle('hidden',q.length>0&&!t.toLowerCase().includes(q));
+  });
+  panel.querySelectorAll('.fs-group').forEach(grp=>{
+    const any=[...grp.querySelectorAll('.fs-row')].some(r=>!r.classList.contains('hidden'));
+    grp.classList.toggle('hidden',q.length>0&&!any);
+  });
+}
+
+// ── INIT ──
+document.querySelectorAll('.lec-panel').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('.sec-panel').forEach(p=>p.classList.remove('active'));
+document.getElementById('lec1').classList.add('active');
+buildSecTabs();
+showSec('summary');
+['l1','l2','l3','l4','l5'].forEach(lec=>renderFC(lec));
+</script>
+
+</body>
+</html>
