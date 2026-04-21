@@ -267,6 +267,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <button class="lec-btn" onclick="showLec(6,this)">L5 — Contract Law</button>
     <button class="lec-btn" onclick="showLec(7,this)">L6 — Tenders Law</button>
     <button class="lec-btn" onclick="showLec(8,this)">L7 — Contract Types</button>
+    <button class="lec-btn" onclick="showLec(9,this)">L8 — Environmental</button>
   </div>
   <div id="header-right">
     <span class="hdr-tag">Dr. Mokhtar · Ain Shams</span>
@@ -1946,6 +1947,10 @@ Conclusion: He PROBABLY served in the Navy</div>
 
 </div><!-- /lec8 -->
 
+<div class="lec-panel" id="lec9">
+  <iframe src="l8.html" style="width:100%;height:calc(100vh - var(--header-h));border:none;display:block" title="L8 — Environmental Concerns"></iframe>
+</div><!-- /lec9 -->
+
 </div><!-- #main -->
 </div><!-- #app -->
 
@@ -1959,6 +1964,7 @@ const secConfigs = {
   l6:['summary','flashcards','quiz','numbers'],
   l7:['summary','flashcards','quiz','numbers'],
   l8:['summary','deepdive','quiz','numbers'],
+  l9:[],
 };
 const lecMeta = {
   1:{num:'01',title:'Introduction to Engineering & Ethics',sub:'4 eras · ethics · theories'},
@@ -1968,6 +1974,7 @@ const lecMeta = {
   6:{num:'05',title:'Construction Contract Law',sub:'Art. 647–667 · supply · defects · guarantee · termination'},
   7:{num:'06',title:'Tenders & Auctions Law',sub:'6 methods · insurances · fines · termination'},
   8:{num:'07',title:'Types of Construction Contracts',sub:'Lump sum · Unit price · Cost plus · BOT · FIDIC'},
+  9:{num:'08',title:'Environmental Concerns',sub:'Pollution · Climate · EIS · Kyoto'},
 };
 const secLabels = {
   summary:    {icon:'📚',label:'Summary Notes'},
@@ -1989,7 +1996,7 @@ function showLec(n,btn){
   document.getElementById('sb-num').textContent=m.num||('0'+n);
   document.getElementById('sb-title').textContent=m.title||('Lecture '+n);
   document.getElementById('sb-sub').textContent=(secConfigs[curLec]||[]).length+' sections';
-  document.getElementById('brand-icon').textContent=['⚖','📜','🦺','📋','🧠','⚖','📋','🏗️'][n-1]||'⚖';
+  document.getElementById('brand-icon').textContent=['⚖','📜','🦺','📋','🧠','⚖','📋','🏗️','🌿'][n-1]||'⚖';
   buildSecTabs();
   showSec('summary');
 }

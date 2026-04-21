@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L8 · Environmental Concerns</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0b10;
+  --bg2:#12141c;
+  --panel:#171a24;
+  --panel2:#1d2130;
+  --border:#262a3a;
+  --border2:#333849;
+  --text:#e8e9ef;
+  --muted:#8b8fa3;
+  --muted2:#5a5e73;
+  --accent:#4ade80;
+  --accent2:#86efac;
+  --green:#4ade80;
+  --red:#f87171;
+  --amber:#fbbf24;
+  --teal:#2dd4bf;
+  --pink:#f472b6;
+  --blue:#60a5fa;
+  --orange:#fb923c;
+  --purple:#a78bfa;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(74,222,128,0.08),transparent 70%);pointer-events:none;z-index:0}
+button{cursor:pointer;font-family:inherit;border:none;outline:none;color:inherit}
+
+/* ── HEADER ── */
+.header{position:sticky;top:0;z-index:50;background:rgba(10,11,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.brand-text{font-family:'Fraunces',serif;font-size:20px;font-weight:700;letter-spacing:-0.5px}
+.brand-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+
+.tabs{display:flex;gap:4px;margin-left:auto;background:var(--panel);padding:4px;border-radius:10px;border:1px solid var(--border)}
+.tab{padding:8px 16px;border-radius:7px;font-size:13px;font-weight:500;color:var(--muted);transition:all 0.2s;background:transparent}
+.tab.active{background:var(--panel2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.3)}
+.tab:hover:not(.active){color:var(--text)}
+
+/* ── MAIN ── */
+.main{max-width:1100px;margin:0 auto;padding:40px 28px 80px;position:relative;z-index:1}
+
+.hero{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:20px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-family:'Fraunces',serif;font-size:48px;font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:12px}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero p{font-size:16px;color:var(--muted);max-width:680px}
+
+/* ── VIEW ── */
+.view{display:none}
+.view.active{display:block;animation:fadein 0.4s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.sect{margin-bottom:48px}
+.sect-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px dashed var(--border)}
+.sect-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted2);letter-spacing:1.5px}
+.sect-title{font-family:'Fraunces',serif;font-size:26px;font-weight:700;letter-spacing:-0.5px}
+
+/* ── CARDS ── */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all 0.25s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.25)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent-color,var(--accent));opacity:0.6}
+.card[data-c="red"]{--accent-color:var(--red)}
+.card[data-c="amber"]{--accent-color:var(--amber)}
+.card[data-c="green"]{--accent-color:var(--green)}
+.card[data-c="teal"]{--accent-color:var(--teal)}
+.card[data-c="blue"]{--accent-color:var(--blue)}
+.card[data-c="orange"]{--accent-color:var(--orange)}
+.card[data-c="purple"]{--accent-color:var(--purple)}
+.card[data-c="pink"]{--accent-color:var(--pink)}
+
+.card-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.card-icon{font-size:22px;line-height:1}
+.card-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 7px;border-radius:4px;background:var(--bg2);color:var(--muted);letter-spacing:0.3px;text-transform:uppercase}
+.card h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;margin-bottom:8px;color:var(--text);letter-spacing:-0.3px}
+.card p{font-size:13.5px;color:var(--muted);line-height:1.55}
+.card ul{list-style:none;margin-top:10px;padding:0}
+.card ul li{font-size:13px;color:var(--text);padding:6px 0 6px 18px;position:relative;border-top:1px dashed var(--border)}
+.card ul li:first-child{border-top:none}
+.card ul li::before{content:'→';position:absolute;left:0;color:var(--accent-color,var(--accent));font-weight:600}
+.card ul li b{color:var(--accent-color,var(--accent));font-weight:600}
+
+/* ── KEY NUMBERS ── */
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:32px}
+.num-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:all 0.2s}
+.num-card:hover{transform:translateY(-2px);border-color:var(--border2)}
+.num-big{font-family:'Fraunces',serif;font-size:30px;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.num-label{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;text-transform:uppercase;line-height:1.3}
+
+/* ── AIR COMPOSITION ── */
+.air-comp{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px}
+.air-comp-title{font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin-bottom:12px}
+.air-bar{height:32px;background:var(--bg2);border-radius:6px;overflow:hidden;display:flex;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
+.air-seg{display:flex;align-items:center;justify-content:center;color:#0a0b10;transition:all 0.3s}
+.air-seg.n{background:var(--teal);flex:78}
+.air-seg.o{background:var(--blue);flex:21}
+.air-seg.etc{background:var(--amber);flex:0.9;font-size:9px}
+.air-legend{display:flex;gap:16px;margin-top:10px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+.air-legend span{display:flex;align-items:center;gap:6px}
+.air-legend i{width:10px;height:10px;border-radius:2px}
+
+/* ── POLLUTANT FLOW ── */
+.flow{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:24px;overflow-x:auto}
+.flow-title{font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin-bottom:16px}
+.flow-stages{display:flex;align-items:stretch;gap:8px;min-width:600px}
+.flow-stage{flex:1;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center;position:relative}
+.flow-stage::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted2);font-size:18px;z-index:2}
+.flow-stage:last-child::after{content:''}
+.flow-stage h5{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
+.flow-stage p{font-size:12px;color:var(--text);line-height:1.4}
+.flow-stage ul{list-style:none;font-size:11px;color:var(--muted);margin-top:6px;padding:0}
+.flow-stage ul li{padding:2px 0}
+
+/* ── DEEP DIVE (Topic View) ── */
+.topic-select{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.topic-btn{padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;background:var(--panel);color:var(--muted);border:1px solid var(--border);transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.topic-btn:hover{color:var(--text);border-color:var(--border2)}
+.topic-btn.active{background:var(--bg2);border-color:var(--c);color:var(--text)}
+.topic-btn .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.topic-btn[data-t="air-out"]{--c:var(--orange)}
+.topic-btn[data-t="air-in"]{--c:var(--amber)}
+.topic-btn[data-t="water"]{--c:var(--blue)}
+.topic-btn[data-t="waste"]{--c:var(--pink)}
+.topic-btn[data-t="eis"]{--c:var(--purple)}
+.topic-btn[data-t="kyoto"]{--c:var(--red)}
+
+.topic-panel{display:none;background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;animation:fadein 0.3s ease}
+.topic-panel.active{display:block}
+.topic-panel-head{padding:24px 28px;background:linear-gradient(135deg,var(--c),rgba(0,0,0,0));border-bottom:1px solid var(--border)}
+.topic-panel[data-t="air-out"] .topic-panel-head{--c:rgba(251,146,60,0.15)}
+.topic-panel[data-t="air-in"] .topic-panel-head{--c:rgba(251,191,36,0.15)}
+.topic-panel[data-t="water"] .topic-panel-head{--c:rgba(96,165,250,0.15)}
+.topic-panel[data-t="waste"] .topic-panel-head{--c:rgba(244,114,182,0.15)}
+.topic-panel[data-t="eis"] .topic-panel-head{--c:rgba(167,139,250,0.15)}
+.topic-panel[data-t="kyoto"] .topic-panel-head{--c:rgba(248,113,113,0.15)}
+.topic-panel-head h2{font-family:'Fraunces',serif;font-size:28px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
+.topic-panel-head .sub{font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+.topic-panel-body{padding:28px}
+.topic-panel-body h4{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:20px 0 10px;color:var(--text)}
+.topic-panel-body h4:first-child{margin-top:0}
+.topic-panel-body p{font-size:14px;color:var(--muted);margin-bottom:10px}
+.topic-panel-body p b{color:var(--text);font-weight:600}
+.topic-panel-body ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.topic-panel-body ul li{padding:10px 14px;background:var(--bg2);border-radius:8px;font-size:13.5px;position:relative;padding-left:36px;line-height:1.5}
+.topic-panel-body ul li::before{content:'•';position:absolute;left:14px;top:10px;font-size:18px;color:var(--accent);line-height:1}
+.topic-panel-body ul li b{color:var(--text);font-weight:600}
+
+/* ── MINDMAP ── */
+.mindmap{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:36px 24px;overflow-x:auto}
+.mm-root{display:flex;flex-direction:column;align-items:center;min-width:800px;gap:30px}
+.mm-center{font-family:'Fraunces',serif;font-size:22px;font-weight:700;padding:16px 28px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0a0b10;border-radius:12px;box-shadow:0 0 30px rgba(74,222,128,0.35);letter-spacing:-0.3px}
+.mm-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%}
+.mm-branch{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative}
+.mm-branch::before{content:'';position:absolute;top:-16px;left:50%;width:1px;height:16px;background:var(--border2)}
+.mm-branch h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;margin-bottom:10px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.mm-branch h4 span{font-size:18px}
+.mm-branch ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.mm-branch ul li{font-size:12.5px;color:var(--muted);padding:5px 8px;border-radius:6px;background:var(--panel);border-left:2px solid transparent;transition:all 0.2s}
+.mm-branch ul li:hover{color:var(--text);border-left-color:var(--accent)}
+.mm-branch ul li b{color:var(--text);font-weight:600}
+
+@media (max-width:768px){
+  .mm-branches{grid-template-columns:1fr}
+  .mm-root{min-width:0}
+}
+
+/* ── QUIZ ── */
+.quiz-wrap{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px;min-height:400px}
+.quiz-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.quiz-progress{flex:1;margin-right:20px}
+.quiz-progress-label{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase}
+.quiz-progress-bar{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}
+.quiz-progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width 0.4s}
+.quiz-score{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--green)}
+
+.q-container{min-height:300px}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:1.5px;margin-bottom:10px}
+.q-text{font-family:'Fraunces',serif;font-size:20px;font-weight:500;line-height:1.4;margin-bottom:22px;letter-spacing:-0.3px}
+
+.q-opts{display:flex;flex-direction:column;gap:10px}
+.q-opt{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:left;font-size:14px;transition:all 0.2s;display:flex;gap:12px;align-items:flex-start;color:var(--text)}
+.q-opt:hover:not(.disabled){border-color:var(--accent);background:rgba(74,222,128,0.05)}
+.q-opt.disabled{cursor:default}
+.q-opt.correct{border-color:var(--green);background:rgba(74,222,128,0.08)}
+.q-opt.wrong{border-color:var(--red);background:rgba(248,113,113,0.08)}
+.q-letter{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;width:24px;height:24px;border-radius:5px;background:var(--panel2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.q-opt.correct .q-letter{background:var(--green);color:#0a0b10}
+.q-opt.wrong .q-letter{background:var(--red);color:#0a0b10}
+
+.q-explain{margin-top:18px;padding:14px 16px;border-radius:10px;background:var(--bg2);border-left:3px solid var(--accent);font-size:13.5px;color:var(--muted);line-height:1.55;display:none}
+.q-explain.show{display:block;animation:fadein 0.3s ease}
+.q-explain b{color:var(--text)}
+
+.q-nav{display:flex;justify-content:space-between;margin-top:24px;gap:10px}
+.q-btn{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;background:var(--panel2);color:var(--text);border:1px solid var(--border);transition:all 0.2s}
+.q-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(74,222,128,0.08)}
+.q-btn:disabled{opacity:0.4;cursor:not-allowed}
+.q-btn.primary{background:var(--accent);color:#0a0b10;border-color:var(--accent)}
+.q-btn.primary:hover:not(:disabled){background:var(--accent2);border-color:var(--accent2)}
+
+.quiz-end{text-align:center;padding:40px 20px}
+.quiz-end-score{font-family:'Fraunces',serif;font-size:64px;font-weight:700;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.quiz-end-label{font-size:14px;color:var(--muted);margin-bottom:24px;font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase}
+.quiz-end-msg{font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin-bottom:28px}
+
+@media (max-width:600px){
+  .hero h1{font-size:34px}
+  .header{padding:12px 16px}
+  .main{padding:24px 16px 60px}
+  .tabs{width:100%;margin-left:0}
+  .tab{flex:1;text-align:center;padding:8px 8px;font-size:12px}
+  .sect-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <div>
+      <div class="brand-text">Lecture 8</div>
+      <div class="brand-sub">Environmental Concerns</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-view="summary">Summary</button>
+    <button class="tab" data-view="topics">Deep Dive</button>
+    <button class="tab" data-view="mindmap">Mind Map</button>
+    <button class="tab" data-view="quiz">Quiz</button>
+  </div>
+</header>
+
+<main class="main">
+
+  <section class="hero">
+    <div class="hero-tag">● ASU 113 · Pollution · Climate · EIS</div>
+    <h1>Engineering has <em>consequences</em>.</h1>
+    <p>Every project, product, and power plant leaves a mark on the air, water, and land. Environmental concerns in engineering are about recognizing those marks early — and designing to minimize them.</p>
+  </section>
+
+  <!-- ═══════ SUMMARY VIEW ═══════ -->
+  <div class="view active" id="v-summary">
+
+    <!-- KEY NUMBERS -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">00 / AT A GLANCE</span>
+        <h2 class="sect-title">The numbers that matter</h2>
+      </div>
+      <div class="numbers">
+        <div class="num-card"><div class="num-big">99.9%</div><div class="num-label">Air = N₂ + O₂ + H₂O + inert</div></div>
+        <div class="num-card"><div class="num-big">80-90%</div><div class="num-label">Life spent indoors</div></div>
+        <div class="num-card"><div class="num-big">95%</div><div class="num-label">Fresh water = groundwater</div></div>
+        <div class="num-card"><div class="num-big">O₃</div><div class="num-label">Ozone = 3 oxygen molecules</div></div>
+        <div class="num-card"><div class="num-big">1997</div><div class="num-label">Kyoto Protocol</div></div>
+        <div class="num-card"><div class="num-big">175</div><div class="num-label">Parties ratified Kyoto</div></div>
+      </div>
+    </section>
+
+    <!-- OUTLINE -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">01 / OUTLINE</span>
+        <h2 class="sect-title">The three core topics</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="orange">
+          <div class="card-label"><span class="card-icon">💨</span><span class="card-tag">Topic 1</span></div>
+          <h3>Pollution</h3>
+          <p>Air pollution (<b>outdoor</b> + <b>indoor</b>) and water pollution — plus other waste streams.</p>
+        </div>
+        <div class="card" data-c="red">
+          <div class="card-label"><span class="card-icon">🌡️</span><span class="card-tag">Topic 2</span></div>
+          <h3>Global Warming</h3>
+          <p>The <b>greenhouse effect</b> driven by CO₂ build-up, causing climate change and ice cap melt.</p>
+        </div>
+        <div class="card" data-c="purple">
+          <div class="card-label"><span class="card-icon">📋</span><span class="card-tag">Topic 3</span></div>
+          <h3>Environmental Impact Statement</h3>
+          <p>Reports assessing impacts of engineering projects on the environment — especially federally funded ones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AIR FOUNDATIONS -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">02 / AIR · FOUNDATIONS</span>
+        <h2 class="sect-title">What air actually is</h2>
+      </div>
+      <div class="air-comp">
+        <div class="air-comp-title">Composition of clean air</div>
+        <div class="air-bar">
+          <div class="air-seg n">Nitrogen ~78%</div>
+          <div class="air-seg o">Oxygen ~21%</div>
+          <div class="air-seg etc">+H₂O+inert</div>
+        </div>
+        <div class="air-legend">
+          <span><i style="background:var(--teal)"></i>Nitrogen</span>
+          <span><i style="background:var(--blue)"></i>Oxygen</span>
+          <span><i style="background:var(--amber)"></i>Water vapor + inert gases</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5">Per the lecture: air is <b style="color:var(--text)">99.9% nitrogen, oxygen, water vapor, and inert gases</b>. Human activities release substances that disrupt this balance and harm humans, plants, and animals.</p>
+      </div>
+
+      <div class="card" data-c="orange" style="margin-top:12px">
+        <div class="card-label"><span class="card-icon">🏙️</span><span class="card-tag">Cairo case</span></div>
+        <h3>Cairo — Black Clouds</h3>
+        <p>The "black clouds" phenomenon in Cairo is caused by emissions from <b>annual burning of rice stubble</b> in rural areas, combined with <b>car exhaust fumes</b>.</p>
+      </div>
+    </section>
+
+    <!-- OUTDOOR AIR POLLUTION -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">03 / OUTDOOR AIR POLLUTION</span>
+        <h2 class="sect-title">Four major causes</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="orange">
+          <div class="card-label"><span class="card-icon">🌆</span><span class="card-tag">Cause 1</span></div>
+          <h3>Smog</h3>
+          <p>Caused by <b>chemical reactions between pollutants</b> from different sources — mainly <b>automobile exhaust</b> and <b>industrial emissions</b>. Cities like Cairo are hotspots, especially in <b>warm months</b>.</p>
+          <ul>
+            <li>Input emissions: <b>NOₓ · VOC · SO₂ · PM</b></li>
+            <li>Produces ozone + particles + greenhouse gases</li>
+          </ul>
+        </div>
+        <div class="card" data-c="amber">
+          <div class="card-label"><span class="card-icon">🌧️</span><span class="card-tag">Cause 2</span></div>
+          <h3>Acid Rain</h3>
+          <p>Rainwater with <b>increased acidity</b> beyond clean levels. When a pollutant (e.g. <b>sulfuric acid</b>) combines with water droplets in the air, rain or snow becomes acidified.</p>
+          <ul>
+            <li>Damages plants by <b>destroying leaves</b></li>
+            <li><b>Poisons soil</b></li>
+            <li>Changes chemistry of <b>lakes &amp; streams</b></li>
+            <li>Negatively affects <b>wildlife</b></li>
+          </ul>
+        </div>
+        <div class="card" data-c="red">
+          <div class="card-label"><span class="card-icon">🌡️</span><span class="card-tag">Cause 3</span></div>
+          <h3>Greenhouse Effect / Global Warming</h3>
+          <p>Build-up of <b>CO₂</b> in the atmosphere from burning fuels. Plants convert CO₂ back to O₂, but human CO₂ release <b>exceeds what plants can process</b>. Deforestation + acid rain make it worse.</p>
+          <ul>
+            <li>CO₂ acts like a <b>blanket</b> trapping heat</li>
+            <li>Even a few degrees → climate shifts</li>
+            <li>Possibility of <b>polar ice caps melting</b></li>
+          </ul>
+        </div>
+        <div class="card" data-c="blue">
+          <div class="card-label"><span class="card-icon">☀️</span><span class="card-tag">Cause 4</span></div>
+          <h3>Ozone Depletion</h3>
+          <p>Ozone = natural molecule containing <b>three oxygen molecules</b>. The ozone layer lives in the <b>stratosphere</b> and protects earth from harmful <b>UV radiation</b>.</p>
+          <ul>
+            <li><b>CFCs</b> from aerosol cans, cooling systems, refrigerators</li>
+            <li>Remove ozone → <b>"holes"</b> open in the layer</li>
+            <li>UV reaches earth → <b>skin cancer</b> + plant/wildlife damage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GREENHOUSE EFFECT FLOW -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">04 / GREENHOUSE MECHANISM</span>
+        <h2 class="sect-title">How warming actually works</h2>
+      </div>
+      <div class="flow">
+        <div class="flow-title">The greenhouse effect — 4 stages</div>
+        <div class="flow-stages">
+          <div class="flow-stage">
+            <h5>Stage 1</h5>
+            <p>Solar energy from the sun passes through the atmosphere</p>
+          </div>
+          <div class="flow-stage">
+            <h5>Stage 2</h5>
+            <p>Some energy reflects back out to space</p>
+          </div>
+          <div class="flow-stage">
+            <h5>Stage 3</h5>
+            <p>Earth's surface is heated by the sun and radiates heat back toward space</p>
+          </div>
+          <div class="flow-stage">
+            <h5>Stage 4</h5>
+            <p>Greenhouse gases in the atmosphere <b>trap some of the heat</b> — the warming</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDOOR AIR POLLUTION -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">05 / INDOOR AIR POLLUTION</span>
+        <h2 class="sect-title">The air we actually breathe</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="amber">
+          <div class="card-label"><span class="card-icon">🏠</span><span class="card-tag">Why it matters</span></div>
+          <h3>We're mostly indoors</h3>
+          <p>People spend <b>80–90%</b> of their lives indoors — in enclosed environments where <b>air circulation may be restricted</b>. Indoor pollution is therefore often the bigger practical exposure.</p>
+        </div>
+        <div class="card" data-c="amber">
+          <div class="card-label"><span class="card-icon">🚬</span><span class="card-tag">Sources</span></div>
+          <h3>Three key sources</h3>
+          <ul>
+            <li><b>Tobacco smoke</b></li>
+            <li><b>Cooking &amp; heating appliances</b></li>
+            <li><b>Vapors</b> from building materials, paints, furniture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINIMIZING DAMAGE -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">06 / MITIGATION</span>
+        <h2 class="sect-title">Minimizing the damage</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">🔬</span><span class="card-tag">Study</span></div>
+          <h3>Scientific study</h3>
+          <p>Scientific groups study the damaging effects on plant, animal, and human life.</p>
+        </div>
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">⚖️</span><span class="card-tag">Regulate</span></div>
+          <h3>Legislation</h3>
+          <p>Legislative bodies write laws to <b>control emissions</b>.</p>
+        </div>
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">🎓</span><span class="card-tag">Educate</span></div>
+          <h3>Education</h3>
+          <p>Educators teach students — beginning at very young ages — about the effects of air pollution.</p>
+        </div>
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">🏛️</span><span class="card-tag">Enforce</span></div>
+          <h3>Regulatory agencies</h3>
+          <p>Play an essential role in reducing and preventing air pollution in the environment.</p>
+        </div>
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">💨</span><span class="card-tag">Ventilate</span></div>
+          <h3>Adequate ventilation</h3>
+          <p>Controls exposure to <b>indoor</b> air pollution specifically.</p>
+        </div>
+        <div class="card" data-c="green">
+          <div class="card-label"><span class="card-icon">🏗️</span><span class="card-tag">Monitor</span></div>
+          <h3>Home &amp; work monitoring</h3>
+          <p>Environments should be monitored for <b>adequate air flow</b> and proper <b>exhaust systems</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WATER POLLUTION -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">07 / WATER POLLUTION</span>
+        <h2 class="sect-title">How water gets polluted</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="blue">
+          <div class="card-label"><span class="card-icon">🧪</span><span class="card-tag">Cause 1</span></div>
+          <h3>Sewage &amp; fertilizers</h3>
+          <p>Contain <b>nutrients</b> like <b>nitrates and phosphates</b>. In excess, they over-stimulate the growth of aquatic plants and algae.</p>
+          <ul>
+            <li><b>Clog waterways</b></li>
+            <li>Use up <b>dissolved oxygen</b> as they decompose</li>
+            <li>Block light from reaching <b>deeper waters</b></li>
+          </ul>
+        </div>
+        <div class="card" data-c="blue">
+          <div class="card-label"><span class="card-icon">🌧️</span><span class="card-tag">Cause 2</span></div>
+          <h3>Silt &amp; suspended solids</h3>
+          <p>Silt and other suspended solids (e.g. <b>soil</b>) wash off:</p>
+          <ul>
+            <li>Plowed fields</li>
+            <li>Construction &amp; logging sites</li>
+            <li>Urban areas</li>
+            <li>Eroded river banks (when it rains)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GROUNDWATER -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">08 / GROUNDWATER</span>
+        <h2 class="sect-title">The hidden reservoir</h2>
+      </div>
+      <div class="card" data-c="teal" style="max-width:800px">
+        <div class="card-label"><span class="card-icon">💧</span><span class="card-tag">Key facts</span></div>
+        <h3>Groundwater — the 95% fact</h3>
+        <ul>
+          <li><b>95%</b> of all fresh water on earth is groundwater</li>
+          <li>Found in <b>natural rock formations</b></li>
+          <li>A large percentage of the population — especially in <b>rural areas</b> — relies on it for drinking water</li>
+          <li>Contamination risk: <b>sewage leakage</b> and <b>waste disposal</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- OTHER WASTE -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">09 / OTHER WASTE</span>
+        <h2 class="sect-title">Material recycling</h2>
+      </div>
+      <div class="card" data-c="pink" style="max-width:800px">
+        <div class="card-label"><span class="card-icon">♻️</span><span class="card-tag">Recycling</span></div>
+        <h3>Materials that need proper treatment</h3>
+        <p>Untreated or poorly treated, these have harmful environmental effects:</p>
+        <ul>
+          <li><b>Plastic</b></li>
+          <li><b>Paper</b></li>
+          <li><b>Rubber</b></li>
+          <li><b>Food residue</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EIS -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">10 / EIS</span>
+        <h2 class="sect-title">Environmental Impact Statement</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="purple">
+          <div class="card-label"><span class="card-icon">📋</span><span class="card-tag">What it is</span></div>
+          <h3>Definition</h3>
+          <p>When engineering projects are planned, potential <b>environmental impacts</b> exist. For <b>federally funded</b> projects these are especially important to the public. The impacts and their <b>magnitude</b> are reported in the EIS.</p>
+          <ul>
+            <li>Used in <b>environmental regulation</b></li>
+            <li>Used in <b>litigation</b></li>
+          </ul>
+        </div>
+        <div class="card" data-c="purple">
+          <div class="card-label"><span class="card-icon">⚖️</span><span class="card-tag">Core principle</span></div>
+          <h3>The fundamental rule</h3>
+          <p>"Any use of natural resources <b>at a rate higher than nature's capacity to restore itself</b> can result in pollution of air, water, and land."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDAMENTAL DRIVERS -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">11 / FUNDAMENTAL DRIVERS OF POLLUTION</span>
+        <h2 class="sect-title">The three root causes</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="red">
+          <div class="card-label"><span class="card-icon">🏭</span><span class="card-tag">1st driver</span></div>
+          <h3>Industrialization</h3>
+          <p>The <b>1st fundamental cause</b>. <b>Fossil fuels</b> (oil, gas, coal) are the main sources of pollution.</p>
+        </div>
+        <div class="card" data-c="red">
+          <div class="card-label"><span class="card-icon">👥</span><span class="card-tag">2nd driver</span></div>
+          <h3>Population Growth</h3>
+          <p>The <b>2nd fundamental cause</b>. Demand for food and goods rises with population → expanded production &amp; use of natural resources → more pollution.</p>
+        </div>
+        <div class="card" data-c="red">
+          <div class="card-label"><span class="card-icon">🌍</span><span class="card-tag">3rd driver</span></div>
+          <h3>Globalization</h3>
+          <p>Developing countries often have <b>looser environmental laws</b>. Combined with population growth and cheap labor, industry moves to <b>"pollution havens"</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIMARY VS SECONDARY -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">12 / PRIMARY vs SECONDARY CAUSES</span>
+        <h2 class="sect-title">Production and consumption</h2>
+      </div>
+      <div class="grid">
+        <div class="card" data-c="amber">
+          <div class="card-label"><span class="card-icon">🏗️</span><span class="card-tag">Primary</span></div>
+          <h3>Production</h3>
+          <p>The <b>primary</b> cause — the full cycle of extracting and processing natural resources, then selling through major sectors.</p>
+          <ul>
+            <li>Manufacturing industry</li>
+            <li>Power generation</li>
+            <li>Road / rail / air transport</li>
+            <li>Agriculture &amp; timber production</li>
+          </ul>
+        </div>
+        <div class="card" data-c="amber">
+          <div class="card-label"><span class="card-icon">🛒</span><span class="card-tag">Secondary</span></div>
+          <h3>Consumption</h3>
+          <p>The <b>secondary</b> cause — comes after and <b>depends on</b> production.</p>
+          <ul>
+            <li>Individual consumers</li>
+            <li>Residential sector</li>
+            <li>Commercial sector</li>
+            <li>Social sector</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" data-c="green" style="margin-top:14px">
+        <div class="card-label"><span class="card-icon">🎯</span><span class="card-tag">It's not just volume</span></div>
+        <h3>Two additional factors beyond sheer volume</h3>
+        <ul>
+          <li><b>Inefficient methods</b> of production</li>
+          <li><b>Careless disposal</b> of post-consumption waste (bottles etc. that could be recycled)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KYOTO -->
+    <section class="sect">
+      <div class="sect-head">
+        <span class="sect-num">13 / KYOTO PROTOCOL</span>
+        <h2 class="sect-title">The 1997 climate treaty</h2>
+      </div>
+      <div class="card" data-c="red" style="max-width:800px">
+        <div class="card-label"><span class="card-icon">📜</span><span class="card-tag">1997</span></div>
+        <h3>Kyoto Protocol</h3>
+        <p><b>Objective:</b> stabilize greenhouse gas concentrations in the atmosphere at a level that would prevent dangerous anthropogenic interference with the climate system.</p>
+        <ul>
+          <li><b>175 Parties</b> have ratified the Protocol</li>
+          <li><b>36 countries + EEC</b> required to reduce emissions below specified levels</li>
+          <li>Notable exceptions: <b>United States</b> and <b>Australia</b></li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══════ DEEP DIVE ═══════ -->
+  <div class="view" id="v-topics">
+    <div class="topic-select">
+      <button class="topic-btn active" data-t="air-out"><span class="dot"></span>Outdoor Air</button>
+      <button class="topic-btn" data-t="air-in"><span class="dot"></span>Indoor Air</button>
+      <button class="topic-btn" data-t="water"><span class="dot"></span>Water</button>
+      <button class="topic-btn" data-t="waste"><span class="dot"></span>Other Waste</button>
+      <button class="topic-btn" data-t="eis"><span class="dot"></span>EIS</button>
+      <button class="topic-btn" data-t="kyoto"><span class="dot"></span>Kyoto</button>
+    </div>
+
+    <div class="topic-panel active" data-t="air-out">
+      <div class="topic-panel-head">
+        <h2>Outdoor Air Pollution</h2>
+        <div class="sub">Smog · Acid rain · Greenhouse · Ozone depletion</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Why air matters</h4>
+        <p>Per the lecture: "No element of the natural world is more essential to life than air, and no environmental task more critical than keeping it clean." Air supplies oxygen essential for life. Clean air is <b>99.9%</b> nitrogen, oxygen, water vapor, and inert gases.</p>
+
+        <h4>Cairo — Black Clouds</h4>
+        <p>Caused by <b>annual burning of rice stubble</b> in rural areas plus <b>car exhaust fumes</b>.</p>
+
+        <h4>Smog</h4>
+        <ul>
+          <li>Caused by <b>chemical reactions between pollutants</b> from different sources</li>
+          <li>Main sources: <b>automobile exhaust</b> and <b>industrial emissions</b></li>
+          <li>Cities like Cairo are hotspots — especially during <b>warm months</b></li>
+          <li>Input chemistry: NOₓ, VOC, SO₂, PM → Ozone + Particles + Greenhouse Gases</li>
+        </ul>
+
+        <h4>Acid Rain</h4>
+        <p>Rainwater contaminated with chemicals from industrial and automobile emissions — acidity increased beyond clean levels. A pollutant (e.g. <b>sulfuric acid</b>) combines with water droplets, acidifying rain or snow.</p>
+        <ul>
+          <li>Damages plants by destroying leaves</li>
+          <li>Poisons soil</li>
+          <li>Changes the chemistry of lakes and streams</li>
+          <li>Negatively affects wildlife</li>
+        </ul>
+
+        <h4>Greenhouse Effect / Global Warming</h4>
+        <p>Believed to come from <b>CO₂ build-up</b> when fuels are burned. Plants convert CO₂ back to O₂, but human release <b>exceeds plant processing capacity</b>. Made worse by <b>deforestation</b> and plants damaged by <b>acid rain</b>.</p>
+        <ul>
+          <li>CO₂ in the atmosphere <b>continues to rise</b></li>
+          <li>Acts like a <b>blanket</b> trapping heat near earth's surface</li>
+          <li>Even a few degrees → changes in climate</li>
+          <li>Possibility: <b>polar ice caps may melt</b></li>
+        </ul>
+
+        <h4>Ozone Depletion</h4>
+        <ul>
+          <li>Ozone = naturally occurring molecule with <b>three oxygen molecules</b></li>
+          <li>Lives in the <b>stratosphere</b> (one of the atmospheric layers around earth)</li>
+          <li>Protects earth from harmful <b>UV radiation</b></li>
+          <li><b>CFCs</b> from aerosol cans, cooling systems, refrigerator equipment remove ozone</li>
+          <li>Creates <b>"holes"</b> → UV radiation reaches earth</li>
+          <li>Effects: <b>skin cancer</b>, plant and wildlife damage</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-panel" data-t="air-in">
+      <div class="topic-panel-head">
+        <h2>Indoor Air Pollution</h2>
+        <div class="sub">Where we actually spend our time</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Why indoor matters</h4>
+        <p>People spend <b>80–90%</b> of their lives indoors — enclosed environments where air circulation may be <b>restricted</b>.</p>
+
+        <h4>Main sources of indoor air pollution</h4>
+        <ul>
+          <li><b>Tobacco smoke</b></li>
+          <li><b>Cooking and heating appliances</b></li>
+          <li><b>Vapors</b> from building materials, paints, furniture, etc.</li>
+        </ul>
+
+        <h4>Practical controls</h4>
+        <ul>
+          <li><b>Adequate ventilation</b> controls exposure to indoor pollution</li>
+          <li>Monitor home and work environments for <b>adequate air flow</b></li>
+          <li>Install <b>proper exhaust systems</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-panel" data-t="water">
+      <div class="topic-panel-head">
+        <h2>Water Pollution</h2>
+        <div class="sub">Surface water + groundwater</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Cause 1 — Sewage and fertilizers</h4>
+        <p>Contain nutrients like <b>nitrates and phosphates</b>. In excess, they over-stimulate the growth of aquatic plants and algae. Consequences:</p>
+        <ul>
+          <li><b>Clog</b> waterways</li>
+          <li>Use up <b>dissolved oxygen</b> as they decompose</li>
+          <li>Block <b>light</b> from reaching deeper waters</li>
+        </ul>
+
+        <h4>Cause 2 — Silt and suspended solids</h4>
+        <p>Soil and other suspended solids wash off when it rains, from:</p>
+        <ul>
+          <li>Plowed fields</li>
+          <li>Construction and logging sites</li>
+          <li>Urban areas</li>
+          <li>Eroded river banks</li>
+        </ul>
+
+        <h4>Groundwater — the 95% reservoir</h4>
+        <ul>
+          <li><b>95%</b> of all fresh water on earth is groundwater</li>
+          <li>Found in <b>natural rock formations</b></li>
+          <li>Large share of population relies on it for drinking water — especially in <b>rural areas</b></li>
+          <li>Significant contamination from <b>sewage leakage</b> and <b>waste disposal</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-panel" data-t="waste">
+      <div class="topic-panel-head">
+        <h2>Other Waste · Material Recycling</h2>
+        <div class="sub">Four materials to treat properly</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Four recyclable materials</h4>
+        <p>These materials can have harmful environmental effects if <b>not properly treated or recycled</b>:</p>
+        <ul>
+          <li><b>Plastic</b></li>
+          <li><b>Paper</b></li>
+          <li><b>Rubber</b></li>
+          <li><b>Food residue</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-panel" data-t="eis">
+      <div class="topic-panel-head">
+        <h2>Environmental Impact Statement</h2>
+        <div class="sub">Pollution drivers · Primary/secondary causes</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Definition</h4>
+        <p>Whenever engineering projects or programs are planned, there are potential impacts upon the environment. When the projects are <b>federally funded</b>, impacts become more important to the public. The magnitudes are reported in Environmental Impact Statements, which are important in <b>environmental regulation</b> and <b>litigation</b>.</p>
+
+        <h4>Core principle</h4>
+        <p>"Any use of natural resources <b>at a rate higher than nature's capacity to restore itself</b> can result in pollution of air, water, and land."</p>
+
+        <h4>Beyond excessive volume — two deeper factors</h4>
+        <ul>
+          <li><b>Inefficient methods</b> of production</li>
+          <li><b>Careless &amp; thoughtless disposal</b> of post-consumption waste (bottles etc. that could be recycled)</li>
+        </ul>
+
+        <h4>Fundamental Drivers of Pollution</h4>
+        <ul>
+          <li><b>1st · Industrialization</b> — fossil fuels (oil, gas, coal) are the main pollution source</li>
+          <li><b>2nd · Population growth</b> — demand for food/goods rises → expanded production → more pollution</li>
+          <li><b>3rd · Globalization</b> — looser laws in developing countries + cheap labor → industry moves to <b>"pollution havens"</b></li>
+        </ul>
+
+        <h4>Primary vs Secondary Causes</h4>
+        <ul>
+          <li><b>Production = PRIMARY cause</b> — the full cycle of extracting &amp; processing natural resources. Sectors: manufacturing industry, power generation, road/rail/air transport, agriculture &amp; timber production.</li>
+          <li><b>Consumption = SECONDARY cause</b> — comes after and depends on production. Sectors: individual consumers, residential, commercial, social.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="topic-panel" data-t="kyoto">
+      <div class="topic-panel-head">
+        <h2>Kyoto Protocol (1997)</h2>
+        <div class="sub">The international climate treaty</div>
+      </div>
+      <div class="topic-panel-body">
+        <h4>Objective</h4>
+        <p>"Stabilization of greenhouse gas concentrations in the atmosphere at a level that would prevent <b>dangerous anthropogenic interference</b> with the climate system."</p>
+
+        <h4>Key facts</h4>
+        <ul>
+          <li>Signed in <b>1997</b></li>
+          <li><b>175 Parties</b> have ratified the Protocol</li>
+          <li><b>36 countries + the EEC</b> are required to reduce greenhouse gas emissions below levels specified for each of them in the treaty</li>
+          <li>Notable exceptions: <b>United States</b> and <b>Australia</b></li>
+          <li>EEC = European Economic Community</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ MIND MAP ═══════ -->
+  <div class="view" id="v-mindmap">
+    <div class="mindmap">
+      <div class="mm-root">
+        <div class="mm-center">Environmental Concerns</div>
+        <div class="mm-branches">
+
+          <div class="mm-branch">
+            <h4><span>💨</span>Air Basics</h4>
+            <ul>
+              <li>99.9% N₂ + O₂ + H₂O + inert</li>
+              <li>Oxygen = essential for life</li>
+              <li>Human activity disrupts balance</li>
+              <li><b>Cairo black clouds</b>: rice stubble + exhaust</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>🌆</span>Outdoor Pollution</h4>
+            <ul>
+              <li><b>Smog</b> — chemical reactions · auto + industry</li>
+              <li><b>Acid rain</b> — pollutants + water droplets</li>
+              <li><b>Greenhouse</b> — CO₂ build-up</li>
+              <li><b>Ozone depletion</b> — CFCs</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>🏠</span>Indoor Pollution</h4>
+            <ul>
+              <li>80-90% of life spent indoors</li>
+              <li>Tobacco smoke</li>
+              <li>Cooking &amp; heating</li>
+              <li>Vapors from building materials</li>
+              <li>Control: <b>ventilation</b></li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>☀️</span>Ozone Details</h4>
+            <ul>
+              <li>O₃ = <b>3 oxygen molecules</b></li>
+              <li>Lives in the <b>stratosphere</b></li>
+              <li>Blocks UV radiation</li>
+              <li>CFCs create "holes"</li>
+              <li>Effect: skin cancer + damage</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>🌡️</span>Greenhouse Flow</h4>
+            <ul>
+              <li>1 · Sun energy through atmosphere</li>
+              <li>2 · Some reflects back</li>
+              <li>3 · Earth radiates heat back</li>
+              <li>4 · GHGs trap heat</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>💧</span>Water Pollution</h4>
+            <ul>
+              <li><b>Sewage + fertilizers</b> — nitrates, phosphates → algae</li>
+              <li>Clogs · depletes O₂ · blocks light</li>
+              <li><b>Silt + solids</b> — fields, construction, urban, eroded banks</li>
+              <li><b>95%</b> fresh water = groundwater</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>♻️</span>Waste</h4>
+            <ul>
+              <li>Plastic · Paper · Rubber · Food</li>
+              <li>Harmful if not treated/recycled</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>📋</span>EIS</h4>
+            <ul>
+              <li>Required for federally-funded projects</li>
+              <li>Used in regulation + litigation</li>
+              <li>Rule: no use above nature's restore rate</li>
+              <li>Not just volume — also: inefficient methods &amp; careless disposal</li>
+            </ul>
+          </div>
+
+          <div class="mm-branch">
+            <h4><span>🏭</span>Drivers &amp; Causes</h4>
+            <ul>
+              <li>Drivers: <b>Industry · Population · Globalization</b></li>
+              <li><b>Primary</b> cause = Production</li>
+              <li><b>Secondary</b> cause = Consumption</li>
+              <li>Kyoto 1997 · 175 parties · US + Australia excepted</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ QUIZ ═══════ -->
+  <div class="view" id="v-quiz">
+    <div class="quiz-wrap">
+      <div class="quiz-top">
+        <div class="quiz-progress">
+          <div class="quiz-progress-label">
+            <span id="qLabel">Question 1</span>
+            <span id="qPercent">0%</span>
+          </div>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="qFill"></div>
+          </div>
+        </div>
+        <div class="quiz-score" id="qScore">0 / 0</div>
+      </div>
+      <div class="q-container" id="qContainer"></div>
+      <div class="q-nav">
+        <button class="q-btn" id="qPrev">← Previous</button>
+        <button class="q-btn primary" id="qNext">Next →</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+const QUESTIONS = [
+  {q:"According to the lecture, clean air is 99.9% composed of which four components?",a:"Nitrogen, oxygen, water vapor, and inert gases",wrong:["Nitrogen, oxygen, CO₂, and hydrogen","Oxygen, argon, water vapor, and methane","Nitrogen, helium, oxygen, and ozone"],exp:"Air composition — per the lecture, air is 99.9% nitrogen, oxygen, water vapor, and inert gases.",tag:"Air Basics"},
+  {q:"Cairo's 'black clouds' are specifically caused by which two factors?",a:"Annual burning of rice stubble in rural areas and car exhaust fumes",wrong:["Power plant emissions and sandstorms","Desert dust and industrial chimneys","Cement factories and garbage burning"],exp:"Cairo black clouds — the lecture identifies exactly two sources: rice stubble burning and car exhaust fumes.",tag:"Air · Cairo"},
+  {q:"What causes smog?",a:"Chemical reactions between pollutants from different sources — mainly auto exhaust and industrial emissions",wrong:["Direct evaporation of oil from refineries","Natural fog mixed with dust only","CO₂ released from decomposing waste"],exp:"Smog — the lecture defines it as chemical reactions between pollutants, mainly from automobile exhaust and industrial emissions.",tag:"Smog"},
+  {q:"Which season makes smog worst in cities like Cairo?",a:"Warm months of the year",wrong:["Cold winter months","Spring during rainfall","Autumn with high humidity"],exp:"Smog — cities like Cairo are smog centers especially during the warm months of the year.",tag:"Smog"},
+  {q:"Which of the following is NOT listed as an effect of acid rain?",a:"Increases ozone layer thickness",wrong:["Damages plants by destroying leaves","Poisons the soil","Changes the chemistry of lakes and streams"],exp:"Acid rain effects — damages leaves, poisons soil, changes lake/stream chemistry, negatively affects wildlife. Ozone is unrelated.",tag:"Acid Rain"},
+  {q:"The greenhouse effect is believed to come primarily from a build-up of which gas?",a:"Carbon dioxide (CO₂) from burning fuels",wrong:["Ozone (O₃) from industrial processes","Methane (CH₄) from agriculture","Sulfuric acid (H₂SO₄) from emissions"],exp:"Greenhouse effect — the lecture attributes it to CO₂ build-up in the atmosphere when fuels are burned.",tag:"Greenhouse"},
+  {q:"What makes the greenhouse effect worse, per the lecture?",a:"Removal of earth's forests and plant life damaged by acid rain",wrong:["Increased rainfall in tropical regions","The ozone layer getting thicker","Reduced use of fossil fuels"],exp:"Greenhouse — the lecture specifically says the situation is worsened by forest removal and plant damage from acid rain, reducing CO₂-to-O₂ conversion capacity.",tag:"Greenhouse"},
+  {q:"In the greenhouse mechanism, which stage describes the warming trap?",a:"Greenhouse gases in the atmosphere trap some of the heat radiated from earth",wrong:["The sun releases more energy than usual","Clouds block heat from leaving earth","The ozone layer absorbs heat directly"],exp:"Greenhouse flow · Stage 4 — after earth radiates heat outward, greenhouse gases in the atmosphere trap some of it. This is the warming mechanism.",tag:"Greenhouse"},
+  {q:"Ozone is described in the lecture as a molecule containing how many oxygen molecules?",a:"Three",wrong:["Two","Four","One"],exp:"Ozone definition — naturally occurring molecule containing three molecules of oxygen (O₃).",tag:"Ozone"},
+  {q:"The ozone layer resides in which atmospheric layer?",a:"Stratosphere",wrong:["Troposphere","Mesosphere","Exosphere"],exp:"Ozone layer — the lecture specifies it's in the stratosphere.",tag:"Ozone"},
+  {q:"What chemical class is primarily responsible for ozone depletion?",a:"Chlorofluorocarbons (CFCs) from aerosol cans, cooling systems, and refrigerators",wrong:["Nitrogen oxides (NOₓ) from power plants","Sulfuric acid from industrial emissions","Volatile organic compounds (VOCs) from paints"],exp:"Ozone depletion — CFCs from aerosol cans, cooling systems, and refrigerator equipment remove ozone and cause holes.",tag:"Ozone"},
+  {q:"Approximately what percentage of our lives do we spend indoors?",a:"80-90%",wrong:["50-60%","30-40%","95-99%"],exp:"Indoor air — per the lecture, people spend approximately 80-90% of their lives indoors, which is why indoor air pollution is so consequential.",tag:"Indoor Air"},
+  {q:"Which of the following is NOT listed as a main source of indoor air pollution?",a:"Automobile exhaust from outside",wrong:["Tobacco smoke","Cooking and heating appliances","Vapors from building materials, paints, furniture"],exp:"Indoor air sources — the three listed sources are tobacco smoke, cooking/heating appliances, and vapors from materials. Auto exhaust is an outdoor source.",tag:"Indoor Air"},
+  {q:"In water pollution, which specific nutrients from sewage and fertilizers over-stimulate algae and aquatic plant growth?",a:"Nitrates and phosphates",wrong:["Sulfates and nitrites","Chlorides and carbonates","Oxides and hydroxides"],exp:"Water pollution · cause 1 — sewage and fertilizers contain nutrients, specifically nitrates and phosphates, which cause excess algae growth.",tag:"Water"},
+  {q:"What percentage of all fresh water on earth is groundwater?",a:"95%",wrong:["50%","75%","30%"],exp:"Groundwater — the lecture states 95% of all fresh water on earth is groundwater.",tag:"Water"},
+  {q:"Which of the following is NOT listed as one of the four recyclable materials with harmful effects if mistreated?",a:"Glass",wrong:["Plastic","Paper","Rubber"],exp:"Other waste — the lecture lists plastic, paper, rubber, and food residue as the four recyclable materials. Glass is not on this specific list.",tag:"Waste"},
+  {q:"According to the lecture, which is the 1st fundamental driver of pollution?",a:"Industrialization",wrong:["Population growth","Globalization","Climate change"],exp:"Fundamental drivers — per the lecture: 1st Industrialization (fossil fuels main source), 2nd Population growth, 3rd Globalization.",tag:"EIS"},
+  {q:"Why does globalization act as a fundamental driver of pollution?",a:"Industry moves to developing countries with looser environmental laws — 'pollution havens'",wrong:["International shipping creates more emissions per capita","Global standards force all countries to lower protections","Consumer demand rises uniformly everywhere"],exp:"Globalization driver — developing countries typically have looser environmental laws; combined with cheap labor, this leads industry to relocate to 'pollution havens'.",tag:"EIS"},
+  {q:"Between production and consumption, which is the primary cause of pollution per the lecture?",a:"Production — because it's the whole cycle of extracting and processing natural resources",wrong:["Consumption — because consumers buy the polluting products","Both are equally primary","Neither — transport is the primary cause"],exp:"Primary/secondary causes — Production is primary (extraction + processing + selling); Consumption is secondary because it comes after and depends on production.",tag:"EIS"},
+  {q:"How many parties have ratified the Kyoto Protocol (1997), per the lecture?",a:"175",wrong:["36","100","250"],exp:"Kyoto — 175 Parties have ratified. Separately, 36 countries + the EEC are required to actually reduce emissions.",tag:"Kyoto"},
+  {q:"Which two countries are flagged as notable exceptions to the Kyoto Protocol?",a:"United States and Australia",wrong:["United States and China","Russia and China","United Kingdom and Australia"],exp:"Kyoto exceptions — the lecture specifically names the United States and Australia as notable exceptions.",tag:"Kyoto"}
+];
+
+document.querySelectorAll('.tab').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    document.getElementById('v-'+b.dataset.view).classList.add('active');
+  });
+});
+
+document.querySelectorAll('.topic-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.topic-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.topic-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelector(`.topic-panel[data-t="${b.dataset.t}"]`).classList.add('active');
+  });
+});
+
+let qIdx=0, answers=new Array(QUESTIONS.length).fill(null), shuffled=[];
+
+function prepQuiz(){
+  QUESTIONS.forEach((q,i)=>{
+    const opts=[{t:q.a,correct:true},...q.wrong.map(w=>({t:w,correct:false}))];
+    for(let j=opts.length-1;j>0;j--){
+      const k=Math.floor(Math.random()*(j+1));
+      [opts[j],opts[k]]=[opts[k],opts[j]];
+    }
+    shuffled[i]=opts;
+  });
+}
+
+function renderQ(){
+  const q=QUESTIONS[qIdx];
+  const c=document.getElementById('qContainer');
+  const saved=answers[qIdx];
+  if(qIdx>=QUESTIONS.length){renderEnd();return;}
+  c.innerHTML=`
+    <div class="q-num">Question ${qIdx+1} · ${q.tag}</div>
+    <div class="q-text">${q.q}</div>
+    <div class="q-opts">
+      ${shuffled[qIdx].map((o,i)=>{
+        let cls='q-opt';
+        if(saved!==null){
+          cls+=' disabled';
+          if(o.correct) cls+=' correct';
+          else if(i===saved && !o.correct) cls+=' wrong';
+        }
+        return `<button class="${cls}" data-i="${i}"><span class="q-letter">${String.fromCharCode(65+i)}</span><span>${o.t}</span></button>`;
+      }).join('')}
+    </div>
+    <div class="q-explain ${saved!==null?'show':''}"><b>Why:</b> ${q.exp}</div>`;
+  c.querySelectorAll('.q-opt').forEach(b=>{
+    if(saved===null){
+      b.addEventListener('click',()=>{
+        const i=+b.dataset.i;
+        answers[qIdx]=i;
+        renderQ();
+        updateMeta();
+      });
+    }
+  });
+  document.getElementById('qPrev').disabled = qIdx===0;
+  document.getElementById('qNext').textContent = qIdx===QUESTIONS.length-1 ? 'Finish' : 'Next →';
+  updateMeta();
+}
+
+function updateMeta(){
+  document.getElementById('qLabel').textContent = qIdx<QUESTIONS.length?`Question ${qIdx+1} of ${QUESTIONS.length}`:'Complete';
+  const answered = answers.filter(a=>a!==null).length;
+  const correct = answers.reduce((s,a,i)=>{
+    if(a===null) return s;
+    return s + (shuffled[i][a].correct?1:0);
+  },0);
+  document.getElementById('qScore').textContent = `${correct} / ${answered}`;
+  const pct = Math.round((answered/QUESTIONS.length)*100);
+  document.getElementById('qPercent').textContent = pct+'%';
+  document.getElementById('qFill').style.width = pct+'%';
+}
+
+function renderEnd(){
+  const correct = answers.reduce((s,a,i)=>{
+    if(a===null) return s;
+    return s + (shuffled[i][a].correct?1:0);
+  },0);
+  const pct = Math.round((correct/QUESTIONS.length)*100);
+  const msg = pct>=85?"Environmental concerns — fully absorbed.":pct>=70?"Solid — review the numbers.":pct>=50?"Getting there — revisit the drivers and Kyoto facts.":"Back to the summary for another pass.";
+  document.getElementById('qContainer').innerHTML=`
+    <div class="quiz-end">
+      <div class="quiz-end-score">${pct}%</div>
+      <div class="quiz-end-label">${correct} / ${QUESTIONS.length} correct</div>
+      <div class="quiz-end-msg">${msg}</div>
+      <button class="q-btn primary" onclick="resetQuiz()">Retake Quiz</button>
+    </div>`;
+  document.getElementById('qPrev').disabled=false;
+  document.getElementById('qNext').disabled=true;
+  document.getElementById('qLabel').textContent='Complete';
+}
+
+function resetQuiz(){
+  qIdx=0;
+  answers=new Array(QUESTIONS.length).fill(null);
+  prepQuiz();
+  document.getElementById('qNext').disabled=false;
+  renderQ();
+}
+
+document.getElementById('qPrev').addEventListener('click',()=>{
+  if(qIdx>0){qIdx--;renderQ();}
+});
+document.getElementById('qNext').addEventListener('click',()=>{
+  if(qIdx<QUESTIONS.length){qIdx++;renderQ();}
+});
+
+prepQuiz();
+renderQ();
+</script>
+</body>
+</html>
