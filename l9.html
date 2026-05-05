@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASU 113 — Lecture 9: Listening &amp; Effective Studying</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0b10;--surface:#12131a;--surface2:#1a1b24;--surface3:#22232e;
+  --text:#e2e4ea;--text2:#9a9db0;--text3:#6b6e82;
+  --accent:#f59e0b;--accent2:#fbbf24;--accent-dim:rgba(245,158,11,.12);
+  --accent-glow:rgba(245,158,11,.25);
+  --green:#34d399;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;
+  --radius:12px;--radius-sm:8px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* Header */
+.header{padding:28px 24px 20px;text-align:center;position:relative}
+.header::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);border-radius:2px}
+.lecture-tag{display:inline-block;background:var(--accent-dim);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:500;padding:4px 14px;border-radius:20px;margin-bottom:10px;border:1px solid rgba(245,158,11,.2)}
+.header h1{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;line-height:1.3;background:linear-gradient(135deg,var(--text),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header p{color:var(--text2);font-size:.85rem;margin-top:6px}
+
+/* Tabs */
+.tab-bar{display:flex;gap:4px;padding:16px 16px 0;position:sticky;top:0;z-index:100;background:var(--bg)}
+.tab-btn{flex:1;padding:10px 6px;border:none;background:var(--surface);color:var(--text3);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;border-radius:var(--radius-sm) var(--radius-sm) 0 0;transition:all .25s;position:relative}
+.tab-btn:hover{color:var(--text2);background:var(--surface2)}
+.tab-btn.active{color:var(--accent);background:var(--surface2)}
+.tab-btn.active::after{content:'';position:absolute;bottom:0;left:20%;width:60%;height:2px;background:var(--accent);border-radius:2px}
+.tab-content{display:none;padding:16px;animation:fadeUp .35s ease}
+.tab-content.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.card-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--accent2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card-title .icon{font-size:1.2rem}
+.card p,.card li{font-size:.88rem;line-height:1.65;color:var(--text2)}
+.card ul,.card ol{padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.card li::marker{color:var(--accent)}
+
+.highlight-box{background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:12px 14px;margin:10px 0}
+.highlight-box p{color:var(--accent2)!important;font-weight:500;font-size:.85rem}
+
+.key-term{display:inline-block;background:var(--surface3);color:var(--accent2);font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:2px 8px;border-radius:4px;margin:2px}
+
+/* Forgetting Curve visual */
+.curve-visual{display:flex;align-items:flex-end;gap:8px;height:120px;padding:10px 0;margin:12px 0}
+.curve-bar{flex:1;border-radius:6px 6px 0 0;position:relative;transition:all .3s}
+.curve-bar .label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:.65rem;color:var(--text3);white-space:nowrap}
+.curve-bar .pct{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:.72rem;font-weight:700}
+
+/* Mind Map */
+.mind-map-container{display:flex;justify-content:center;padding:10px 0}
+.mind-map-container svg{width:100%;max-width:700px;height:auto}
+.mm-node{cursor:default}
+.mm-node rect,.mm-node ellipse{transition:all .3s}
+.mm-node:hover rect,.mm-node:hover ellipse{filter:brightness(1.2)}
+
+/* Quiz */
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.score-display{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--accent)}
+.progress-bar{width:100%;height:6px;background:var(--surface3);border-radius:3px;margin-bottom:16px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .4s ease}
+
+.question-card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+.q-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);margin-bottom:6px}
+.q-text{font-size:.92rem;font-weight:600;line-height:1.5;margin-bottom:14px}
+.q-type{font-size:.68rem;color:var(--text3);margin-bottom:10px;font-style:italic}
+
+.option{display:block;width:100%;text-align:left;padding:11px 14px;margin-bottom:6px;background:var(--surface2);border:1px solid var(--surface3);border-radius:var(--radius-sm);color:var(--text);font-size:.85rem;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;line-height:1.5}
+.option:hover:not(.disabled){border-color:var(--accent);background:var(--accent-dim)}
+.option.correct{border-color:var(--green);background:rgba(52,211,153,.1);color:var(--green)}
+.option.wrong{border-color:var(--red);background:rgba(248,113,113,.08);color:var(--red)}
+.option.disabled{cursor:default;opacity:.7}
+.option.show-correct{border-color:var(--green);background:rgba(52,211,153,.08)}
+
+.explanation{margin-top:10px;padding:12px;background:var(--surface2);border-radius:var(--radius-sm);font-size:.82rem;color:var(--text2);line-height:1.6;display:none;border-left:3px solid var(--accent)}
+.explanation.show{display:block;animation:fadeUp .3s ease}
+
+.quiz-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{padding:10px 20px;border:none;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--accent);color:#0a0b10}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-secondary{background:var(--surface2);color:var(--text2);border:1px solid var(--surface3)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+
+.final-score{text-align:center;padding:30px 20px}
+.final-score .big-score{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.final-score .label{color:var(--text2);font-size:.9rem;margin-top:4px}
+.final-score .msg{color:var(--text3);font-size:.85rem;margin-top:12px}
+
+/* Deep dive accordion */
+.accordion{border:1px solid var(--surface3);border-radius:var(--radius);overflow:hidden;margin-bottom:10px}
+.accordion-header{padding:14px 16px;background:var(--surface);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:.9rem;transition:background .2s}
+.accordion-header:hover{background:var(--surface2)}
+.accordion-header .arrow{color:var(--accent);transition:transform .3s;font-size:.8rem}
+.accordion-header.open .arrow{transform:rotate(90deg)}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.accordion-body.open{max-height:2000px}
+.accordion-inner{padding:14px 16px;background:var(--surface2);font-size:.85rem;line-height:1.7;color:var(--text2)}
+.accordion-inner ul{padding-left:16px;margin-top:6px}
+.accordion-inner li{margin-bottom:4px}
+.accordion-inner li::marker{color:var(--accent)}
+
+/* QnA section */
+.qna-item{margin-bottom:12px}
+.qna-q{font-weight:600;font-size:.88rem;color:var(--accent2);margin-bottom:4px}
+.qna-a{font-size:.85rem;color:var(--text2);line-height:1.6;padding-left:12px;border-left:2px solid var(--surface3)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="lecture-tag">LECTURE 9</div>
+  <h1>Listening Skills & Effective Studying</h1>
+  <p>ASU 113 — Dr. Mohamed Mokhtar</p>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('summary')">Summary</button>
+  <button class="tab-btn" onclick="switchTab('deep')">Deep Dive</button>
+  <button class="tab-btn" onclick="switchTab('mindmap')">Mind Map</button>
+  <button class="tab-btn" onclick="switchTab('quiz')">Quiz</button>
+</div>
+
+<!-- ==================== SUMMARY TAB ==================== -->
+<div id="summary" class="tab-content active">
+
+  <div class="card">
+    <div class="card-title"><span class="icon">👂</span> How to Be a Good Listener</div>
+    <ol>
+      <li><strong>Review your notes</strong> before class</li>
+      <li><strong>Arrive early</strong> — go to class a few minutes before it starts</li>
+      <li><strong>Maintain natural eye contact</strong> with the speaker</li>
+      <li><strong>Show alertness</strong> through your posture</li>
+      <li><strong>Ignore distractions</strong> — side talks, external noise</li>
+      <li><strong>Take notes</strong> on the speaker's most important points and prepare questions</li>
+      <li><strong>Turn off cell phones</strong></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📝</span> Cornell Note-Taking Method</div>
+    <p>A structured note-taking system using three sections on the page:</p>
+    <ul>
+      <li><strong>Cue Column</strong> (left, 2.5" wide) — keywords, questions, cues written after class</li>
+      <li><strong>Note-Taking Area</strong> (right, 6" wide) — lecture notes during class</li>
+      <li><strong>Summaries</strong> (bottom, 2" tall) — brief summary of the page's content</li>
+    </ul>
+    <div class="highlight-box">
+      <p>The 5 R's of Cornell: Record → Reduce → Recite → Reflect → Review</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📚</span> Guidelines for Effective Studying</div>
+    <ol>
+      <li><strong>Connect class work to long-range goals</strong></li>
+      <li><strong>Become active & involved</strong> in learning</li>
+      <li><strong>Time scheduling</strong> — make a weekly master plan and a semester calendar</li>
+      <li><strong>Stick to your schedule</strong> — fight laziness, daydreaming; practice patience</li>
+      <li><strong>Study difficult classes early afternoon</strong></li>
+      <li><strong>Begin test prep a week in advance</strong></li>
+      <li><strong>Incorporate self-testing</strong> into your study schedule</li>
+      <li><strong>Best time to study</strong> is right after class</li>
+      <li><strong>Follow a good study strategy</strong> — SQ3R</li>
+      <li><strong>Practice a good test-taking strategy</strong></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">⏰</span> Why Scheduling?</div>
+    <ul>
+      <li>Reduces wasted time — saves time overall</li>
+      <li>Separates work and play — promotes life balance</li>
+      <li>Helps prevent cramming</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📉</span> The Forgetting Curve</div>
+    <p>Students who <strong>do NOT review</strong> the same day lose information rapidly: ~40% recall after one day, dropping to ~20% by nine weeks.</p>
+    <p style="margin-top:6px">Students who <strong>review on the same day</strong> retain dramatically more: ~80% even after nine weeks.</p>
+    <div class="curve-visual">
+      <div class="curve-bar" style="height:95%;background:var(--accent);width:22%"><span class="pct" style="color:var(--accent)">~95%</span><span class="label">Same Day</span></div>
+      <div class="curve-bar" style="height:80%;background:var(--accent);opacity:.85;width:22%"><span class="pct" style="color:var(--accent)">~80%</span><span class="label">1 Day</span></div>
+      <div class="curve-bar" style="height:75%;background:var(--accent);opacity:.7;width:22%"><span class="pct" style="color:var(--accent)">~75%</span><span class="label">2 Wks</span></div>
+      <div class="curve-bar" style="height:65%;background:var(--accent);opacity:.6;width:22%"><span class="pct" style="color:var(--accent)">~65%</span><span class="label">9 Wks</span></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text3);text-align:center;margin-top:24px">▲ Students who reviewed same day (pink curve in slides)</p>
+    <div class="curve-visual" style="margin-top:4px">
+      <div class="curve-bar" style="height:95%;background:var(--blue);width:22%"><span class="pct" style="color:var(--blue)">~95%</span><span class="label">Same Day</span></div>
+      <div class="curve-bar" style="height:40%;background:var(--blue);opacity:.75;width:22%"><span class="pct" style="color:var(--blue)">~40%</span><span class="label">1 Day</span></div>
+      <div class="curve-bar" style="height:22%;background:var(--blue);opacity:.6;width:22%"><span class="pct" style="color:var(--blue)">~20%</span><span class="label">2 Wks</span></div>
+      <div class="curve-bar" style="height:15%;background:var(--blue);opacity:.5;width:22%"><span class="pct" style="color:var(--blue)">~15%</span><span class="label">9 Wks</span></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--text3);text-align:center;margin-top:24px">▲ Students who did NOT review (blue curve in slides)</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔍</span> SQ3R — Active Reading Strategy</div>
+    <ul>
+      <li><span class="key-term">S</span> <strong>Survey</strong> — skim headings, subheadings, visuals</li>
+      <li><span class="key-term">Q</span> <strong>Question</strong> — turn headings into questions</li>
+      <li><span class="key-term">R</span> <strong>Read</strong> — read to answer your questions</li>
+      <li><span class="key-term">R</span> <strong>Recite</strong> — answer questions in your own words</li>
+      <li><span class="key-term">R</span> <strong>Review</strong> — go over material periodically</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">✅</span> Test-Taking Tips</div>
+    <ul>
+      <li>Arrive on time</li>
+      <li>Do a <strong>memory dump</strong> — jot key info immediately</li>
+      <li>Read directions carefully</li>
+      <li>Budget time wisely</li>
+      <li>Practice relaxation</li>
+      <li>Answer all questions</li>
+      <li>Use all the time available</li>
+    </ul>
+  </div>
+
+  <!-- QnA Section -->
+  <div class="card">
+    <div class="card-title"><span class="icon">❓</span> Quick Q&A</div>
+    <div class="qna-item">
+      <div class="qna-q">Q: What is the best time to study according to the lecture?</div>
+      <div class="qna-a">Right after class — this combats the forgetting curve by reviewing material while it's still fresh.</div>
+    </div>
+    <div class="qna-item">
+      <div class="qna-q">Q: What does SQ3R stand for?</div>
+      <div class="qna-a">Survey, Question, Read, Recite, Review — an effective active reading technique by George Wilson.</div>
+    </div>
+    <div class="qna-item">
+      <div class="qna-q">Q: What are the three sections of the Cornell Note-Taking Method?</div>
+      <div class="qna-a">Cue Column (left, 2.5"), Note-Taking Area (right, 6"), and Summaries (bottom, 2").</div>
+    </div>
+    <div class="qna-item">
+      <div class="qna-q">Q: How far in advance should you begin preparing for tests?</div>
+      <div class="qna-a">A week in advance, according to the lecture guidelines.</div>
+    </div>
+    <div class="qna-item">
+      <div class="qna-q">Q: What is a "memory dump" in test-taking?</div>
+      <div class="qna-a">Writing down key formulas, facts, and information from memory at the very start of the exam before you begin answering questions.</div>
+    </div>
+    <div class="qna-item">
+      <div class="qna-q">Q: Why is scheduling important for students?</div>
+      <div class="qna-a">It reduces wasted time, separates work from play (promoting balance), and helps prevent last-minute cramming.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DEEP DIVE TAB ==================== -->
+<div id="deep" class="tab-content">
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>👂 Being a Good Listener — The 7 Steps</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>The lecture frames listening as an <strong>active skill</strong>, not passive hearing. The goal is to leave every talk as a "more informed person." The seven steps form a before → during → always cycle:</p>
+        <ul>
+          <li><strong>Before class:</strong> Review previous notes (step 1), arrive early (step 2), turn off cell phones (step 7)</li>
+          <li><strong>During class:</strong> Maintain eye contact (step 3), alert posture (step 4), ignore distractions (step 5), take notes & prepare questions (step 6)</li>
+        </ul>
+        <p style="margin-top:8px"><em>Exam trap:</em> Questions may test whether you can distinguish between before-class prep (reviewing notes, arriving early) and during-class behavior (eye contact, posture, note-taking).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>📝 Cornell Note-Taking — Structure & The 5 R's</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>The Cornell method divides a standard 8.5" × 11" page into three zones:</p>
+        <ul>
+          <li><strong>Cue Column</strong> (left, 2.5"): After class — write keywords, questions, prompts that connect to the notes on the right</li>
+          <li><strong>Note-Taking Area</strong> (right, 6"): During class — capture main ideas, details, diagrams</li>
+          <li><strong>Summary Section</strong> (bottom, 2"): After class — condense the page into 1–2 sentence summary</li>
+        </ul>
+        <p style="margin-top:8px">The <strong>5 R's</strong> guide how you use the system: <strong>Record</strong> (capture notes during lecture) → <strong>Reduce</strong> (distill into cue column) → <strong>Recite</strong> (cover notes, use cues to recall) → <strong>Reflect</strong> (think about connections) → <strong>Review</strong> (revisit regularly).</p>
+        <p style="margin-top:8px"><em>Exam trap:</em> The dimensions (2.5", 6", 2") and the names of the 5 R's are direct-recall targets.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>📚 The 10 Study Guidelines — Deep Breakdown</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>The lecture presents 10 numbered guidelines. Key details that may be tested:</p>
+        <ul>
+          <li><strong>#3 — Time scheduling:</strong> Two specific planning tools are mentioned — a weekly master plan and a semester calendar.</li>
+          <li><strong>#4 — Discipline:</strong> Three enemies are named: laziness, daydreaming. The remedy: patience.</li>
+          <li><strong>#5 — Difficult subjects:</strong> Study them in the early afternoon (not morning, not evening).</li>
+          <li><strong>#6 — Test prep timing:</strong> Begin one week in advance (not 2 days, not a month).</li>
+          <li><strong>#8 — Best study time:</strong> Right after class — directly tied to the forgetting curve.</li>
+          <li><strong>#9 — SQ3R:</strong> The recommended study strategy.</li>
+          <li><strong>#10 — Test-taking strategy:</strong> Covered separately with 7 specific tips.</li>
+        </ul>
+        <p style="margin-top:8px"><em>Exam trap:</em> Confusing when to study difficult subjects (early afternoon) vs. best time to study in general (right after class). These are different guidelines.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>⏰ Scheduling — Why It Matters</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>Three benefits of scheduling per the lecture:</p>
+        <ul>
+          <li>Reduces wasted time → saves time</li>
+          <li>Separates work and play → promotes life balance</li>
+          <li>Prevents cramming</li>
+        </ul>
+        <p style="margin-top:8px">The slides show a step-by-step process of building a weekly schedule: (1) empty timetable → (2) fill in class times → (3) add study blocks → (4) add meals, sleep, free time → (5) complete balanced schedule with all activities color-coded.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>📉 The Forgetting Curve — Key Numbers</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>The forgetting curve (from the lecture's chart) compares two groups:</p>
+        <ul>
+          <li><strong>No same-day review:</strong> ~100% on same day → ~40% after one day → ~20% after two weeks → even lower by nine weeks</li>
+          <li><strong>Same-day review:</strong> ~100% → ~85% after one day → ~80% at two weeks → ~65% at nine weeks</li>
+        </ul>
+        <p style="margin-top:8px">The takeaway: reviewing material the same day you learn it dramatically flattens the forgetting curve. This directly supports guideline #8 (best time to study is right after class).</p>
+        <p style="margin-top:8px"><em>Exam trap:</em> The forgetting curve is the scientific rationale behind "study right after class" — expect a question linking these two concepts together.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>🔍 SQ3R Method — Full Breakdown</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>SQ3R is an active reading technique attributed to George Wilson in the lecture:</p>
+        <ul>
+          <li><strong>Survey:</strong> Skim the chapter — headings, subheadings, bold terms, images, summaries</li>
+          <li><strong>Question:</strong> Convert headings into questions to guide your reading</li>
+          <li><strong>Read:</strong> Read actively, seeking answers to your questions</li>
+          <li><strong>Recite:</strong> After each section, answer your questions aloud or in writing without looking</li>
+          <li><strong>Review:</strong> Go back over the whole chapter, check your answers, reinforce weak areas</li>
+        </ul>
+        <p style="margin-top:8px"><em>Exam trap:</em> Know the exact order (Survey comes first, not Read). Also know that SQ3R is specifically a reading/studying strategy, not a test-taking strategy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAcc(this)">
+      <span>✅ Test-Taking Tips — The 7 Tips</span>
+      <span class="arrow">▶</span>
+    </div>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <ul>
+          <li><strong>Arrive on time</strong> — being late increases anxiety and wastes exam time</li>
+          <li><strong>Do a memory dump</strong> — before reading any questions, write down key facts/formulas you memorized</li>
+          <li><strong>Read directions carefully</strong> — misunderstanding instructions costs easy marks</li>
+          <li><strong>Budget time wisely</strong> — allocate time per section, don't get stuck on one question</li>
+          <li><strong>Practice relaxation</strong> — deep breathing, staying calm under pressure</li>
+          <li><strong>Answer ALL questions</strong> — never leave blanks (especially in MCQ where there's no penalty)</li>
+          <li><strong>Use ALL the time</strong> — don't leave early; review your answers</li>
+        </ul>
+        <p style="margin-top:8px"><em>Exam trap:</em> "Memory dump" is a specific test-taking tip, not a study strategy. Don't confuse test-taking tips with study guidelines.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MIND MAP TAB ==================== -->
+<div id="mindmap" class="tab-content">
+  <div class="mind-map-container">
+    <svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <!-- Central node -->
+      <ellipse cx="380" cy="50" rx="130" ry="28" fill="#f59e0b" opacity=".15" stroke="#f59e0b" stroke-width="2"/>
+      <text x="380" y="55" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">Lecture 9</text>
+
+      <!-- Branch 1: Good Listener -->
+      <line x1="300" y1="75" x2="140" y2="140" stroke="#60a5fa" stroke-width="2" opacity=".5"/>
+      <rect x="30" y="120" width="220" height="32" rx="8" fill="#60a5fa" fill-opacity=".12" stroke="#60a5fa" stroke-width="1.5"/>
+      <text x="140" y="141" text-anchor="middle" fill="#60a5fa" font-size="12" font-weight="600">👂 Good Listener (7 Steps)</text>
+
+      <line x1="100" y1="152" x2="80" y2="175" stroke="#60a5fa" stroke-width="1" opacity=".3"/>
+      <text x="20" y="180" fill="#9a9db0" font-size="10">1. Review notes before class</text>
+      <text x="20" y="196" fill="#9a9db0" font-size="10">2. Arrive early</text>
+      <text x="20" y="212" fill="#9a9db0" font-size="10">3. Eye contact</text>
+      <text x="20" y="228" fill="#9a9db0" font-size="10">4. Alert posture</text>
+      <text x="20" y="244" fill="#9a9db0" font-size="10">5. Ignore distractions</text>
+      <text x="20" y="260" fill="#9a9db0" font-size="10">6. Take notes + questions</text>
+      <text x="20" y="276" fill="#9a9db0" font-size="10">7. Turn off cell phones</text>
+
+      <!-- Branch 2: Cornell -->
+      <line x1="460" y1="75" x2="620" y2="140" stroke="#a78bfa" stroke-width="2" opacity=".5"/>
+      <rect x="520" y="120" width="220" height="32" rx="8" fill="#a78bfa" fill-opacity=".12" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="630" y="141" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="600">📝 Cornell Notes</text>
+
+      <line x1="630" y1="152" x2="630" y2="175" stroke="#a78bfa" stroke-width="1" opacity=".3"/>
+      <text x="530" y="180" fill="#9a9db0" font-size="10">Cue Column (2.5")</text>
+      <text x="530" y="196" fill="#9a9db0" font-size="10">Note Area (6")</text>
+      <text x="530" y="212" fill="#9a9db0" font-size="10">Summaries (2")</text>
+      <text x="530" y="232" fill="#a78bfa" font-size="10" font-weight="600">5 R's: Record → Reduce</text>
+      <text x="530" y="248" fill="#a78bfa" font-size="10" font-weight="600">→ Recite → Reflect → Review</text>
+
+      <!-- Branch 3: Study Guidelines -->
+      <line x1="380" y1="78" x2="380" y2="320" stroke="#f59e0b" stroke-width="2" opacity=".3"/>
+      <rect x="260" y="310" width="240" height="34" rx="8" fill="#f59e0b" fill-opacity=".12" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="380" y="332" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">📚 10 Study Guidelines</text>
+
+      <!-- Left sub-branch: Guidelines 1-5 -->
+      <line x1="300" y1="340" x2="130" y2="375" stroke="#f59e0b" stroke-width="1" opacity=".3"/>
+      <text x="20" y="370" fill="#9a9db0" font-size="9.5">1. Connect to long-range goals</text>
+      <text x="20" y="386" fill="#9a9db0" font-size="9.5">2. Be active in learning</text>
+      <text x="20" y="402" fill="#9a9db0" font-size="9.5">3. Time scheduling (weekly + semester)</text>
+      <text x="20" y="418" fill="#9a9db0" font-size="9.5">4. Stick to schedule, fight laziness</text>
+      <text x="20" y="434" fill="#9a9db0" font-size="9.5">5. Difficult classes → early afternoon</text>
+
+      <!-- Right sub-branch: Guidelines 6-10 -->
+      <line x1="460" y1="340" x2="590" y2="375" stroke="#f59e0b" stroke-width="1" opacity=".3"/>
+      <text x="510" y="370" fill="#9a9db0" font-size="9.5">6. Test prep: 1 week ahead</text>
+      <text x="510" y="386" fill="#9a9db0" font-size="9.5">7. Self-testing</text>
+      <text x="510" y="402" fill="#34d399" font-size="9.5" font-weight="600">8. Best time: right after class</text>
+      <text x="510" y="418" fill="#9a9db0" font-size="9.5">9. SQ3R strategy</text>
+      <text x="510" y="434" fill="#9a9db0" font-size="9.5">10. Test-taking strategy</text>
+
+      <!-- Branch 4: SQ3R -->
+      <line x1="300" y1="344" x2="130" y2="480" stroke="#34d399" stroke-width="2" opacity=".4"/>
+      <rect x="30" y="470" width="200" height="32" rx="8" fill="#34d399" fill-opacity=".12" stroke="#34d399" stroke-width="1.5"/>
+      <text x="130" y="491" text-anchor="middle" fill="#34d399" font-size="12" font-weight="600">🔍 SQ3R Method</text>
+
+      <text x="40" y="520" fill="#9a9db0" font-size="10">S → Survey</text>
+      <text x="40" y="536" fill="#9a9db0" font-size="10">Q → Question</text>
+      <text x="40" y="552" fill="#9a9db0" font-size="10">R → Read</text>
+      <text x="40" y="568" fill="#9a9db0" font-size="10">R → Recite</text>
+      <text x="40" y="584" fill="#9a9db0" font-size="10">R → Review</text>
+
+      <!-- Branch 5: Forgetting Curve -->
+      <line x1="380" y1="344" x2="380" y2="470" stroke="#f87171" stroke-width="1.5" opacity=".4"/>
+      <rect x="290" y="470" width="180" height="32" rx="8" fill="#f87171" fill-opacity=".12" stroke="#f87171" stroke-width="1.5"/>
+      <text x="380" y="491" text-anchor="middle" fill="#f87171" font-size="12" font-weight="600">📉 Forgetting Curve</text>
+      <text x="300" y="520" fill="#9a9db0" font-size="10">No review → 20% at 2 wks</text>
+      <text x="300" y="536" fill="#34d399" font-size="10">Review same day → 80% at 2 wks</text>
+
+      <!-- Branch 6: Test-Taking -->
+      <line x1="460" y1="344" x2="620" y2="480" stroke="#fbbf24" stroke-width="2" opacity=".4"/>
+      <rect x="530" y="470" width="210" height="32" rx="8" fill="#fbbf24" fill-opacity=".12" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="635" y="491" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">✅ Test-Taking (7 Tips)</text>
+
+      <text x="535" y="520" fill="#9a9db0" font-size="10">Arrive on time</text>
+      <text x="535" y="536" fill="#9a9db0" font-size="10">Memory dump</text>
+      <text x="535" y="552" fill="#9a9db0" font-size="10">Read directions carefully</text>
+      <text x="535" y="568" fill="#9a9db0" font-size="10">Budget time / Relax</text>
+      <text x="535" y="584" fill="#9a9db0" font-size="10">Answer all / Use all time</text>
+
+      <!-- Branch 7: Scheduling -->
+      <line x1="340" y1="340" x2="270" y2="470" stroke="#60a5fa" stroke-width="1" opacity=".3" stroke-dasharray="4,3"/>
+      <text x="220" y="460" fill="#60a5fa" font-size="9" font-style="italic">Saves time • Balance • No cramming</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ==================== QUIZ TAB ==================== -->
+<div id="quiz" class="tab-content">
+  <div class="quiz-header">
+    <span class="score-display" id="scoreDisplay">Score: 0 / 0</span>
+    <span style="font-size:.8rem;color:var(--text3)" id="qCount"></span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div id="quizContainer"></div>
+  <div class="quiz-actions" id="quizActions" style="display:none">
+    <button class="btn btn-primary" onclick="retakeQuiz()">🔄 Retake Quiz</button>
+  </div>
+</div>
+
+<script>
+// Tab switching
+function switchTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs=['summary','deep','mindmap','quiz'];
+  document.querySelectorAll('.tab-btn')[tabs.indexOf(id)].classList.add('active');
+}
+
+// Accordion
+function toggleAcc(el){
+  const body=el.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.accordion-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.accordion-header').forEach(h=>h.classList.remove('open'));
+  if(!isOpen){body.classList.add('open');el.classList.add('open')}
+}
+
+// Quiz Data
+const quizData=[
+  {
+    q:"According to Lecture 9, what is the FIRST thing you should do to be a good listener?",
+    opts:["Maintain eye contact with the speaker","Review your notes before class","Arrive at class a few minutes early","Turn off your cell phone"],
+    correct:1,
+    type:"Recall",
+    explanation:"Step 1 is to review your notes before class. Eye contact is step 3, arriving early is step 2, and turning off phones is step 7."
+  },
+  {
+    q:"A student wants to improve retention. According to the forgetting curve, when is the MOST critical time to review material?",
+    opts:["The night before the exam","One week after learning it","The same day it was taught","The following weekend"],
+    correct:2,
+    type:"Scenario",
+    explanation:"The forgetting curve shows that students who review on the same day retain ~80% even after weeks, while those who don't drop to ~20%. This is why guideline #8 says the best time to study is right after class."
+  },
+  {
+    q:"In the Cornell Note-Taking Method, the Cue Column is:",
+    opts:["6 inches wide, on the right side","2.5 inches wide, on the left side","2 inches tall, at the bottom","8.5 inches wide, across the top"],
+    correct:1,
+    type:"Recall",
+    explanation:"The Cue Column is 2.5 inches wide on the left side. The Note-Taking Area is 6 inches on the right, and the Summary section is 2 inches at the bottom."
+  },
+  {
+    q:"What does SQ3R stand for?",
+    opts:["Study, Quiz, Read, Recite, Review","Survey, Question, Read, Recite, Review","Scan, Query, Read, Recall, Revise","Survey, Question, Reflect, Recite, Review"],
+    correct:1,
+    type:"Recall",
+    explanation:"SQ3R = Survey, Question, Read, Recite, Review. It is an effective active reading technique attributed to George Wilson in the lecture."
+  },
+  {
+    q:"Ahmed is struggling with a very hard course. According to the lecture, when should he schedule study time for this difficult subject?",
+    opts:["Late at night when it's quiet","First thing in the morning","Early afternoon","Right before bed for better memory consolidation"],
+    correct:2,
+    type:"Scenario",
+    explanation:"Guideline #5 specifically says to study difficult classes in the early afternoon. This is distinct from guideline #8 (best time to study is right after class), which applies to general review."
+  },
+  {
+    q:"Which of the following is a test-taking tip, NOT a study guideline?",
+    opts:["Incorporate self-testing","Begin test prep a week in advance","Do a memory dump","Follow the SQ3R strategy"],
+    correct:2,
+    type:"Application",
+    explanation:"'Memory dump' is specifically a test-taking tip (done at the start of an exam). Self-testing, early prep, and SQ3R are all study guidelines."
+  },
+  {
+    q:"The 5 R's of the Cornell Method, in order, are:",
+    opts:["Read, Reduce, Recite, Reflect, Review","Record, Reduce, Recite, Reflect, Review","Record, Review, Read, Reflect, Recite","Review, Record, Reduce, Recite, Reflect"],
+    correct:1,
+    type:"Recall",
+    explanation:"The correct order is Record → Reduce → Recite → Reflect → Review."
+  },
+  {
+    q:"A student who does NOT review their lecture notes on the same day will retain approximately what percentage after two weeks?",
+    opts:["60%","40%","20%","80%"],
+    correct:2,
+    type:"Recall",
+    explanation:"According to the forgetting curve shown in the lecture, students who don't review on the same day retain only about 20% after two weeks."
+  },
+  {
+    q:"Which of the following is NOT listed as a benefit of scheduling?",
+    opts:["Reduces wasted time","Promotes life balance","Helps prevent cramming","Improves memory retention"],
+    correct:3,
+    type:"Application",
+    explanation:"The three listed benefits are: reduces wasted time, separates work/play (promotes balance), and prevents cramming. 'Improves memory retention' is related to the forgetting curve and same-day review, not scheduling specifically."
+  },
+  {
+    q:"Sara has an exam next Thursday. According to the study guidelines, when should she start preparing?",
+    opts:["Monday of the same week","The Thursday before (one week ahead)","Two days before the exam","The night before"],
+    correct:1,
+    type:"Scenario",
+    explanation:"Guideline #6 says to begin preparing for tests a week in advance. If the exam is next Thursday, she should start the Thursday before."
+  },
+  {
+    q:"Which listening skill involves body language?",
+    opts:["Review your notes before class","Take notes on important points","Show by your posture that you are alert and interested","Ignore distractions such as side talks"],
+    correct:2,
+    type:"Application",
+    explanation:"Step 4 — 'Show by your posture that you are alert and interested' — is the one that directly involves body language."
+  },
+  {
+    q:"During a test, after sitting down, what should you do FIRST according to the test-taking tips?",
+    opts:["Read the directions carefully","Budget your time","Do a memory dump","Answer the easiest questions first"],
+    correct:2,
+    type:"Scenario",
+    explanation:"The memory dump should be done first — jotting down key formulas and facts before you even start reading questions, while they're fresh in your mind."
+  },
+  {
+    q:"What are the two planning tools recommended under the 'time scheduling' guideline?",
+    opts:["A daily planner and a yearly agenda","A weekly master plan and a semester calendar","A to-do list and a priority matrix","A monthly budget and a homework tracker"],
+    correct:1,
+    type:"Recall",
+    explanation:"Guideline #3 specifically mentions making a weekly master plan and a semester calendar as the two planning tools."
+  },
+  {
+    q:"The SQ3R method is classified in the lecture as:",
+    opts:["A test-taking strategy","A note-taking method","An active reading/study strategy","A time management tool"],
+    correct:2,
+    type:"Application",
+    explanation:"SQ3R is presented as an effective active reading technique — it's a study strategy (guideline #9), not a test-taking strategy (guideline #10), not a note-taking method (that's Cornell)."
+  },
+  {
+    q:"Which of the following is the CORRECT reason given in the lecture for why studying right after class is the best time?",
+    opts:["The classroom is still available for quiet study","The forgetting curve shows rapid memory loss without same-day review","The professor's office hours are usually right after class","Textbooks are easier to find in the library after class"],
+    correct:1,
+    type:"Application",
+    explanation:"The forgetting curve directly supports guideline #8: without same-day review, recall drops dramatically within 24 hours. Reviewing right after class combats this rapid forgetting."
+  }
+];
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a;
+}
+
+let questions=[];
+let score=0,answered=0;
+
+function initQuiz(){
+  score=0;answered=0;
+  questions=shuffle(quizData).map(q=>{
+    const correctText=q.opts[q.correct];
+    const shuffled=shuffle(q.opts);
+    const newCorrect=shuffled.indexOf(correctText);
+    return{...q,opts:shuffled,correct:newCorrect};
+  });
+  document.getElementById('scoreDisplay').textContent='Score: 0 / 0';
+  document.getElementById('qCount').textContent=`${questions.length} questions`;
+  document.getElementById('progressFill').style.width='0%';
+  document.getElementById('quizActions').style.display='none';
+  renderQuiz();
+}
+
+function renderQuiz(){
+  const c=document.getElementById('quizContainer');
+  c.innerHTML=questions.map((q,qi)=>`
+    <div class="question-card" id="qcard-${qi}">
+      <div class="q-number">Question ${qi+1} of ${questions.length}</div>
+      <div class="q-type">${q.type}</div>
+      <div class="q-text">${q.q}</div>
+      ${q.opts.map((o,oi)=>`<button class="option" id="opt-${qi}-${oi}" onclick="selectAnswer(${qi},${oi})">${o}</button>`).join('')}
+      <div class="explanation" id="exp-${qi}">${q.explanation}</div>
+    </div>
+  `).join('');
+}
+
+function selectAnswer(qi,oi){
+  const q=questions[qi];
+  if(document.getElementById(`opt-${qi}-0`).classList.contains('disabled'))return;
+  answered++;
+  const isCorrect=oi===q.correct;
+  if(isCorrect)score++;
+
+  q.opts.forEach((_,i)=>{
+    const btn=document.getElementById(`opt-${qi}-${i}`);
+    btn.classList.add('disabled');
+    if(i===q.correct)btn.classList.add('correct');
+    if(i===oi&&!isCorrect)btn.classList.add('wrong');
+  });
+
+  document.getElementById(`exp-${qi}`).classList.add('show');
+  document.getElementById('scoreDisplay').textContent=`Score: ${score} / ${answered}`;
+  document.getElementById('progressFill').style.width=`${(answered/questions.length)*100}%`;
+
+  if(answered===questions.length){
+    document.getElementById('quizActions').style.display='flex';
+    const pct=Math.round((score/questions.length)*100);
+    const msg=pct>=80?'Excellent work! 🎉':pct>=60?'Good effort — review the ones you missed.':'Keep studying — revisit the Deep Dive tab.';
+    const finalDiv=document.createElement('div');
+    finalDiv.className='final-score';
+    finalDiv.innerHTML=`<div class="big-score">${pct}%</div><div class="label">${score} out of ${questions.length} correct</div><div class="msg">${msg}</div>`;
+    document.getElementById('quizContainer').appendChild(finalDiv);
+  }
+}
+
+function retakeQuiz(){
+  initQuiz();
+  document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'});
+}
+
+initQuiz();
+</script>
+</body>
+</html>

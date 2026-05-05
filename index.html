@@ -32,6 +32,8 @@ body[data-lec="5"]{--accent:#059669;--accent-l:rgba(5,150,105,.15);--accent-m:rg
 body[data-lec="6"]{--accent:#7c9aff;--accent-l:rgba(124,154,255,.15);--accent-m:rgba(124,154,255,.3);--accent-dk:#a5b4fc}
 body[data-lec="7"]{--accent:#a78bfa;--accent-l:rgba(167,139,250,.15);--accent-m:rgba(167,139,250,.3);--accent-dk:#c4b5fd}
 body[data-lec="8"]{--accent:#2dd4bf;--accent-l:rgba(45,212,191,.15);--accent-m:rgba(45,212,191,.3);--accent-dk:#5eead4}
+body[data-lec="9"]{--accent:#f59e0b;--accent-l:rgba(245,158,11,.15);--accent-m:rgba(245,158,11,.3);--accent-dk:#fbbf24}
+body[data-lec="10"]{--accent:#f59e0b;--accent-l:rgba(245,158,11,.15);--accent-m:rgba(245,158,11,.3);--accent-dk:#fbbf24}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;height:100%}
 body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.65;height:100%;overflow:hidden;display:flex;flex-direction:column}
@@ -268,6 +270,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);fo
     <button class="lec-btn" onclick="showLec(7,this)">L6 — Tenders Law</button>
     <button class="lec-btn" onclick="showLec(8,this)">L7 — Contract Types</button>
     <button class="lec-btn" onclick="showLec(9,this)">L8 — Environmental</button>
+    <button class="lec-btn" onclick="showLec(10,this)">L9 — Listening & Studying</button>
   </div>
   <div id="header-right">
     <span class="hdr-tag">Dr. Mokhtar · Ain Shams</span>
@@ -1951,6 +1954,10 @@ Conclusion: He PROBABLY served in the Navy</div>
   <iframe src="l8.html" style="width:100%;height:calc(100vh - var(--header-h));border:none;display:block" title="L8 — Environmental Concerns"></iframe>
 </div><!-- /lec9 -->
 
+<div class="lec-panel" id="lec10">
+  <iframe src="l9.html" style="width:100%;height:calc(100vh - var(--header-h));border:none;display:block" title="L9 — Listening Skills & Effective Studying"></iframe>
+</div><!-- /lec10 -->
+
 </div><!-- #main -->
 </div><!-- #app -->
 
@@ -1965,6 +1972,7 @@ const secConfigs = {
   l7:['summary','flashcards','quiz','numbers'],
   l8:['summary','deepdive','quiz','numbers'],
   l9:[],
+  l10:[],
 };
 const lecMeta = {
   1:{num:'01',title:'Introduction to Engineering & Ethics',sub:'4 eras · ethics · theories'},
@@ -1975,6 +1983,7 @@ const lecMeta = {
   7:{num:'06',title:'Tenders & Auctions Law',sub:'6 methods · insurances · fines · termination'},
   8:{num:'07',title:'Types of Construction Contracts',sub:'Lump sum · Unit price · Cost plus · BOT · FIDIC'},
   9:{num:'08',title:'Environmental Concerns',sub:'Pollution · Climate · EIS · Kyoto'},
+  10:{num:'09',title:'Listening Skills & Effective Studying',sub:'Cornell · SQ3R · Forgetting Curve · Test-Taking'},
 };
 const secLabels = {
   summary:    {icon:'📚',label:'Summary Notes'},
@@ -1996,7 +2005,7 @@ function showLec(n,btn){
   document.getElementById('sb-num').textContent=m.num||('0'+n);
   document.getElementById('sb-title').textContent=m.title||('Lecture '+n);
   document.getElementById('sb-sub').textContent=(secConfigs[curLec]||[]).length+' sections';
-  document.getElementById('brand-icon').textContent=['⚖','📜','🦺','📋','🧠','⚖','📋','🏗️','🌿'][n-1]||'⚖';
+  document.getElementById('brand-icon').textContent=['⚖','📜','🦺','📋','🧠','⚖','📋','🏗️','🌿','👂'][n-1]||'⚖';
   buildSecTabs();
   showSec('summary');
 }
